@@ -41,6 +41,7 @@ unsigned char key_scan(void)
     if (!VOLUE_SUB_KEY)
         return VOLUE_SUB_KEY_VALUE;
 
+    return 0;
 }
 
 

@@ -16,6 +16,7 @@
         "FT61FC3x_WDT.C": "cpp",
         "FT61FC3x_GPIO_INIT.C": "cpp",
         "FT61FC3x_SPI.C": "cpp",
-        "FT61FC35TRB.C": "cpp"
+        "FT61FC35TRB.C": "cpp",
+        "debug.h": "c"
     }
 }
