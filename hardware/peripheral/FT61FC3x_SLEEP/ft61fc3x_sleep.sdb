@@ -1,0 +1,89 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC RSC14 PICREGULAR PICMID SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip FT61FC3X ]
+[d frameptr 6 ]
+"62 D:\KTC方案\T61FC35TRB-433M\433遥控器资料\Compiler\data\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 D:\KTC方案\T61FC35TRB-433M\433遥控器资料\Compiler\data\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"40 D:\KTC方案\T61FC35TRB-433M\433遥控器资料\【FMD辉芒微】\示例代码\FT61FC3x-C语言_V1.2\FT61FC3x_SLEEP\FT61FC3x_SLEEP.C
+[v _POWER_INITIAL POWER_INITIAL `(v  1 e 1 0 ]
+"61
+[v _DelayUs DelayUs `(v  1 e 1 0 ]
+"75
+[v _DelayMs DelayMs `(v  1 e 1 0 ]
+"92
+[v _DelayS DelayS `(v  1 e 1 0 ]
+"108
+[v _main main `(v  1 e 1 0 ]
+"78 D:\KTC方案\T61FC35TRB-433M\433遥控器资料\Compiler\data\include\FT61FC3X.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"89
+[v _PA0 PA0 `VEb  1 e 0 @40 ]
+"90
+[v _PA1 PA1 `VEb  1 e 0 @41 ]
+"179
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"247
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"568
+[v _OPTION OPTION `VEuc  1 e 1 @129 ]
+"597
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"655
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"774
+[v _OSCCON OSCCON `VEuc  1 e 1 @143 ]
+"838
+[v _WPUC WPUC `VEuc  1 e 1 @147 ]
+"876
+[v _WPUA WPUA `VEuc  1 e 1 @149 ]
+"108 D:\KTC方案\T61FC35TRB-433M\433遥控器资料\【FMD辉芒微】\示例代码\FT61FC3x-C语言_V1.2\FT61FC3x_SLEEP\FT61FC3x_SLEEP.C
+[v _main main `(v  1 e 1 0 ]
+{
+"124
+} 0
+"40
+[v _POWER_INITIAL POWER_INITIAL `(v  1 e 1 0 ]
+{
+"54
+} 0
+"92
+[v _DelayS DelayS `(v  1 e 1 0 ]
+{
+[v DelayS@Time Time `uc  1 a 1 wreg ]
+"94
+[v DelayS@b b `uc  1 a 1 7 ]
+[v DelayS@a a `uc  1 a 1 6 ]
+"92
+[v DelayS@Time Time `uc  1 a 1 wreg ]
+"95
+[v DelayS@Time Time `uc  1 a 1 5 ]
+"102
+} 0
+"75
+[v _DelayMs DelayMs `(v  1 e 1 0 ]
+{
+[v DelayMs@Time Time `uc  1 a 1 wreg ]
+"77
+[v DelayMs@b b `uc  1 a 1 4 ]
+[v DelayMs@a a `uc  1 a 1 3 ]
+"75
+[v DelayMs@Time Time `uc  1 a 1 wreg ]
+"78
+[v DelayMs@Time Time `uc  1 a 1 2 ]
+"85
+} 0
+"61
+[v _DelayUs DelayUs `(v  1 e 1 0 ]
+{
+[v DelayUs@Time Time `uc  1 a 1 wreg ]
+"63
+[v DelayUs@a a `uc  1 a 1 1 ]
+"61
+[v DelayUs@Time Time `uc  1 a 1 wreg ]
+"64
+[v DelayUs@Time Time `uc  1 a 1 0 ]
+"68
+} 0

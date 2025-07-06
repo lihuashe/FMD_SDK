@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "FT61FC3x_ADC.C": "cpp",
+        "FT61FC3x_ADC_Test_VDD.C": "cpp",
+        "FT61FC3x_EEPROM.C": "cpp",
+        "FT61FC3x_IIC.C": "cpp",
+        "FT61FC3x_INT.C": "cpp",
+        "FT61FC3x_IO.C": "cpp",
+        "FT61FC3x_IR_Receive.C": "cpp",
+        "FT61FC3x_IR_Send.C": "cpp",
+        "FT61FC3x_LVD.C": "cpp",
+        "FT61FC3x_LVD_PWM1.C": "cpp",
+        "FT61FC3x_MSCK.C": "cpp",
+        "FT61FC3x_SLEEP.C": "cpp",
+        "FT61FC3x_Timer0.C": "cpp",
+        "FT61FC3x_WDT.C": "cpp",
+        "FT61FC3x_GPIO_INIT.C": "cpp",
+        "FT61FC3x_SPI.C": "cpp",
+        "FT61FC35TRB.C": "cpp"
+    }
+}
