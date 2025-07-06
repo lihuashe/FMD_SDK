@@ -1,0 +1,7 @@
+build/*
+!build
+app/post_build/sh55/*/*.bin
+app/post_build/sh55/*/*.fw
+null
+nul
+.vscode/*
