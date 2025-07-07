@@ -11,12 +11,9 @@
 *********************************************************************************************************
 */
 
-#ifndef _FT61FC35TRB_CONFIG_H_
-#define _FT61FC35TRB_CONFIG_H_
+#ifndef __FT61FC35TRB_CONFIG_H_
+#define __FT61FC35TRB_CONFIG_H_
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /*============================================================================*
  *                              Header Files
@@ -27,6 +24,22 @@ extern "C" {
 /*============================================================================*
  *                              Definitions
  *============================================================================*/
+typedef unsigned char   		u8;
+typedef char            		s8;
+typedef unsigned short  		u16;
+typedef signed short    		s16;
+typedef unsigned int    		u32;
+typedef signed int      		s32;
+typedef unsigned long long 		u64;
+typedef u32						FOURCC;
+typedef long long               s64;
+typedef unsigned long long      u64;
+
+#ifndef TRUE
+    #define TRUE    1
+    #define FALSE   0
+#endif
+
 
 #define APP_XIHAO_FCTORY_LOG_LEVEL								0
 #define APP_AUDIO_LOG_LEVEL										3
@@ -69,11 +82,5 @@ extern "C" {
  *============================================================================*/
 
 
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* _DA228EC_DRIVER_H_ */
 
 /******************* (C) COPYRIGHT 2024 Sensasy Corporation *****END OF FILE****/

@@ -1,0 +1,995 @@
+
+# 1 "KT0646M.c"
+
+# 4 "C:\Program Files (x86)\CCompiler\Compiler\data\include\__size_t.h"
+typedef unsigned size_t;
+
+# 7 "C:\Program Files (x86)\CCompiler\Compiler\data\include\stdlib.h"
+typedef unsigned short wchar_t;
+
+# 15
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 53
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+
+# 13 "C:\Program Files (x86)\CCompiler\Compiler\data\include\gcc8debug.h"
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+
+# 86 "C:\Program Files (x86)\CCompiler\Compiler\data\include\stdlib.h"
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
+# 13 "C:\Program Files (x86)\CCompiler\Compiler\data\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 12 "C:\Program Files (x86)\CCompiler\Compiler\data\include\stdbool.h"
+typedef unsigned char bool;
+
+# 27 "FT61FC35TRB_CONFIG.H"
+typedef unsigned char u8;
+typedef char s8;
+typedef unsigned short u16;
+typedef signed short s16;
+typedef unsigned int u32;
+typedef signed int s32;
+typedef unsigned long long u64;
+typedef u32 FOURCC;
+typedef long long s64;
+typedef unsigned long long u64;
+
+# 37 "FT61FC3x_IIC.H"
+void IIC_INITIAL(void);
+
+void DelayUs(unsigned char Time);
+
+unsigned char IIC_READ(unsigned char i2c_address, unsigned char reg);
+
+void IIC_WRITE(unsigned char i2c_address, unsigned char reg,unsigned char data);
+
+void IIC_READ_MULTI(unsigned char i2c_address, unsigned char reg, unsigned char *pData, unsigned int length);
+
+void IIC_WRITE_MULTI(unsigned char i2c_address, unsigned char reg, unsigned char *pData, unsigned int length);
+
+# 343 "KT0646M.h"
+u16 KT_WirelessMicTx_PreInit(void);
+bool KT_Test_Init(void);
+bool KT_WirelessMicTx_Init(void);
+
+bool KT_WirelessMicTx_Standby(void);
+bool KT_WirelessMicTx_WakeUp(void);
+void KT_WirelessMicTx_PowerDownProcedure(void);
+
+bool KT_WirelessMicTx_PASW(bool bPA_Switch);
+bool KT_WirelessMicTx_PAGain(u8 cPaGain);
+
+u8 KT_WirelessMicTx_Fdev_Monitor(void);
+bool KT_WirelessMicTx_Mic_Sens(u8 cMicSens);
+bool KT_WirelessMicTx_Comp_Dis(bool bComp_Dis);
+bool KT_WirelessMicTx_Comp_TC(u8 cComp_TC);
+bool KT_WirelessMicTx_MuteSel(bool bMute_Sel);
+
+bool KT_WirelessMicTx_Pilot(bool bPilot_Dis);
+bool KT_WirelessMicTx_Pilot_Fdev(u8 cPilot_Fdev);
+
+# 367
+bool KT_WirelessMicTx_Tune(s32 Freq);
+
+u8 KT_WirelessMicTx_Band_Cali_Res(void);
+u8 KT_WirelessMicTx_Set_XTAL(bool bXtal_Sel);
+u8 KT_WirelessMicTx_SW_XTAL_Freq(bool bXtal_Sel);
+
+void Delay_ms(u16 iTime_Number);
+void KT_Bus_Write(u8 Register_Address, u16 Word_Data);
+u16 KT_Bus_Read(u8 Register_Address);
+
+void KT_WirelessMicTx_ECHO(bool bEcho_Dis,u8 Echo_Ratio,u8 Echo_Delay);
+void KT_WirelessMicTx_EQSW(bool bEq_Dis);
+void KT_WirelessMicTx_EQGAIN(u8 Eq_Freq,u8 Eq_Gain);
+u16 KT_WirelessMicTx_BatteryMeter_Read(void);
+bool KT_WirelessMicTx_BatteryMeter_SW(bool bBatteryMeter_En);
+u8 KT_WirelessMicTx_Read_Mic_Sens(void);
+bool KT_WirelessMicTx_Mic_Sens(u8 cMicSens);
+void KT_WirelessMicTx_COMPANDOR_Dis(bool COMP_Dis);
+
+int host_iic_send_data(u8 id, u8 reg, u8 *data, u16 len);
+int host_iic_read_data(u8 id, u8 reg, u8 *data, u16 len);
+
+# 30 "C:\Program Files (x86)\CCompiler\Compiler\data\include\math.h"
+extern double fabs(double);
+extern double floor(double);
+extern double ceil(double);
+extern double modf(double, double *);
+extern double sqrt(double);
+extern double atof(const char *);
+extern double sin(double) ;
+extern double cos(double) ;
+extern double tan(double) ;
+extern double asin(double) ;
+extern double acos(double) ;
+extern double atan(double);
+extern double atan2(double, double) ;
+extern double log(double);
+extern double log10(double);
+extern double pow(double, double) ;
+extern double exp(double) ;
+extern double sinh(double) ;
+extern double cosh(double) ;
+extern double tanh(double);
+extern double eval_poly(double, const double *, int);
+extern double frexp(double, int *);
+extern double ldexp(double, int);
+extern double fmod(double, double);
+extern double trunc(double);
+extern double round(double);
+
+# 343 "KT0646M.h"
+u16 KT_WirelessMicTx_PreInit(void);
+bool KT_Test_Init(void);
+bool KT_WirelessMicTx_Init(void);
+
+bool KT_WirelessMicTx_Standby(void);
+bool KT_WirelessMicTx_WakeUp(void);
+void KT_WirelessMicTx_PowerDownProcedure(void);
+
+bool KT_WirelessMicTx_PASW(bool bPA_Switch);
+bool KT_WirelessMicTx_PAGain(u8 cPaGain);
+
+u8 KT_WirelessMicTx_Fdev_Monitor(void);
+bool KT_WirelessMicTx_Mic_Sens(u8 cMicSens);
+bool KT_WirelessMicTx_Comp_Dis(bool bComp_Dis);
+bool KT_WirelessMicTx_Comp_TC(u8 cComp_TC);
+bool KT_WirelessMicTx_MuteSel(bool bMute_Sel);
+
+bool KT_WirelessMicTx_Pilot(bool bPilot_Dis);
+bool KT_WirelessMicTx_Pilot_Fdev(u8 cPilot_Fdev);
+
+# 367
+bool KT_WirelessMicTx_Tune(s32 Freq);
+
+u8 KT_WirelessMicTx_Band_Cali_Res(void);
+u8 KT_WirelessMicTx_Set_XTAL(bool bXtal_Sel);
+u8 KT_WirelessMicTx_SW_XTAL_Freq(bool bXtal_Sel);
+
+void Delay_ms(u16 iTime_Number);
+void KT_Bus_Write(u8 Register_Address, u16 Word_Data);
+u16 KT_Bus_Read(u8 Register_Address);
+
+void KT_WirelessMicTx_ECHO(bool bEcho_Dis,u8 Echo_Ratio,u8 Echo_Delay);
+void KT_WirelessMicTx_EQSW(bool bEq_Dis);
+void KT_WirelessMicTx_EQGAIN(u8 Eq_Freq,u8 Eq_Gain);
+u16 KT_WirelessMicTx_BatteryMeter_Read(void);
+bool KT_WirelessMicTx_BatteryMeter_SW(bool bBatteryMeter_En);
+u8 KT_WirelessMicTx_Read_Mic_Sens(void);
+bool KT_WirelessMicTx_Mic_Sens(u8 cMicSens);
+void KT_WirelessMicTx_COMPANDOR_Dis(bool COMP_Dis);
+
+int host_iic_send_data(u8 id, u8 reg, u8 *data, u16 len);
+int host_iic_read_data(u8 id, u8 reg, u8 *data, u16 len);
+
+# 31 "microphone.h"
+typedef struct
+{
+u32 flash_key;
+s32 freq;
+
+u8 PA_gain;
+
+u8 EQ_EN;
+u8 EQ[15];
+
+u8 PILOT_EN;
+u16 PILOT_DATA[4];
+u8 channel;
+u8 PA_state;
+u8 ch_power_count;
+}mic_config_t;
+
+typedef struct
+{
+u8 cmd;
+u8 len;
+u8 cmd_data[64];
+}microphone_setting_t;
+
+typedef struct
+{
+u16 channel;
+u32 freq;
+}microphone_status_t;
+
+extern mic_config_t mic_config;
+
+extern u32 tick_microphone_new_cmd;
+extern microphone_setting_t microphone_setting;
+
+
+
+int microphone_init();
+
+bool KT_MicTX_Init(void);
+
+int microphone_set_freq();
+
+void process_microphone();
+
+int microphone_set_PA0();
+
+void microphone_enable(bool enable);
+int microphone_pairing(s32 Freq,u8 ch);
+void microphone_AUX_Disconnect();
+void microphone_AUX_mute();
+void microphone_AUX_unmute();
+void KT_mic_config_t_print(mic_config_t mic_config);
+void KT0646_setchangeBattery();
+void KT0646_setchangekey(u8 key);
+
+# 41 "KT0646M.c"
+static u8 kt_bus_rx_buff[2] = {0};
+static u8 kt_bus_tx_buff[2] = {0};
+
+
+int host_iic_send_data(u8 id, u8 reg, u8 *data, u16 len)
+{
+IIC_WRITE_MULTI(0x6A, reg, data, len);
+}
+
+int host_iic_read_data(u8 id, u8 reg, u8 *data, u16 len)
+{
+IIC_READ_MULTI(0x6B, reg, data, len);
+}
+
+
+void KT_Bus_Init(void)
+{
+
+
+soft_iic_init(0);
+}
+
+# 76
+void KT_Bus_Write(u8 Register_Address, u16 Word_Data)
+{
+int ret = 0;
+kt_bus_tx_buff[1] = (u8)(Word_Data & 0x00FF);
+kt_bus_tx_buff[0] = (u8)(Word_Data >> 8 & 0x00FF);
+ret = host_iic_send_data(0, Register_Address, kt_bus_tx_buff, 2);
+}
+
+# 95
+u16 KT_Bus_Read(u8 Register_Address)
+{
+u16 reg_value = 0;
+int ret1 = 0;
+ret1 = host_iic_read_data(0, Register_Address,kt_bus_rx_buff, 2 );
+reg_value = kt_bus_rx_buff[0];
+reg_value = (reg_value << 8) | (kt_bus_rx_buff[1]);
+
+
+return reg_value;
+}
+
+# 118
+u16 KT_WirelessMicTx_PreInit(void)
+{
+KT_Bus_Init();
+
+
+u16 regx = 0;
+u8 i;
+for (i = 0; i < 3; i++) {
+regx = KT_Bus_Read(0x01);
+DelayUs(10*1000);
+
+if (regx == 0x4B54) {
+return regx;
+}
+}
+
+return 0;
+}
+
+bool KT_Test_Init(void)
+{
+u16 regx = 0;
+
+DelayUs(50*1000);
+
+regx = KT_Bus_Read(0x03);
+KT_Bus_Write(0x03, (regx & 0xfffe) | 1);
+regx = KT_Bus_Read(0x03);
+}
+
+# 160
+bool KT_WirelessMicTx_Init(void)
+{
+u16 regx;
+
+DelayUs(50*1000);
+
+regx = KT_Bus_Read(0x03);
+KT_Bus_Write(0x03, (regx & 0xfffe) | 1);
+
+regx = KT_Bus_Read(0x24);
+KT_Bus_Write(0x24, (regx & 0xEFFF) | (1 << 12));
+
+
+regx=KT_Bus_Read(0x47);
+KT_Bus_Write(0x47,(regx | 0x0200));
+
+
+regx = KT_Bus_Read(0x0a);
+KT_Bus_Write(0x0a, regx | 0x0200);
+
+regx = KT_Bus_Read(0x1C);
+KT_Bus_Write(0x1C, (regx & 0xF1E1)|( 0 << 10)|( 0 << 9 )|( 1 << 1 ));
+KT_WirelessMicTx_COMPANDOR_Dis(0);
+
+KT_WirelessMicTx_Mic_Sens(4);
+
+
+regx = KT_Bus_Read(0x1e);
+KT_Bus_Write(0x1e, (regx & 0xffdf)|(1<<5));
+
+regx=KT_Bus_Read(0x30);
+KT_Bus_Write(0x30, ( regx & 0x8000 ) | (3 << 11) | (4 << 7) | (3 << 4) |
+(4 << 1) | 1 );
+
+regx=KT_Bus_Read(0x31);
+KT_Bus_Write( 0x31, ( regx & 0xff00 ) | (1 << 6) | (1 << 4) |
+(1 << 3) | 3 );
+
+regx=KT_Bus_Read(0x39);
+KT_Bus_Write(0x39,(regx & 0xFC00) | (15 << 6) | (1 << 5) |
+(0 << 4) | 8);
+
+KT_Bus_Write( 0x3a,(1 << 15) | (1 << 14) | (68 << 7) |
+(3 << 4) | 6 );
+
+
+regx=KT_Bus_Read(0x25);
+KT_Bus_Write( 0x25,(regx&0xc000)|(0 << 13) | (0x13 << 8) |
+(4 << 4) | 4 );
+regx=KT_Bus_Read(0x26);
+KT_Bus_Write( 0x26,(regx&0xfffb)|(1 << 2));
+
+
+
+regx=KT_Bus_Read(0x1f);
+
+# 221
+KT_Bus_Write(0x1f,(regx&0x80f0)|(1 << 14)|(3 << 12) |
+(3 << 9)|1);
+KT_Bus_Write(0x20,(0x13 << 8) | 0x12);
+KT_Bus_Write(0x21,(0x27 << 8) | 0x14);
+
+# 238
+regx=KT_Bus_Read(0x10);
+KT_Bus_Write(0x10,(regx | 0x0010));
+regx=KT_Bus_Read(0x45);
+KT_Bus_Write(0x45,((regx&0xfff0) | 0x0007));
+
+regx=KT_Bus_Read(0x2d);
+KT_Bus_Write(0x2d,(regx & 0xfff8) | 3);
+
+# 257
+return(1);
+}
+
+# 271
+bool KT_WirelessMicTx_Standby(void)
+{
+KT_WirelessMicTx_PowerDownProcedure();
+return(1);
+}
+
+# 288
+bool KT_WirelessMicTx_WakeUp(void)
+{
+u16 reg3;
+reg3 = KT_Bus_Read(0x03);
+KT_Bus_Write(0x03, (reg3 & 0x7FFF) | (0 << 15));
+DelayUs(50*1000);
+KT_WirelessMicTx_Init();
+
+return(1);
+}
+
+# 310
+bool KT_WirelessMicTx_PASW(bool bPA_Switch)
+{
+u16 regF;
+
+regF = KT_Bus_Read(0x0F);
+KT_Bus_Write(0x0F, (regF & 0xFFF7) | ( (u8)bPA_Switch << 3 ));
+return(1);
+}
+
+# 330
+bool KT_WirelessMicTx_PAGain(u8 cPaGain)
+{
+u16 reg11;
+
+reg11 = KT_Bus_Read(0x11);
+KT_Bus_Write(0x11, (reg11 & 0xFF00 ) | cPaGain );
+
+return(1);
+}
+
+# 351
+u8 KT_WirelessMicTx_Fdev_Monitor(void)
+{
+u16 reg1C;
+
+reg1C = KT_Bus_Read(0x1C);
+
+return( (reg1C & 0xF000) >> 12 );
+
+}
+
+u8 KT_WirelessMicTx_Read_Mic_Sens(void)
+{
+u16 reg1C;
+
+reg1C = KT_Bus_Read(0x1C);
+log_info("KT_WirelessMicTx_Read_Mic_Sens=%d\r\n",(reg1C & 0x1E0) >> 5);
+return( (reg1C & 0x1E0) >> 5 );
+
+}
+
+# 383
+bool KT_WirelessMicTx_Mic_Sens(u8 cMicSens)
+{
+u16 reg1C;
+
+reg1C = KT_Bus_Read(0x1C);
+KT_Bus_Write(0x1C, (reg1C & 0xFE1F) | ( (u16)cMicSens << 5 ));
+
+return(1);
+}
+
+# 426
+bool KT_WirelessMicTx_MuteSel(bool bMute_Sel)
+{
+u16 reg1C;
+
+reg1C = KT_Bus_Read(0x1C);
+KT_Bus_Write(0x1C, (reg1C & 0xFFFE) | bMute_Sel);
+
+return(1);
+}
+
+# 447
+bool KT_WirelessMicTx_Pilot(bool bPilot_Dis)
+{
+u16 reg1F;
+
+reg1F = KT_Bus_Read(0x1F);
+
+# 456
+KT_Bus_Write(0x1F, (reg1F & 0x7FFF) | ( (u16)bPilot_Dis << 15 ));
+
+DelayUs(20*1000);
+
+return(1);
+}
+
+# 474
+bool KT_WirelessMicTx_Pilot_Fdev(u8 cPilot_Fdev)
+{
+u16 reg1F;
+
+reg1F = KT_Bus_Read(0x1F);
+
+# 483
+KT_Bus_Write(0x1F, (reg1F & 0xFE7F) | ((u16)cPilot_Fdev << 7));
+
+DelayUs(20*1000);
+
+return(1);
+}
+
+# 611
+u16 KT_WirelessMicTx_BatteryMeter_Read(void)
+{
+u16 reg7;
+
+reg7 = KT_Bus_Read(0x07);
+
+return( reg7 & 0x07FF );
+}
+
+# 635
+static const u8 lopa_div_tab[13]=
+{
+6, 8, 10, 12,
+16, 20, 24,
+32, 40, 48,
+64, 80, 96
+};
+
+
+static const u8 lopa_div_tab2[13][2]=
+{
+{0,0},{0,1}, {0,2}, {0,3},
+{1,1}, {1,2}, {1,3},
+{2,1}, {2,2}, {2,3},
+{3,1}, {3,2}, {3,3}
+};
+
+
+
+bool KT_WirelessMicTx_Calc_ChanReg(s32 Freq, u8 *lopa_div1_ptr,u8 *lopa_div2_ptr,
+u16 *chan_ptr, u16 *chan_frac_ptr,
+u8 *chan_frac_msb_ptr, u32 *chan_frac_temp_ptr,s32 xtal_freq)
+{
+u32 chan_frac;
+s32 Fvco;
+u32 temp,tempMin=xtal_freq;
+
+
+u16 i = 12;
+u8 lopa_div;
+
+long vco_highth = 4320000;
+
+
+lopa_div = vco_highth / Freq;
+
+for(i=0; i<12; i++)
+{
+if(lopa_div < lopa_div_tab[i])
+{
+break;
+}
+}
+
+*lopa_div1_ptr = lopa_div_tab2[i][1];
+*lopa_div2_ptr = lopa_div_tab2[i][0];
+
+
+Fvco = Freq * lopa_div_tab[i];
+
+*chan_ptr = Fvco / (xtal_freq * 6) + 1;
+
+# 693
+chan_frac= (((Fvco % (xtal_freq * 6))-(xtal_freq * 6))<<12)/((xtal_freq * 6)>>4);
+
+*chan_frac_msb_ptr = (chan_frac & 0x00030000) >> 16 ;
+*chan_frac_ptr = chan_frac & 0x0000ffff;
+
+# 705
+for(i=1;i<4;i++)
+{
+temp = ((xtal_freq/(2*i))-abs(((Freq%(xtal_freq/i))-(xtal_freq/(2*i)))))*i;
+if(temp<tempMin)
+{
+tempMin=temp;
+}
+}
+i=8;
+temp = ((xtal_freq/(2*i))-abs(((Freq%(xtal_freq/i))-(xtal_freq/(2*i)))))*i;
+if(temp<tempMin)
+{
+tempMin=temp;
+}
+*chan_frac_temp_ptr=tempMin*(3072000/xtal_freq);
+return(1);
+}
+
+# 741
+static const u32 use24M[26] =
+{ 490500,492000,516000,541500,556000,565500,566000,590000,614000,615000,639000,651250,688000,
+688500,712000,712250,712500,722500,736500,760500,762000,787500,810000,811500,835500,859500
+};
+
+
+static const u32 use24576M[14] =
+{
+7500,9000,10000,10500,12000,13500,14000,15000,16000,16500,18000,19500,20000,22000
+};
+
+
+
+bool KT_WirelessMicTx_Tune(s32 Freq)
+{
+u16 chan0;
+u16 chan_frac0;
+u8 chan_frac_msb0;
+u8 lopa_div10,lopa_div20;
+u16 regx,regy;
+u32 chan_frac_temp0;
+u16 state;
+
+# 778
+regx=KT_Bus_Read(0x2d);
+KT_Bus_Write(0x2d, (regx&0xf7ff));
+
+regx=KT_Bus_Read(0x0a);
+KT_Bus_Write(0x0a, (regx&0xffef));
+regx=KT_Bus_Read(0x3d);
+KT_Bus_Write(0x3d, (regx&0xffbf));
+
+regx=KT_Bus_Read(0x3c);
+KT_Bus_Write(0x3c, (regx&0xfffd));
+
+# 799
+KT_WirelessMicTx_Calc_ChanReg(Freq, &lopa_div10, &lopa_div20, &chan0, &chan_frac0,
+&chan_frac_msb0,&chan_frac_temp0,24576);
+log_info("lopa_div1_ptr[%d],lopa_div2_ptr[%d],chan_ptr[%d],chan_frac_ptr[%04X],chan_frac_msb_ptr[%d],chan_frac_temp_ptr[%04x]",lopa_div10,lopa_div20,chan0,chan_frac0,chan_frac_msb0,chan_frac_temp0);
+
+# 875
+if (Freq > 180000)
+{
+KT_Bus_Write(0x08,(chan0 << 10) | (lopa_div10 << 8) | (lopa_div20 << 6) | (1 << 5) |
+(0 << 4) | (0 <<2) | chan_frac_msb0);
+}
+else
+{
+KT_Bus_Write(0x08,(chan0 << 10) | (lopa_div10 << 8) | (lopa_div20 << 6) | (1 << 5) |
+(1 << 4) | (0 <<2) | chan_frac_msb0);
+}
+
+regy=chan_frac0|0x0001;
+KT_Bus_Write(0x09, regy);
+DelayUs(1*10);
+regx=KT_Bus_Read(0x08);
+regy=KT_Bus_Read(0x09);
+log_info("chn[%d]: reg[0x08]=[0x%04x], reg[0x09]= [0x%04x]\r\n",0, regx,regy);
+
+
+
+
+regx = KT_Bus_Read(0x0e);
+KT_Bus_Write(0x0e, regx | 0x0080);
+regx = KT_Bus_Read(0x0e);
+KT_Bus_Write(0x0e, regx | 0x0100);
+DelayUs(1*1000);
+regx = KT_Bus_Read(0x0e);
+KT_Bus_Write(0x0e, regx & 0xfeff);
+
+regx=KT_Bus_Read(0x0a);
+KT_Bus_Write(0x0a,regx|0x0020);
+
+regx=KT_Bus_Read(0x0d);
+regx = (regx&0x0800)>>11;
+
+int retry = 100;
+while(!regx && retry--)
+{
+regx=KT_Bus_Read(0x0d);
+regx = (regx&0x0800)>>11;
+DelayUs(5*1000);
+}
+if (regx == 0) {
+log_info("pll not ready after first tune!\r\n");
+return 0;
+}
+
+# 927
+regx=KT_Bus_Read(0x2e);
+state=regx&0x1C00;
+state=state>>10;
+if(state >= 3)
+{
+state = 7;
+}
+else
+{
+state = (state<<1) + 3;
+}
+regx = (regx & 0xe3ff) | (state<<10);
+
+regy=KT_Bus_Read(0x2d);
+KT_Bus_Write(0x2d, (regy|0x0800));
+
+KT_Bus_Write(0x2e, regx);
+
+regx=KT_Bus_Read(0x2a);
+state=(regx&0x007e)>>1;
+regx=KT_Bus_Read(0x3d);
+KT_Bus_Write(0x3d, (regx&0xff80)|(1<<6)|state);
+
+regx=KT_Bus_Read(0x0a);
+KT_Bus_Write(0x0a, (regx|0x0010));
+
+regx=KT_Bus_Read(0x3c);
+KT_Bus_Write(0x3c, (regx|0x0002));
+
+regx=KT_Bus_Read(0x0a);
+KT_Bus_Write(0x0a,regx|0x0020);
+
+regx=KT_Bus_Read(0x0d);
+regx = (regx&0x0800)>>11;
+
+retry = 200;
+while(!regx && retry--)
+{
+regx=KT_Bus_Read(0x0d);
+regx = (regx&0x0800)>>11;
+DelayUs(10*1000);
+}
+if (regx == 0) {
+log_info("pll not ready after second tune!\r\n");
+return 0;
+}
+
+
+regx=KT_Bus_Read(0x1f);
+KT_Bus_Write(0x1f,regx&~0x4000);
+regx=KT_Bus_Read(0x1f);
+KT_Bus_Write(0x1f,regx|0x4000);
+return(1);
+}
+
+# 995
+u8 KT_WirelessMicTx_Set_XTAL(bool bXtal_Sel)
+{
+u16 regx;
+
+regx = KT_Bus_Read(0x1E);
+KT_Bus_Write(0x1E,regx|0x0010);
+KT_Bus_Write(0x0E, 0x0002);
+regx = KT_Bus_Read(0x0E);
+KT_Bus_Write(0x0E, regx | 0x0004);
+
+regx = KT_Bus_Read(0x47);
+KT_Bus_Write( 0x47, (regx & 0xFFDF) | ((u8)bXtal_Sel << 5) );
+
+DelayUs(50*1000);
+
+KT_Bus_Write(0x0E, 0x0000);
+regx = KT_Bus_Read(0x1E);
+KT_Bus_Write(0x1E, regx&~0x0010);
+
+# 1016
+return(1);
+}
+
+# 1030
+u8 KT_WirelessMicTx_SW_XTAL_Freq(bool bXtal_Sel)
+{
+u16 regx;
+
+regx = KT_Bus_Read(0x47);
+if (bXtal_Sel==1)
+{
+
+if ((regx & 0x0020)==0)
+KT_WirelessMicTx_Set_XTAL(bXtal_Sel);
+}
+else
+{
+
+if ((regx & 0x0020)!=0)
+KT_WirelessMicTx_Set_XTAL(bXtal_Sel);
+}
+return(1);
+}
+
+# 1061
+void KT_WirelessMicTx_PowerDownProcedure(void)
+{
+u16 regx;
+
+KT_WirelessMicTx_MuteSel(1);
+
+KT_WirelessMicTx_Pilot(0);
+
+
+
+KT_WirelessMicTx_PASW(0);
+
+
+regx=KT_Bus_Read(0x0a);
+KT_Bus_Write(0x0a,regx|0x1000);
+
+regx = KT_Bus_Read(0x03);
+KT_Bus_Write(0x03, regx | (1 << 15));
+
+}
+
+# 1096
+void KT_WirelessMicTx_ECHO(bool bEcho_Dis,u8 Echo_Ratio,u8 Echo_Delay)
+{
+u16 regx;
+if(bEcho_Dis==1)
+{
+KT_Bus_Write( 0x32, (1 << 15) | (0 << 14) | (1 << 13) |
+(0 << 8) | (Echo_Delay << 3) | 7 );
+}
+else
+{
+KT_Bus_Write( 0x32, (1 << 15) | ((u8)bEcho_Dis << 14) | (1 << 13) |
+(Echo_Ratio << 8) | (Echo_Delay << 3) | 7 );
+}
+regx = KT_Bus_Read(0x33);
+KT_Bus_Write( 0x33, (regx & 0xFFFC) | 0 );
+}
+
+# 1124
+void KT_WirelessMicTx_EQSW(bool bEq_Dis)
+{
+u16 regx;
+
+regx = KT_Bus_Read(0x34);
+KT_Bus_Write(0x34, ((regx & 0x7FFF) | (u16)bEq_Dis << 15));
+}
+
+# 1144
+void KT_WirelessMicTx_EQGAIN(u8 Eq_Freq,u8 Eq_Gain)
+{
+u16 regx;
+u8 temp1,temp2;
+temp1=Eq_Freq/3+0x34;
+temp2=(2-(Eq_Freq%3))*5;
+regx = KT_Bus_Read(temp1);
+
+KT_Bus_Write(temp1, ((regx & ~(0x001f<<temp2)) | ( (u16)Eq_Gain << temp2 )));
+
+# 1236
+}
+
+void KT_WirelessMicTx_COMPANDOR_Dis(bool COMP_Dis)
+{
+u16 regx;
+regx = KT_Bus_Read(0x1C);
+if(COMP_Dis)
+{
+KT_Bus_Write(0x1C, regx|0x0010);
+regx = KT_Bus_Read(0x1D);
+KT_Bus_Write(0x1D, (regx&0x8000)|0x4000);
+regx = KT_Bus_Read(0x1E);
+KT_Bus_Write(0x1E, regx&0xfff0);
+}
+else
+{
+KT_Bus_Write(0x1C, regx&~0x0010);
+}
+}
+

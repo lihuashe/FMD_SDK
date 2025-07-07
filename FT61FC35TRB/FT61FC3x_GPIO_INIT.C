@@ -36,7 +36,7 @@ void Pin_SetDirection(uint8_t pin, Gpio_Direction_t dir)
         } else {
             TRISB |= (1 << (pin - GPIO_PB0));
         }
-    } else if (pin >= GPIO_PC0 && pin <= GPIO_PC7) {
+    } else if (pin >= GPIO_PC0 && pin <= GPIO_PC1) {
         // PORTC
         if (dir == Out) {
             TRISC &= ~(1 << (pin - GPIO_PC0));
@@ -62,7 +62,7 @@ void Pin_SetPullUp(uint8_t pin, bool enable)
         } else {
             WPUB &= ~(1 << (pin - PB0));
         }
-    } else if (pin >= GPIO_PC0 && pin <= GPIO_PC7) {
+    } else if (pin >= GPIO_PC0 && pin <= GPIO_PC1) {
         // PORTC
         if (enable) {
             WPUC |= (1 << (pin - PC0));
@@ -73,36 +73,43 @@ void Pin_SetPullUp(uint8_t pin, bool enable)
 }
 
 
+
 void Pin_SetHighLow_Level(uint8_t pin, uint8_t high_or_low)
 {
-    switch (pin)
+    // 获取端口和引脚号
+    uint8_t pin_num = pin % 8;
+    
+    // 根据端口和引脚号设置电平
+    switch (pin & GPIO_PA0)
     {
-        // PORTA
-        case GPIO_PA0: PA0 = high_or_low; break;
-        case GPIO_PA1: PA1 = high_or_low; break;
-        case GPIO_PA2: PA2 = high_or_low; break;
-        case GPIO_PA3: PA3 = high_or_low; break;
-        case GPIO_PA4: PA4 = high_or_low; break;
-        case GPIO_PA5: PA5 = high_or_low; break;
-        case GPIO_PA6: PA6 = high_or_low; break;
-        case GPIO_PA7: PA7 = high_or_low; break;
-        
-        // PORTB
-        case GPIO_PB0: PB0 = high_or_low; break;
-        case GPIO_PB1: PB1 = high_or_low; break;
-        case GPIO_PB2: PB2 = high_or_low; break;
-        case GPIO_PB3: PB3 = high_or_low; break;
-        case GPIO_PB4: PB4 = high_or_low; break;
-        case GPIO_PB5: PB5 = high_or_low; break;
-        case GPIO_PB6: PB6 = high_or_low; break;
-        case GPIO_PB7: PB7 = high_or_low; break;
-        
-        // PORTC
-        case GPIO_PC0: PC0 = high_or_low; break;
-        case GPIO_PC1: PC1 = high_or_low; break;
-        
+        case 0: // PORTA
+            if (high_or_low) {
+                PORTA |= (1 << pin_num);
+            } else {
+                PORTA &= ~(1 << pin_num);
+            }
+            break;
+            
+        case 1: // PORTB
+            if (high_or_low) {
+                PORTB |= (1 << pin_num);
+            } else {
+                PORTB &= ~(1 << pin_num);
+            }
+            break;
+            
+        case 2: // PORTC
+            if (pin_num < 2) { // PORTC只有2个引脚
+                if (high_or_low) {
+                    PORTC |= (1 << pin_num);
+                } else {
+                    PORTC &= ~(1 << pin_num);
+                }
+            }
+            break;
+            
         default:
-            // 处理未知引脚（可选：添加错误处理）
+            // 处理未知端口
             break;
     }
 }

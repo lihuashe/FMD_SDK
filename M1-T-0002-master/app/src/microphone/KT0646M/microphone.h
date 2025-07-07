@@ -63,8 +63,6 @@ typedef struct
 extern  mic_config_t mic_config;
 
 extern u32 tick_microphone_new_cmd;
-extern microphone_setting_t microphone_setting;
-
 
 
 int microphone_init();

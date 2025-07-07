@@ -32,7 +32,6 @@
 //-----------------------------------------------------------------------------
 //#include "tl_common.h"
 //#include "drivers.h"
-#include "FT61FC3x_IIC.H"
 #include "KT0646M.h"
 #include <math.h>
 #include <stdlib.h>
@@ -125,7 +124,7 @@ u16 KT_WirelessMicTx_PreInit(void)
     u8 i;
     for (i = 0; i < INIT_FAIL_TH; i++) {
         regx = KT_Bus_Read(0x01); //Read Manufactory ID
-        udelay(10*1000);
+        DelayUs(10*1000);
 
         if (regx == 0x4B54) {
              return regx;
@@ -139,7 +138,7 @@ bool KT_Test_Init(void)
 {
     u16 regx = 0;
 
-    udelay(50*1000);
+    DelayUs(50*1000);
 
     regx = KT_Bus_Read(0x03);
     KT_Bus_Write(0x03, (regx & 0xfffe) | PA_SEL);
@@ -162,7 +161,7 @@ bool KT_WirelessMicTx_Init(void)
 {
     u16 regx;
 
-    udelay(50*1000);
+    DelayUs(50*1000);
 
     regx = KT_Bus_Read(0x03);
     KT_Bus_Write(0x03, (regx & 0xfffe) | PA_SEL);
@@ -291,7 +290,7 @@ bool KT_WirelessMicTx_WakeUp(void)
     u16 reg3;
     reg3 = KT_Bus_Read(0x03);
     KT_Bus_Write(0x03, (reg3 & 0x7FFF) | (WAKEUP << 15)); //Write Standby bit to 0
-    udelay(50*1000);
+    DelayUs(50*1000);
     KT_WirelessMicTx_Init();
 //  wakeUp以后需要做一些tune台及设置音效和设置PA等工作，可参考main.c里面的KT_MicTX_Init函数
     return(1);
@@ -456,7 +455,7 @@ bool KT_WirelessMicTx_Pilot(bool bPilot_Dis)
 #ifdef KT_RX
     KT_Bus_Write(0x1F, (reg1F & 0x7FFF) | ( (u16)bPilot_Dis << 15 ));
 #endif
-    udelay(20*1000);
+    DelayUs(20*1000);
 
     return(1);
 }
@@ -483,7 +482,7 @@ bool KT_WirelessMicTx_Pilot_Fdev(u8 cPilot_Fdev)
 #ifdef KT_RX
     KT_Bus_Write(0x1F, (reg1F & 0xFE7F) | ((u16)cPilot_Fdev << 7));
 #endif
-    udelay(20*1000);
+    DelayUs(20*1000);
 
     return(1);
 }
@@ -886,7 +885,7 @@ bool KT_WirelessMicTx_Tune(s32 Freq)
 
 	regy=chan_frac0|0x0001;
     KT_Bus_Write(0x09, regy);
-	udelay(1*10);
+	DelayUs(1*10);
 	regx=KT_Bus_Read(0x08);
 	regy=KT_Bus_Read(0x09);
     log_info("chn[%d]: reg[0x08]=[0x%04x], reg[0x09]= [0x%04x]\r\n",CHANNELNUMBER, regx,regy);
@@ -898,7 +897,7 @@ bool KT_WirelessMicTx_Tune(s32 Freq)
     KT_Bus_Write(0x0e, regx | 0x0080); //dll_rst is from regbank
     regx = KT_Bus_Read(0x0e);
     KT_Bus_Write(0x0e, regx | 0x0100); //dll_rst=1
-    udelay(1*1000);
+    DelayUs(1*1000);
     regx = KT_Bus_Read(0x0e);
     KT_Bus_Write(0x0e, regx & 0xfeff); //dll_rst=0
 
@@ -913,7 +912,7 @@ bool KT_WirelessMicTx_Tune(s32 Freq)
     {
         regx=KT_Bus_Read(0x0d);
         regx = (regx&0x0800)>>11;
-        udelay(5*1000);
+        DelayUs(5*1000);
     }
     if (regx == 0) {
         log_info("pll not ready after first tune!\r\n");
@@ -965,7 +964,7 @@ bool KT_WirelessMicTx_Tune(s32 Freq)
         {
             regx=KT_Bus_Read(0x0d);
             regx = (regx&0x0800)>>11;
-            udelay(10*1000);
+            DelayUs(10*1000);
         }
         if (regx == 0) {
             log_info("pll not ready after second tune!\r\n");
@@ -1006,7 +1005,7 @@ u8 KT_WirelessMicTx_Set_XTAL(bool bXtal_Sel)
     regx = KT_Bus_Read(0x47);
     KT_Bus_Write( 0x47, (regx & 0xFFDF) | ((u8)bXtal_Sel << 5) ); //bXtal_Sel=0
 
-    udelay(50*1000);
+    DelayUs(50*1000);
 
     KT_Bus_Write(0x0E, 0x0000); //au_rst_bypass=0    au_dig_rst=0
 	regx = KT_Bus_Read(0x1E);

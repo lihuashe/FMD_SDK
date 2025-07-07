@@ -30,7 +30,10 @@
 //-----------------------------------------------------------------------------
 // Includes
 //-----------------------------------------------------------------------------
+#include <stdlib.h>
 #include "FT61FC35TRB_CONFIG.H"
+#include "FT61FC3x_IIC.H"
+
 //-----------------------------------------------------------------------------
 //功能及参数定义
 //-----------------------------------------------------------------------------
@@ -338,8 +341,9 @@ ALC_VMAX的值需要根据发射和接收的频偏计算出来，计算公式为
 // Function PROTOTYPES
 //-----------------------------------------------------------------------------
 u16 KT_WirelessMicTx_PreInit(void);
+bool KT_Test_Init(void);
 bool KT_WirelessMicTx_Init(void);
-#if 1
+
 bool KT_WirelessMicTx_Standby(void);
 bool KT_WirelessMicTx_WakeUp(void);
 void KT_WirelessMicTx_PowerDownProcedure(void);
@@ -381,4 +385,4 @@ void KT_WirelessMicTx_COMPANDOR_Dis(bool COMP_Dis);//COMP_Dis=1 disable COMPANDO
 
 int host_iic_send_data(u8 id, u8 reg, u8 *data, u16 len);
 int host_iic_read_data(u8 id, u8 reg, u8 *data, u16 len);
-#endif
+

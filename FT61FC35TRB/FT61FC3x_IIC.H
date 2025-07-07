@@ -1,5 +1,5 @@
-#ifndef _FT61FC3x_GPIO_INIT_H_
-#define _FT61FC3x_GPIO_INIT_H_
+#ifndef _FT61FC3x_IIC_H_
+#define _FT61FC3x_IIC_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -8,33 +8,13 @@ extern "C" {
 /*============================================================================*
  *                              Header Files
  *============================================================================*/
-#include "SYSCFG.h"
 #include <stdint.h>
 #include <stdbool.h>
 
 /*============================================================================*
  *                              Definitions
  *============================================================================*/
-#define  GPIO_PORT(x)   GPIO_##x
 
-#define GPIO_PA0    PA0
-#define GPIO_PA1    PA1
-#define GPIO_PA2    PA2
-#define GPIO_PA3    PA3
-#define GPIO_PA4    PA4
-#define GPIO_PA5    PA5
-#define GPIO_PA6    PA6
-#define GPIO_PA7    PA7
-#define GPIO_PB0    PB0
-#define GPIO_PB1    PB1
-#define GPIO_PB2    PB2
-#define GPIO_PB3    PB3
-#define GPIO_PB4    PB4
-#define GPIO_PB5    PB5
-#define GPIO_PB6    PB6
-#define GPIO_PB7    PB7
-#define GPIO_PC0    PC0
-#define GPIO_PC1    PC1
 
 /*============================================================================*
  *                              Register Definitions
@@ -44,21 +24,8 @@ extern "C" {
 /*============================================================================*
  *                              Enumerations
  *============================================================================*/
-typedef enum {
-    In,
-    Out
-} Gpio_Direction_t;
 
-typedef enum {
-    PullUp,
-    NoPullUp
-} Gpio_PullUp_Down_t;
 
-// typedef enum {
-//     GPIO_PA0, GPIO_PA1, GPIO_PA2, GPIO_PA3, GPIO_PA4, GPIO_PA5, GPIO_PA6, GPIO_PA7,
-//     GPIO_PB0, GPIO_PB1, GPIO_PB2, GPIO_PB3, GPIO_PB4, GPIO_PB5, GPIO_PB6, GPIO_PB7,
-//     GPIO_PC0, GPIO_PC1, GPIO_PC2, GPIO_PC3, GPIO_PC4, GPIO_PC5, GPIO_PC6, GPIO_PC7,
-// }Gpio_Pin_t;
 /*============================================================================*
  *                              Data Structures
  *============================================================================*/
@@ -67,12 +34,18 @@ typedef enum {
 /*============================================================================*
  *                              Function Prototypes
  *============================================================================*/
+void IIC_INITIAL(void);
 
-void GPIO_CLOCK_INIT(void);
+void DelayUs(unsigned char Time);
 
-void GPIO_INIT(uint8_t gpio_x, Gpio_Direction_t out_in, Gpio_PullUp_Down_t pull_dir);
+unsigned char IIC_READ(unsigned char i2c_address, unsigned char reg);
 
-void Pin_SetHighLow_Level(uint8_t pin, uint8_t high_or_low);
+void IIC_WRITE(unsigned char i2c_address, unsigned char reg,unsigned char data);
+
+void IIC_READ_MULTI(unsigned char i2c_address, unsigned char reg, unsigned char *pData, unsigned int length);
+
+void IIC_WRITE_MULTI(unsigned char i2c_address, unsigned char reg, unsigned char *pData, unsigned int length);
+
 #ifdef __cplusplus
 }
 #endif

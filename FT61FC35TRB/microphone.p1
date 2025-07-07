@@ -1,0 +1,2021 @@
+Version 3.2   GCC8 Compiled Intermediate Code
+"32 microphone.h
+[s S5 `ui 1 `i 1 `uc 1 `uc 1 `uc -> 15 `i `uc 1 `us -> 4 `i `uc 1 `uc 1 `uc 1 ]
+[n S5 . flash_key freq PA_gain EQ_EN EQ PILOT_EN PILOT_DATA channel PA_state ch_power_count ]
+"49
+[s S6 `uc 1 `uc 1 `uc -> 64 `i ]
+[n S6 . cmd len cmd_data ]
+"203 microphone.c
+[v _log_info `(i ~T0 @X0 0 ef ]
+"343 KT0646M.h
+[v _KT_WirelessMicTx_PreInit `(us ~T0 @X0 0 ef ]
+"345
+[v _KT_WirelessMicTx_Init `(uc ~T0 @X0 0 ef ]
+"70 microphone.h
+[v _KT_MicTX_Init `(uc ~T0 @X0 0 ef ]
+"367 KT0646M.h
+[v _KT_WirelessMicTx_Tune `(uc ~T0 @X0 0 ef1`i ]
+"379
+[v _KT_WirelessMicTx_EQGAIN `(v ~T0 @X0 0 ef2`uc`uc ]
+"378
+[v _KT_WirelessMicTx_EQSW `(v ~T0 @X0 0 ef1`uc ]
+"377
+[v _KT_WirelessMicTx_ECHO `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"39 FT61FC3x_IIC.H
+[v _DelayUs `(v ~T0 @X0 0 ef1`uc ]
+"352 KT0646M.h
+[v _KT_WirelessMicTx_PAGain `(uc ~T0 @X0 0 ef1`uc ]
+"374
+[v _KT_Bus_Write `(v ~T0 @X0 0 ef2`uc`us ]
+"360
+[v _KT_WirelessMicTx_Pilot `(uc ~T0 @X0 0 ef1`uc ]
+"375
+[v _KT_Bus_Read `(us ~T0 @X0 0 ef1`uc ]
+"358
+[v _KT_WirelessMicTx_MuteSel `(uc ~T0 @X0 0 ef1`uc ]
+"351
+[v _KT_WirelessMicTx_PASW `(uc ~T0 @X0 0 ef1`uc ]
+"78 microphone.h
+[v _microphone_enable `(v ~T0 @X0 0 ef1`uc ]
+"449 microphone.c
+[v _log_debug `(i ~T0 @X0 0 ef ]
+"14
+[v _Battery_Vdet `ui ~T0 @X0 0 e ]
+"18
+[v _TestMode `uc ~T0 @X0 0 e ]
+"631
+[v _SaveDataToFlash `(i ~T0 @X0 0 ef ]
+"637
+[v _log_error `(i ~T0 @X0 0 ef ]
+"664
+[v _my_memset `(i ~T0 @X0 0 ef ]
+"668
+[v _eraseToFlash `(i ~T0 @X0 0 ef ]
+"672
+[v _ReadDataFromFlash `(i ~T0 @X0 0 ef ]
+"690
+[v _device_ERR_display `(i ~T0 @X0 0 ef ]
+"755
+[v _device_ch_displayF002 `(i ~T0 @X0 0 ef ]
+"758
+[v _channel_A_display `(i ~T0 @X0 0 ef ]
+"759
+[v _channel_B_display `(i ~T0 @X0 0 ef ]
+"382 KT0646M.h
+[v _KT_WirelessMicTx_Read_Mic_Sens `(uc ~T0 @X0 0 ef ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;gcc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;FT61FC35TRB_CONFIG.H: 27: typedef unsigned char u8;
+[; ;FT61FC35TRB_CONFIG.H: 28: typedef char s8;
+[; ;FT61FC35TRB_CONFIG.H: 29: typedef unsigned short u16;
+[; ;FT61FC35TRB_CONFIG.H: 30: typedef signed short s16;
+[; ;FT61FC35TRB_CONFIG.H: 31: typedef unsigned int u32;
+[; ;FT61FC35TRB_CONFIG.H: 32: typedef signed int s32;
+[; ;FT61FC35TRB_CONFIG.H: 33: typedef unsigned long long u64;
+[; ;FT61FC35TRB_CONFIG.H: 34: typedef u32 FOURCC;
+[; ;FT61FC35TRB_CONFIG.H: 35: typedef long long s64;
+[; ;FT61FC35TRB_CONFIG.H: 36: typedef unsigned long long u64;
+[; ;FT61FC3x_IIC.H: 37: void IIC_INITIAL(void);
+[; ;FT61FC3x_IIC.H: 39: void DelayUs(unsigned char Time);
+[; ;FT61FC3x_IIC.H: 41: unsigned char IIC_READ(unsigned char i2c_address, unsigned char reg);
+[; ;FT61FC3x_IIC.H: 43: void IIC_WRITE(unsigned char i2c_address, unsigned char reg,unsigned char data);
+[; ;FT61FC3x_IIC.H: 45: void IIC_READ_MULTI(unsigned char i2c_address, unsigned char reg, unsigned char *pData, unsigned int length);
+[; ;FT61FC3x_IIC.H: 47: void IIC_WRITE_MULTI(unsigned char i2c_address, unsigned char reg, unsigned char *pData, unsigned int length);
+[; ;KT0646M.h: 343: u16 KT_WirelessMicTx_PreInit(void);
+[; ;KT0646M.h: 344: bool KT_Test_Init(void);
+[; ;KT0646M.h: 345: bool KT_WirelessMicTx_Init(void);
+[; ;KT0646M.h: 347: bool KT_WirelessMicTx_Standby(void);
+[; ;KT0646M.h: 348: bool KT_WirelessMicTx_WakeUp(void);
+[; ;KT0646M.h: 349: void KT_WirelessMicTx_PowerDownProcedure(void);
+[; ;KT0646M.h: 351: bool KT_WirelessMicTx_PASW(bool bPA_Switch);
+[; ;KT0646M.h: 352: bool KT_WirelessMicTx_PAGain(u8 cPaGain);
+[; ;KT0646M.h: 354: u8 KT_WirelessMicTx_Fdev_Monitor(void);
+[; ;KT0646M.h: 355: bool KT_WirelessMicTx_Mic_Sens(u8 cMicSens);
+[; ;KT0646M.h: 356: bool KT_WirelessMicTx_Comp_Dis(bool bComp_Dis);
+[; ;KT0646M.h: 357: bool KT_WirelessMicTx_Comp_TC(u8 cComp_TC);
+[; ;KT0646M.h: 358: bool KT_WirelessMicTx_MuteSel(bool bMute_Sel);
+[; ;KT0646M.h: 360: bool KT_WirelessMicTx_Pilot(bool bPilot_Dis);
+[; ;KT0646M.h: 361: bool KT_WirelessMicTx_Pilot_Fdev(u8 cPilot_Fdev);
+[; ;KT0646M.h: 367: bool KT_WirelessMicTx_Tune(s32 Freq);
+[; ;KT0646M.h: 369: u8 KT_WirelessMicTx_Band_Cali_Res(void);
+[; ;KT0646M.h: 370: u8 KT_WirelessMicTx_Set_XTAL(bool bXtal_Sel);
+[; ;KT0646M.h: 371: u8 KT_WirelessMicTx_SW_XTAL_Freq(bool bXtal_Sel);
+[; ;KT0646M.h: 373: void Delay_ms(u16 iTime_Number);
+[; ;KT0646M.h: 374: void KT_Bus_Write(u8 Register_Address, u16 Word_Data);
+[; ;KT0646M.h: 375: u16 KT_Bus_Read(u8 Register_Address);
+[; ;KT0646M.h: 377: void KT_WirelessMicTx_ECHO(bool bEcho_Dis,u8 Echo_Ratio,u8 Echo_Delay);
+[; ;KT0646M.h: 378: void KT_WirelessMicTx_EQSW(bool bEq_Dis);
+[; ;KT0646M.h: 379: void KT_WirelessMicTx_EQGAIN(u8 Eq_Freq,u8 Eq_Gain);
+[; ;KT0646M.h: 380: u16 KT_WirelessMicTx_BatteryMeter_Read(void);
+[; ;KT0646M.h: 381: bool KT_WirelessMicTx_BatteryMeter_SW(bool bBatteryMeter_En);
+[; ;KT0646M.h: 382: u8 KT_WirelessMicTx_Read_Mic_Sens(void);
+[; ;KT0646M.h: 383: bool KT_WirelessMicTx_Mic_Sens(u8 cMicSens);
+[; ;KT0646M.h: 384: void KT_WirelessMicTx_COMPANDOR_Dis(bool COMP_Dis);
+[; ;KT0646M.h: 386: int host_iic_send_data(u8 id, u8 reg, u8 *data, u16 len);
+[; ;KT0646M.h: 387: int host_iic_read_data(u8 id, u8 reg, u8 *data, u16 len);
+[; ;microphone.h: 31: typedef struct
+[; ;microphone.h: 32: {
+[; ;microphone.h: 33: u32 flash_key;
+[; ;microphone.h: 34: s32 freq;
+[; ;microphone.h: 36: u8 PA_gain;
+[; ;microphone.h: 38: u8 EQ_EN;
+[; ;microphone.h: 39: u8 EQ[15];
+[; ;microphone.h: 41: u8 PILOT_EN;
+[; ;microphone.h: 42: u16 PILOT_DATA[4];
+[; ;microphone.h: 43: u8 channel;
+[; ;microphone.h: 44: u8 PA_state;
+[; ;microphone.h: 45: u8 ch_power_count;
+[; ;microphone.h: 46: }mic_config_t;
+[; ;microphone.h: 48: typedef struct
+[; ;microphone.h: 49: {
+[; ;microphone.h: 50: u8 cmd;
+[; ;microphone.h: 51: u8 len;
+[; ;microphone.h: 52: u8 cmd_data[64];
+[; ;microphone.h: 53: }microphone_setting_t;
+[; ;microphone.h: 55: typedef struct
+[; ;microphone.h: 56: {
+[; ;microphone.h: 57: u16 channel;
+[; ;microphone.h: 58: u32 freq;
+[; ;microphone.h: 59: }microphone_status_t;
+[; ;microphone.h: 61: extern mic_config_t mic_config;
+[; ;microphone.h: 63: extern u32 tick_microphone_new_cmd;
+[; ;microphone.h: 64: extern microphone_setting_t microphone_setting;
+[; ;microphone.h: 68: int microphone_init();
+[; ;microphone.h: 70: bool KT_MicTX_Init(void);
+[; ;microphone.h: 72: int microphone_set_freq();
+[; ;microphone.h: 74: void process_microphone();
+[; ;microphone.h: 76: int microphone_set_PA0();
+[; ;microphone.h: 78: void microphone_enable(bool enable);
+[; ;microphone.h: 79: int microphone_pairing(s32 Freq,u8 ch);
+[; ;microphone.h: 80: void microphone_AUX_Disconnect();
+[; ;microphone.h: 81: void microphone_AUX_mute();
+[; ;microphone.h: 82: void microphone_AUX_unmute();
+[; ;microphone.h: 83: void KT_mic_config_t_print(mic_config_t mic_config);
+[; ;microphone.h: 84: void KT0646_setchangeBattery();
+[; ;microphone.h: 85: void KT0646_setchangekey(u8 key);
+[; ;KT0646M.h: 343: u16 KT_WirelessMicTx_PreInit(void);
+[; ;KT0646M.h: 344: bool KT_Test_Init(void);
+[; ;KT0646M.h: 345: bool KT_WirelessMicTx_Init(void);
+[; ;KT0646M.h: 347: bool KT_WirelessMicTx_Standby(void);
+[; ;KT0646M.h: 348: bool KT_WirelessMicTx_WakeUp(void);
+[; ;KT0646M.h: 349: void KT_WirelessMicTx_PowerDownProcedure(void);
+[; ;KT0646M.h: 351: bool KT_WirelessMicTx_PASW(bool bPA_Switch);
+[; ;KT0646M.h: 352: bool KT_WirelessMicTx_PAGain(u8 cPaGain);
+[; ;KT0646M.h: 354: u8 KT_WirelessMicTx_Fdev_Monitor(void);
+[; ;KT0646M.h: 355: bool KT_WirelessMicTx_Mic_Sens(u8 cMicSens);
+[; ;KT0646M.h: 356: bool KT_WirelessMicTx_Comp_Dis(bool bComp_Dis);
+[; ;KT0646M.h: 357: bool KT_WirelessMicTx_Comp_TC(u8 cComp_TC);
+[; ;KT0646M.h: 358: bool KT_WirelessMicTx_MuteSel(bool bMute_Sel);
+[; ;KT0646M.h: 360: bool KT_WirelessMicTx_Pilot(bool bPilot_Dis);
+[; ;KT0646M.h: 361: bool KT_WirelessMicTx_Pilot_Fdev(u8 cPilot_Fdev);
+[; ;KT0646M.h: 367: bool KT_WirelessMicTx_Tune(s32 Freq);
+[; ;KT0646M.h: 369: u8 KT_WirelessMicTx_Band_Cali_Res(void);
+[; ;KT0646M.h: 370: u8 KT_WirelessMicTx_Set_XTAL(bool bXtal_Sel);
+[; ;KT0646M.h: 371: u8 KT_WirelessMicTx_SW_XTAL_Freq(bool bXtal_Sel);
+[; ;KT0646M.h: 373: void Delay_ms(u16 iTime_Number);
+[; ;KT0646M.h: 374: void KT_Bus_Write(u8 Register_Address, u16 Word_Data);
+[; ;KT0646M.h: 375: u16 KT_Bus_Read(u8 Register_Address);
+[; ;KT0646M.h: 377: void KT_WirelessMicTx_ECHO(bool bEcho_Dis,u8 Echo_Ratio,u8 Echo_Delay);
+[; ;KT0646M.h: 378: void KT_WirelessMicTx_EQSW(bool bEq_Dis);
+[; ;KT0646M.h: 379: void KT_WirelessMicTx_EQGAIN(u8 Eq_Freq,u8 Eq_Gain);
+[; ;KT0646M.h: 380: u16 KT_WirelessMicTx_BatteryMeter_Read(void);
+[; ;KT0646M.h: 381: bool KT_WirelessMicTx_BatteryMeter_SW(bool bBatteryMeter_En);
+[; ;KT0646M.h: 382: u8 KT_WirelessMicTx_Read_Mic_Sens(void);
+[; ;KT0646M.h: 383: bool KT_WirelessMicTx_Mic_Sens(u8 cMicSens);
+[; ;KT0646M.h: 384: void KT_WirelessMicTx_COMPANDOR_Dis(bool COMP_Dis);
+[; ;KT0646M.h: 386: int host_iic_send_data(u8 id, u8 reg, u8 *data, u16 len);
+[; ;KT0646M.h: 387: int host_iic_read_data(u8 id, u8 reg, u8 *data, u16 len);
+"7 microphone.c
+[v _mic_config `S5 ~T0 @X0 1 e ]
+[i _mic_config
+:U ..
+:U ..
+-> -> 0 `i `ui
+..
+..
+]
+[; ;microphone.c: 7: mic_config_t mic_config = {0};
+"8
+[v _current_mic_config `S5 ~T0 @X0 1 e ]
+[i _current_mic_config
+:U ..
+:U ..
+-> -> 0 `i `ui
+..
+..
+]
+[; ;microphone.c: 8: mic_config_t current_mic_config = {0};
+"9
+[v _microphone_pairing_flag `us ~T0 @X0 1 e ]
+[i _microphone_pairing_flag
+-> -> 0 `i `us
+]
+[; ;microphone.c: 9: u16 microphone_pairing_flag =0;
+"10
+[v _channel_number `uc ~T0 @X0 1 e ]
+[i _channel_number
+-> -> 0 `i `uc
+]
+[; ;microphone.c: 10: u8 channel_number = 0;
+"12
+[v _microphone_setting `S6 ~T0 @X0 1 e ]
+[i _microphone_setting
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+[; ;microphone.c: 12: microphone_setting_t microphone_setting = {0};
+[; ;microphone.c: 13: extern bool err_remote_pa_off;
+[; ;microphone.c: 14: extern u32 Battery_Vdet;
+[; ;microphone.c: 16: extern void delay_10ms(u32 tick);
+[; ;microphone.c: 17: extern void DelayUs();
+[; ;microphone.c: 18: extern uint8_t TestMode;
+[v F349 `Cul ~T0 @X0 -> 48 `i t ]
+"150
+[v _UserRandomFreq `F349 ~T0 @X0 -> 2 `i e ]
+[i _UserRandomFreq
+:U ..
+:U ..
+"155
+-> -> 657027 `l `ul
+"156
+-> -> 657427 `l `ul
+"157
+-> -> 657827 `l `ul
+"158
+-> -> 658227 `l `ul
+"159
+-> -> 658627 `l `ul
+"160
+-> -> 659027 `l `ul
+..
+:U ..
+"167
+-> -> 659427 `l `ul
+"168
+-> -> 659827 `l `ul
+"169
+-> -> 660227 `l `ul
+"170
+-> -> 660627 `l `ul
+"171
+-> -> 661027 `l `ul
+"172
+-> -> 661427 `l `ul
+..
+..
+]
+[; ;microphone.c: 150: const uint32_t UserRandomFreq[2][48] =
+[; ;microphone.c: 151: {
+[; ;microphone.c: 152: {
+[; ;microphone.c: 155: 657027,
+[; ;microphone.c: 156: 657427,
+[; ;microphone.c: 157: 657827,
+[; ;microphone.c: 158: 658227,
+[; ;microphone.c: 159: 658627,
+[; ;microphone.c: 160: 659027,
+[; ;microphone.c: 161: },
+[; ;microphone.c: 163: {
+[; ;microphone.c: 167: 659427,
+[; ;microphone.c: 168: 659827,
+[; ;microphone.c: 169: 660227,
+[; ;microphone.c: 170: 660627,
+[; ;microphone.c: 171: 661027,
+[; ;microphone.c: 172: 661427,
+[; ;microphone.c: 173: }
+[; ;microphone.c: 175: };
+"177
+[v _EQ_param_default `Cuc ~T0 @X0 -> 15 `i e ]
+[i _EQ_param_default
+:U ..
+"179
+-> -> 4 `i `uc
+"180
+-> -> 5 `i `uc
+"181
+-> -> 6 `i `uc
+"182
+-> -> 9 `i `uc
+"183
+-> -> 12 `i `uc
+"184
+-> -> 12 `i `uc
+"185
+-> -> 12 `i `uc
+"186
+-> -> 12 `i `uc
+"187
+-> -> 12 `i `uc
+"188
+-> -> 12 `i `uc
+"189
+-> -> 12 `i `uc
+"190
+-> -> 12 `i `uc
+"191
+-> -> 12 `i `uc
+"192
+-> -> 12 `i `uc
+"193
+-> -> 12 `i `uc
+..
+]
+[; ;microphone.c: 177: const u8 EQ_param_default[15] = {
+[; ;microphone.c: 179: 4,
+[; ;microphone.c: 180: 5,
+[; ;microphone.c: 181: 6,
+[; ;microphone.c: 182: 9,
+[; ;microphone.c: 183: 12,
+[; ;microphone.c: 184: 12,
+[; ;microphone.c: 185: 12,
+[; ;microphone.c: 186: 12,
+[; ;microphone.c: 187: 12,
+[; ;microphone.c: 188: 12,
+[; ;microphone.c: 189: 12,
+[; ;microphone.c: 190: 12,
+[; ;microphone.c: 191: 12,
+[; ;microphone.c: 192: 12,
+[; ;microphone.c: 193: 12,
+[; ;microphone.c: 194: };
+"201
+[v _microphone_init `(i ~T0 @X0 1 ef ]
+"202
+{
+[; ;microphone.c: 201: int microphone_init()
+[; ;microphone.c: 202: {
+[e :U _microphone_init ]
+[f ]
+[; ;microphone.c: 203: log_info("KT0646M init\r\n");
+"203
+[e ( _log_info :s 1C ]
+[; ;microphone.c: 205: if (mic_config.flash_key != 0x55AA0103)
+"205
+[e $ ! != -> . _mic_config 0 `l -> 1437204739 `l 9  ]
+[; ;microphone.c: 206: {
+"206
+{
+[; ;microphone.c: 207: mic_config.freq = 607250;
+"207
+[e = . _mic_config 1 -> -> 607250 `l `i ]
+[; ;microphone.c: 209: mic_config.PA_gain = 20;
+"209
+[e = . _mic_config 2 -> -> 20 `i `uc ]
+[; ;microphone.c: 212: mic_config.PILOT_EN = 1;
+"212
+[e = . _mic_config 5 -> -> 1 `i `uc ]
+[; ;microphone.c: 213: mic_config.PILOT_DATA[0]= 0xA700;
+"213
+[e = *U + &U . _mic_config 6 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux -> -> 42752 `ui `us ]
+[; ;microphone.c: 214: mic_config.PILOT_DATA[1] = 0xf0e4;
+"214
+[e = *U + &U . _mic_config 6 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux -> -> 61668 `ui `us ]
+[; ;microphone.c: 215: mic_config.PILOT_DATA[2] = 0x4161;
+"215
+[e = *U + &U . _mic_config 6 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux -> -> 16737 `i `us ]
+[; ;microphone.c: 216: mic_config.PILOT_DATA[3] = 0x4d66;
+"216
+[e = *U + &U . _mic_config 6 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux -> -> 19814 `i `us ]
+"218
+}
+[e :U 9 ]
+[; ;microphone.c: 218: }
+[; ;microphone.c: 220: mic_config.EQ_EN = 0;
+"220
+[e = . _mic_config 3 -> -> 0 `i `uc ]
+[; ;microphone.c: 221: for (int i = 0; i < 15; i++) {
+"221
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 15 `i 10  ]
+[e $U 11  ]
+[e :U 10 ]
+{
+[; ;microphone.c: 222: mic_config.EQ[i] = 12;
+"222
+[e = *U + &U . _mic_config 4 * -> -> _i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux -> -> 12 `i `uc ]
+"223
+}
+"221
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 15 `i 10  ]
+[e :U 11 ]
+"223
+}
+"226
+[v _i `i ~T0 @X0 1 a ]
+[; ;microphone.c: 223: }
+[; ;microphone.c: 226: int i;
+[; ;microphone.c: 227: for (i = 0; i < 3; i++) {
+"227
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 3 `i 13  ]
+[e $U 14  ]
+[e :U 13 ]
+{
+"238
+[v _ID_KT0646M `us ~T0 @X0 1 a ]
+[; ;microphone.c: 238: u16 ID_KT0646M = KT_WirelessMicTx_PreInit();
+[e = _ID_KT0646M ( _KT_WirelessMicTx_PreInit ..  ]
+[; ;microphone.c: 239: if (ID_KT0646M != 0) {
+"239
+[e $ ! != -> _ID_KT0646M `ui -> -> 0 `i `ui 16  ]
+{
+[; ;microphone.c: 240: log_info("Successed Read KT0646M ID = 0x%04x\r\n", ID_KT0646M);
+"240
+[e ( _log_info , :s 2C -> _ID_KT0646M `i ]
+"241
+}
+[; ;microphone.c: 241: } else {
+[e $U 17  ]
+[e :U 16 ]
+{
+[; ;microphone.c: 242: log_info("Failed Read KT0646M ID\r\n");
+"242
+[e ( _log_info :s 3C ]
+[; ;microphone.c: 243: return 0;
+"243
+[e ) -> 0 `i ]
+[e $UE 8  ]
+"244
+}
+[e :U 17 ]
+[; ;microphone.c: 244: }
+[; ;microphone.c: 246: if (KT_WirelessMicTx_Init() == 0) {
+"246
+[e $ ! == -> ( _KT_WirelessMicTx_Init ..  `i -> 0 `i 18  ]
+{
+[; ;microphone.c: 247: log_info("KT0646M init Failed\r\n");
+"247
+[e ( _log_info :s 4C ]
+"248
+}
+[; ;microphone.c: 248: }
+[e $U 19  ]
+"249
+[e :U 18 ]
+[; ;microphone.c: 249: else {
+{
+[; ;microphone.c: 250: log_info("KT0646M init Successed\r\n");
+"250
+[e ( _log_info :s 5C ]
+"251
+}
+[e :U 19 ]
+[; ;microphone.c: 251: }
+[; ;microphone.c: 254: if (KT_MicTX_Init() == 0) {
+"254
+[e $ ! == -> ( _KT_MicTX_Init ..  `i -> 0 `i 20  ]
+{
+[; ;microphone.c: 255: log_info("FM started, freq=%dKHz, PA gain=%d\r\n, retry = %d", mic_config.freq,mic_config.PA_gain, i);
+"255
+[e ( _log_info , , , :s 6C . _mic_config 1 -> . _mic_config 2 `i _i ]
+"256
+}
+[; ;microphone.c: 256: } else {
+[e $U 21  ]
+[e :U 20 ]
+{
+[; ;microphone.c: 257: break;
+"257
+[e $U 14  ]
+"258
+}
+[e :U 21 ]
+"259
+}
+"227
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 3 `i 13  ]
+[e :U 14 ]
+"259
+}
+[; ;microphone.c: 258: }
+[; ;microphone.c: 259: }
+[; ;microphone.c: 261: if (i == 3) {
+"261
+[e $ ! == _i -> 3 `i 22  ]
+{
+[; ;microphone.c: 262: return 0;
+"262
+[e ) -> 0 `i ]
+[e $UE 8  ]
+"263
+}
+[; ;microphone.c: 263: } else {
+[e $U 23  ]
+[e :U 22 ]
+{
+[; ;microphone.c: 264: return 1;
+"264
+[e ) -> 1 `i ]
+[e $UE 8  ]
+"265
+}
+[e :U 23 ]
+[; ;microphone.c: 265: }
+[; ;microphone.c: 266: }
+"266
+[e :UE 8 ]
+}
+"281
+[v _KT_MicTX_Init `(uc ~T0 @X0 1 ef ]
+"282
+{
+[; ;microphone.c: 281: bool KT_MicTX_Init(void)
+[; ;microphone.c: 282: {
+[e :U _KT_MicTX_Init ]
+[f ]
+[; ;microphone.c: 285: if (KT_WirelessMicTx_Tune(607250) == 0) {
+"285
+[e $ ! == -> ( _KT_WirelessMicTx_Tune (1 -> -> 607250 `l `i `i -> 0 `i 25  ]
+{
+[; ;microphone.c: 286: return 0;
+"286
+[e ) -> -> 0 `i `uc ]
+[e $UE 24  ]
+"287
+}
+[; ;microphone.c: 287: }
+[e $U 26  ]
+"288
+[e :U 25 ]
+[; ;microphone.c: 288: else{
+{
+[; ;microphone.c: 289: log_info("33333333 KT_MicTX_Init mic_config.freq =[607250KHZ]\r\n");
+"289
+[e ( _log_info :s 7C ]
+"290
+}
+[e :U 26 ]
+[; ;microphone.c: 290: }
+[; ;microphone.c: 292: KT_WirelessMicTx_EQGAIN(0, mic_config.EQ[0]);
+"292
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 0 `i `uc *U + &U . _mic_config 4 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 293: KT_WirelessMicTx_EQGAIN(1, mic_config.EQ[1]);
+"293
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 1 `i `uc *U + &U . _mic_config 4 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 294: KT_WirelessMicTx_EQGAIN(2, mic_config.EQ[2]);
+"294
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 2 `i `uc *U + &U . _mic_config 4 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 296: KT_WirelessMicTx_EQGAIN(3,mic_config.EQ[3]);
+"296
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 3 `i `uc *U + &U . _mic_config 4 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 297: KT_WirelessMicTx_EQGAIN(4,mic_config.EQ[4]);
+"297
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 4 `i `uc *U + &U . _mic_config 4 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 298: KT_WirelessMicTx_EQGAIN(5,mic_config.EQ[5]);
+"298
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 5 `i `uc *U + &U . _mic_config 4 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 300: KT_WirelessMicTx_EQGAIN(6,mic_config.EQ[6]);
+"300
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 6 `i `uc *U + &U . _mic_config 4 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 301: KT_WirelessMicTx_EQGAIN(7,mic_config.EQ[7]);
+"301
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 7 `i `uc *U + &U . _mic_config 4 * -> -> -> 7 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 302: KT_WirelessMicTx_EQGAIN(8, mic_config.EQ[8]);
+"302
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 8 `i `uc *U + &U . _mic_config 4 * -> -> -> 8 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 304: KT_WirelessMicTx_EQGAIN(9, mic_config.EQ[9]);
+"304
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 9 `i `uc *U + &U . _mic_config 4 * -> -> -> 9 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 305: KT_WirelessMicTx_EQGAIN(10, mic_config.EQ[10]);
+"305
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 10 `i `uc *U + &U . _mic_config 4 * -> -> -> 10 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 306: KT_WirelessMicTx_EQGAIN(11, mic_config.EQ[11]);
+"306
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 11 `i `uc *U + &U . _mic_config 4 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 308: KT_WirelessMicTx_EQGAIN(12, mic_config.EQ[12]);
+"308
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 12 `i `uc *U + &U . _mic_config 4 * -> -> -> 12 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 309: KT_WirelessMicTx_EQGAIN(13, mic_config.EQ[13]);
+"309
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 13 `i `uc *U + &U . _mic_config 4 * -> -> -> 13 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 310: KT_WirelessMicTx_EQGAIN(14, mic_config.EQ[14]);
+"310
+[e ( _KT_WirelessMicTx_EQGAIN (2 , -> -> 14 `i `uc *U + &U . _mic_config 4 * -> -> -> 14 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux ]
+[; ;microphone.c: 313: KT_WirelessMicTx_EQSW(mic_config.EQ_EN);
+"313
+[e ( _KT_WirelessMicTx_EQSW (1 . _mic_config 3 ]
+[; ;microphone.c: 314: KT_WirelessMicTx_ECHO(1,0,0);
+"314
+[e ( _KT_WirelessMicTx_ECHO (3 , , -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;microphone.c: 315: DelayUs(200*1000);
+"315
+[e ( _DelayUs (1 -> * -> 200 `i -> 1000 `i `uc ]
+[; ;microphone.c: 318: KT_WirelessMicTx_PAGain(mic_config.PA_gain);
+"318
+[e ( _KT_WirelessMicTx_PAGain (1 . _mic_config 2 ]
+[; ;microphone.c: 321: KT_Bus_Write(0x12, mic_config.PILOT_DATA[0]);
+"321
+[e ( _KT_Bus_Write (2 , -> -> 18 `i `uc *U + &U . _mic_config 6 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+[; ;microphone.c: 322: KT_Bus_Write(0x13, mic_config.PILOT_DATA[1]);
+"322
+[e ( _KT_Bus_Write (2 , -> -> 19 `i `uc *U + &U . _mic_config 6 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+[; ;microphone.c: 323: KT_Bus_Write(0x14, mic_config.PILOT_DATA[2]);
+"323
+[e ( _KT_Bus_Write (2 , -> -> 20 `i `uc *U + &U . _mic_config 6 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+[; ;microphone.c: 324: KT_Bus_Write(0x27, mic_config.PILOT_DATA[3]);
+"324
+[e ( _KT_Bus_Write (2 , -> -> 39 `i `uc *U + &U . _mic_config 6 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+[; ;microphone.c: 327: KT_WirelessMicTx_Pilot(mic_config.PILOT_EN);
+"327
+[e ( _KT_WirelessMicTx_Pilot (1 . _mic_config 5 ]
+[; ;microphone.c: 329: return 1;
+"329
+[e ) -> -> 1 `i `uc ]
+[e $UE 24  ]
+[; ;microphone.c: 330: }
+"330
+[e :UE 24 ]
+}
+"333
+[v _microphone_set_freq `(i ~T0 @X0 1 ef ]
+"334
+{
+[; ;microphone.c: 333: int microphone_set_freq()
+[; ;microphone.c: 334: {
+[e :U _microphone_set_freq ]
+[f ]
+"335
+[v _result `i ~T0 @X0 1 a ]
+[; ;microphone.c: 335: int result = 0;
+[e = _result -> 0 `i ]
+"337
+[v _pilot_config `us ~T0 @X0 1 a ]
+[; ;microphone.c: 337: u16 pilot_config = KT_Bus_Read(0x1F);
+[e = _pilot_config ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 339: KT_WirelessMicTx_MuteSel(1);
+"339
+[e ( _KT_WirelessMicTx_MuteSel (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 340: KT_WirelessMicTx_Pilot(0);
+"340
+[e ( _KT_WirelessMicTx_Pilot (1 -> -> 0 `i `uc ]
+[; ;microphone.c: 341: KT_WirelessMicTx_PAGain(0);
+"341
+[e ( _KT_WirelessMicTx_PAGain (1 -> -> 0 `i `uc ]
+[; ;microphone.c: 342: KT_WirelessMicTx_PASW(0);
+"342
+[e ( _KT_WirelessMicTx_PASW (1 -> -> 0 `i `uc ]
+[; ;microphone.c: 343: DelayUs(10*1000);
+"343
+[e ( _DelayUs (1 -> * -> 10 `i -> 1000 `i `uc ]
+"370
+[v _retry `i ~T0 @X0 1 a ]
+[; ;microphone.c: 370: int retry = 3;
+[e = _retry -> 3 `i ]
+[; ;microphone.c: 371: do {
+"371
+[e :U 30 ]
+{
+[; ;microphone.c: 373: KT_WirelessMicTx_Init();
+"373
+[e ( _KT_WirelessMicTx_Init ..  ]
+[; ;microphone.c: 375: if (KT_MicTX_Init() == 1) {
+"375
+[e $ ! == -> ( _KT_MicTX_Init ..  `i -> 1 `i 31  ]
+{
+[; ;microphone.c: 376: KT_WirelessMicTx_PAGain(mic_config.PA_gain);
+"376
+[e ( _KT_WirelessMicTx_PAGain (1 . _mic_config 2 ]
+[; ;microphone.c: 377: KT_WirelessMicTx_PASW(1);
+"377
+[e ( _KT_WirelessMicTx_PASW (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 379: KT_Bus_Write(0x12, mic_config.PILOT_DATA[0]);
+"379
+[e ( _KT_Bus_Write (2 , -> -> 18 `i `uc *U + &U . _mic_config 6 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+[; ;microphone.c: 380: KT_Bus_Write(0x13, mic_config.PILOT_DATA[1]);
+"380
+[e ( _KT_Bus_Write (2 , -> -> 19 `i `uc *U + &U . _mic_config 6 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+[; ;microphone.c: 381: KT_Bus_Write(0x14, mic_config.PILOT_DATA[2]);
+"381
+[e ( _KT_Bus_Write (2 , -> -> 20 `i `uc *U + &U . _mic_config 6 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+[; ;microphone.c: 382: KT_Bus_Write(0x27, mic_config.PILOT_DATA[3]);
+"382
+[e ( _KT_Bus_Write (2 , -> -> 39 `i `uc *U + &U . _mic_config 6 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+[; ;microphone.c: 383: KT_WirelessMicTx_Pilot(1);
+"383
+[e ( _KT_WirelessMicTx_Pilot (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 384: KT_Bus_Write(0x1F, pilot_config);
+"384
+[e ( _KT_Bus_Write (2 , -> -> 31 `i `uc _pilot_config ]
+[; ;microphone.c: 387: pilot_config = KT_Bus_Read(0x1e);
+"387
+[e = _pilot_config ( _KT_Bus_Read (1 -> -> 30 `i `uc ]
+[; ;microphone.c: 388: KT_Bus_Write(0x1e,pilot_config|0x0010);
+"388
+[e ( _KT_Bus_Write (2 , -> -> 30 `i `uc -> | -> _pilot_config `ui -> -> 16 `i `ui `us ]
+[; ;microphone.c: 389: DelayUs(5*1000);
+"389
+[e ( _DelayUs (1 -> * -> 5 `i -> 1000 `i `uc ]
+[; ;microphone.c: 390: pilot_config = KT_Bus_Read(0x1e);
+"390
+[e = _pilot_config ( _KT_Bus_Read (1 -> -> 30 `i `uc ]
+[; ;microphone.c: 391: KT_Bus_Write(0x1e, pilot_config&~0x0010);
+"391
+[e ( _KT_Bus_Write (2 , -> -> 30 `i `uc -> & -> _pilot_config `ui -> ~ -> 16 `i `ui `us ]
+[; ;microphone.c: 393: KT_WirelessMicTx_MuteSel(0);
+"393
+[e ( _KT_WirelessMicTx_MuteSel (1 -> -> 0 `i `uc ]
+[; ;microphone.c: 394: log_info("set new freq = %dKHz, result = %d\n",mic_config.freq, result);
+"394
+[e ( _log_info , , :s 8C . _mic_config 1 _result ]
+[; ;microphone.c: 396: return 1;
+"396
+[e ) -> 1 `i ]
+[e $UE 27  ]
+"397
+}
+[e :U 31 ]
+[; ;microphone.c: 397: }
+[; ;microphone.c: 399: microphone_enable(0);
+"399
+[e ( _microphone_enable (1 -> -> 0 `i `uc ]
+[; ;microphone.c: 400: DelayUs(100*1000);
+"400
+[e ( _DelayUs (1 -> * -> 100 `i -> 1000 `i `uc ]
+[; ;microphone.c: 401: microphone_enable(1);
+"401
+[e ( _microphone_enable (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 402: DelayUs(300*1000);
+"402
+[e ( _DelayUs (1 -> * -> 300 `i -> 1000 `i `uc ]
+"403
+}
+[; ;microphone.c: 403: }while(retry--);
+[e $ != -- _retry -> 1 `i -> 0 `i 30  ]
+[e :U 29 ]
+[; ;microphone.c: 405: log_info("microphone_set_freq failed!");
+"405
+[e ( _log_info :s 9C ]
+[; ;microphone.c: 406: return 0;
+"406
+[e ) -> 0 `i ]
+[e $UE 27  ]
+[; ;microphone.c: 407: }
+"407
+[e :UE 27 ]
+}
+"409
+[v _microphone_save_config `(i ~T0 @X0 1 ef ]
+"410
+{
+[; ;microphone.c: 409: int microphone_save_config()
+[; ;microphone.c: 410: {
+[e :U _microphone_save_config ]
+[f ]
+[; ;microphone.c: 412: mic_config.flash_key = 0x55AA0103;
+"412
+[e = . _mic_config 0 -> -> 1437204739 `l `ui ]
+[; ;microphone.c: 415: return 1;
+"415
+[e ) -> 1 `i ]
+[e $UE 32  ]
+[; ;microphone.c: 416: }
+"416
+[e :UE 32 ]
+}
+"419
+[v _microphone_AUX_Disconnect `(v ~T0 @X0 1 ef ]
+"420
+{
+[; ;microphone.c: 419: void microphone_AUX_Disconnect()
+[; ;microphone.c: 420: {
+[e :U _microphone_AUX_Disconnect ]
+[f ]
+"421
+[v _device_id_reg13 `us ~T0 @X0 1 a ]
+[; ;microphone.c: 421: u16 device_id_reg13 =0;
+[e = _device_id_reg13 -> -> 0 `i `us ]
+"422
+[v _ret `us ~T0 @X0 1 a ]
+[; ;microphone.c: 422: u16 ret =0;
+[e = _ret -> -> 0 `i `us ]
+[; ;microphone.c: 423: ret = KT_Bus_Read(0x1f);
+"423
+[e = _ret ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 424: log_info("read  aux_addr2 reg1f=[0x%04x]  \r\n",ret);
+"424
+[e ( _log_info , :s 10C -> _ret `i ]
+[; ;microphone.c: 425: ret = KT_Bus_Read(0x1f);
+"425
+[e = _ret ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 426: log_info("read  aux_addr2 reg1f=[0x%04x]  \r\n",ret);
+"426
+[e ( _log_info , :s 11C -> _ret `i ]
+[; ;microphone.c: 427: log_info("read  aux_addr2 reg2H =[0x%02x  0x02x ]  \r\n",(((ret) >> 8) & 0xFF),((ret) & 0xFF));
+"427
+[e ( _log_info , , :s 12C & >> -> _ret `ui -> 8 `i -> -> 255 `i `ui & -> _ret `ui -> -> 255 `i `ui ]
+[; ;microphone.c: 428: device_id_reg13 = (0xe2 << 8) | (((ret) & 0xFF));
+"428
+[e = _device_id_reg13 -> | -> << -> 226 `i -> 8 `i `ui & -> _ret `ui -> -> 255 `i `ui `us ]
+[; ;microphone.c: 432: KT_Bus_Write(0x13, device_id_reg13);
+"432
+[e ( _KT_Bus_Write (2 , -> -> 19 `i `uc _device_id_reg13 ]
+[; ;microphone.c: 434: KT_Bus_Write(0x20,(0x13 << 8) | 0x12);
+"434
+[e ( _KT_Bus_Write (2 , -> -> 32 `i `uc -> | << -> 19 `i -> 8 `i -> 18 `i `us ]
+[; ;microphone.c: 435: KT_Bus_Write(0x21,(0x27 << 8) | 0x14);
+"435
+[e ( _KT_Bus_Write (2 , -> -> 33 `i `uc -> | << -> 39 `i -> 8 `i -> 20 `i `us ]
+[; ;microphone.c: 437: ret = KT_Bus_Read(0x1f);
+"437
+[e = _ret ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 438: KT_Bus_Write(0x1f,(ret&0x80f0)|(1 << 14)|(3 << 12) |
+[; ;microphone.c: 439: (3 << 9)|1);
+"439
+[e ( _KT_Bus_Write (2 , -> -> 31 `i `uc -> | | | | & -> _ret `ui -> 33008 `ui -> << -> 1 `i -> 14 `i `ui -> << -> 3 `i -> 12 `i `ui -> << -> 3 `i -> 9 `i `ui -> -> 1 `i `ui `us ]
+[; ;microphone.c: 440: }
+"440
+[e :UE 33 ]
+}
+"444
+[v _microphone_AUX_mute `(v ~T0 @X0 1 ef ]
+"445
+{
+[; ;microphone.c: 444: void microphone_AUX_mute()
+[; ;microphone.c: 445: {
+[e :U _microphone_AUX_mute ]
+[f ]
+"446
+[v _device_id_reg13 `us ~T0 @X0 1 a ]
+[; ;microphone.c: 446: u16 device_id_reg13 =0;
+[e = _device_id_reg13 -> -> 0 `i `us ]
+"447
+[v _ret `us ~T0 @X0 1 a ]
+[; ;microphone.c: 447: u16 ret =0;
+[e = _ret -> -> 0 `i `us ]
+[; ;microphone.c: 448: ret = KT_Bus_Read(0x1f);
+"448
+[e = _ret ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 449: log_debug("read  aux_addr1f reg1f=[0x%04x]  \r\n",ret);
+"449
+[e ( _log_debug , :s 13C -> _ret `i ]
+[; ;microphone.c: 450: ret = KT_Bus_Read(0x13);
+"450
+[e = _ret ( _KT_Bus_Read (1 -> -> 19 `i `uc ]
+[; ;microphone.c: 451: log_debug("read  aux_addr13 reg1f=[0x%04x]  \r\n",ret);
+"451
+[e ( _log_debug , :s 14C -> _ret `i ]
+[; ;microphone.c: 453: device_id_reg13 = (0xe3 << 8) | (((ret) & 0xFF));
+"453
+[e = _device_id_reg13 -> | -> << -> 227 `i -> 8 `i `ui & -> _ret `ui -> -> 255 `i `ui `us ]
+[; ;microphone.c: 455: KT_Bus_Write(0x13, device_id_reg13);
+"455
+[e ( _KT_Bus_Write (2 , -> -> 19 `i `uc _device_id_reg13 ]
+[; ;microphone.c: 457: ret = KT_Bus_Read(0x27);
+"457
+[e = _ret ( _KT_Bus_Read (1 -> -> 39 `i `uc ]
+[; ;microphone.c: 458: ret = KT_Bus_Read(0x13);
+"458
+[e = _ret ( _KT_Bus_Read (1 -> -> 19 `i `uc ]
+[; ;microphone.c: 459: log_debug("write  aux_addr13 reg14=[0x%04x]  \r\n",ret);
+"459
+[e ( _log_debug , :s 15C -> _ret `i ]
+[; ;microphone.c: 461: KT_Bus_Write(0x20,(0x13 << 8) | 0x12);
+"461
+[e ( _KT_Bus_Write (2 , -> -> 32 `i `uc -> | << -> 19 `i -> 8 `i -> 18 `i `us ]
+[; ;microphone.c: 462: KT_Bus_Write(0x21,(0x27 << 8) | 0x14);
+"462
+[e ( _KT_Bus_Write (2 , -> -> 33 `i `uc -> | << -> 39 `i -> 8 `i -> 20 `i `us ]
+[; ;microphone.c: 464: ret = KT_Bus_Read(0x1f);
+"464
+[e = _ret ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 465: KT_Bus_Write(0x1f,(ret&0x80f0)|(1 << 14)|(3 << 12) |
+[; ;microphone.c: 466: (3 << 9)|1);
+"466
+[e ( _KT_Bus_Write (2 , -> -> 31 `i `uc -> | | | | & -> _ret `ui -> 33008 `ui -> << -> 1 `i -> 14 `i `ui -> << -> 3 `i -> 12 `i `ui -> << -> 3 `i -> 9 `i `ui -> -> 1 `i `ui `us ]
+[; ;microphone.c: 467: }
+"467
+[e :UE 34 ]
+}
+"470
+[v _microphone_AUX_unmute `(v ~T0 @X0 1 ef ]
+"471
+{
+[; ;microphone.c: 470: void microphone_AUX_unmute()
+[; ;microphone.c: 471: {
+[e :U _microphone_AUX_unmute ]
+[f ]
+"472
+[v _device_id_reg13 `us ~T0 @X0 1 a ]
+[; ;microphone.c: 472: u16 device_id_reg13 =0;
+[e = _device_id_reg13 -> -> 0 `i `us ]
+"473
+[v _ret `us ~T0 @X0 1 a ]
+[; ;microphone.c: 473: u16 ret =0;
+[e = _ret -> -> 0 `i `us ]
+[; ;microphone.c: 474: ret = KT_Bus_Read(0x1f);
+"474
+[e = _ret ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 475: log_debug("read  aux_addr1f reg1f=[0x%04x]  \r\n",ret);
+"475
+[e ( _log_debug , :s 16C -> _ret `i ]
+[; ;microphone.c: 476: ret = KT_Bus_Read(0x13);
+"476
+[e = _ret ( _KT_Bus_Read (1 -> -> 19 `i `uc ]
+[; ;microphone.c: 477: log_debug("read  aux_addr13 reg1f=[0x%04x]  \r\n",ret);
+"477
+[e ( _log_debug , :s 17C -> _ret `i ]
+[; ;microphone.c: 479: device_id_reg13 = (0xe4 << 8) | (((ret) & 0xFF));
+"479
+[e = _device_id_reg13 -> | -> << -> 228 `i -> 8 `i `ui & -> _ret `ui -> -> 255 `i `ui `us ]
+[; ;microphone.c: 481: KT_Bus_Write(0x13, device_id_reg13);
+"481
+[e ( _KT_Bus_Write (2 , -> -> 19 `i `uc _device_id_reg13 ]
+[; ;microphone.c: 483: ret = KT_Bus_Read(0x27);
+"483
+[e = _ret ( _KT_Bus_Read (1 -> -> 39 `i `uc ]
+[; ;microphone.c: 484: ret = KT_Bus_Read(0x13);
+"484
+[e = _ret ( _KT_Bus_Read (1 -> -> 19 `i `uc ]
+[; ;microphone.c: 485: log_debug("write  aux_addr14 reg14=[0x%04x]  \r\n",ret);
+"485
+[e ( _log_debug , :s 18C -> _ret `i ]
+[; ;microphone.c: 487: KT_Bus_Write(0x20,(0x13 << 8) | 0x12);
+"487
+[e ( _KT_Bus_Write (2 , -> -> 32 `i `uc -> | << -> 19 `i -> 8 `i -> 18 `i `us ]
+[; ;microphone.c: 488: KT_Bus_Write(0x21,(0x27 << 8) | 0x14);
+"488
+[e ( _KT_Bus_Write (2 , -> -> 33 `i `uc -> | << -> 39 `i -> 8 `i -> 20 `i `us ]
+[; ;microphone.c: 490: ret = KT_Bus_Read(0x1f);
+"490
+[e = _ret ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 491: KT_Bus_Write(0x1f,(ret&0x80f0)|(1 << 14)|(3 << 12) |
+[; ;microphone.c: 492: (3 << 9)|1);
+"492
+[e ( _KT_Bus_Write (2 , -> -> 31 `i `uc -> | | | | & -> _ret `ui -> 33008 `ui -> << -> 1 `i -> 14 `i `ui -> << -> 3 `i -> 12 `i `ui -> << -> 3 `i -> 9 `i `ui -> -> 1 `i `ui `us ]
+[; ;microphone.c: 493: }
+"493
+[e :UE 35 ]
+}
+"496
+[v _microphone_pairing `(i ~T0 @X0 1 ef2`i`uc ]
+"497
+{
+[; ;microphone.c: 496: int microphone_pairing(s32 Freq,u8 ch)
+[; ;microphone.c: 497: {
+[e :U _microphone_pairing ]
+"496
+[v _Freq `i ~T0 @X0 1 r1 ]
+[v _ch `uc ~T0 @X0 1 r2 ]
+"497
+[f ]
+"498
+[v _pilot_config `us ~T0 @X0 1 a ]
+[; ;microphone.c: 498: u16 pilot_config = KT_Bus_Read(0x1F);
+[e = _pilot_config ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 500: KT_WirelessMicTx_MuteSel(1);
+"500
+[e ( _KT_WirelessMicTx_MuteSel (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 501: KT_WirelessMicTx_Pilot(0);
+"501
+[e ( _KT_WirelessMicTx_Pilot (1 -> -> 0 `i `uc ]
+[; ;microphone.c: 502: KT_WirelessMicTx_PAGain(0);
+"502
+[e ( _KT_WirelessMicTx_PAGain (1 -> -> 0 `i `uc ]
+[; ;microphone.c: 503: KT_WirelessMicTx_PASW(0);
+"503
+[e ( _KT_WirelessMicTx_PASW (1 -> -> 0 `i `uc ]
+"511
+[v _retry `i ~T0 @X0 1 a ]
+[; ;microphone.c: 511: int retry = 3;
+[e = _retry -> 3 `i ]
+[; ;microphone.c: 512: do {
+"512
+[e :U 39 ]
+{
+[; ;microphone.c: 516: if (KT_WirelessMicTx_Tune(Freq) == 1) {
+"516
+[e $ ! == -> ( _KT_WirelessMicTx_Tune (1 _Freq `i -> 1 `i 40  ]
+{
+[; ;microphone.c: 517: KT_WirelessMicTx_PAGain(mic_config.PA_gain);
+"517
+[e ( _KT_WirelessMicTx_PAGain (1 . _mic_config 2 ]
+"520
+[v _p0 `us ~T0 @X0 1 a ]
+[; ;microphone.c: 520: u16 p0 = ((u16)0xA9 << 8) + ch-1;
+[e = _p0 -> - + << -> -> -> 169 `i `us `ui -> 8 `i -> _ch `ui -> -> 1 `i `ui `us ]
+[; ;microphone.c: 521: KT_Bus_Write(0x12, p0);
+"521
+[e ( _KT_Bus_Write (2 , -> -> 18 `i `uc _p0 ]
+[; ;microphone.c: 522: KT_Bus_Write(0x13, 0xf0e4);
+"522
+[e ( _KT_Bus_Write (2 , -> -> 19 `i `uc -> -> 61668 `ui `us ]
+[; ;microphone.c: 523: KT_Bus_Write(0x14, 0x4161);
+"523
+[e ( _KT_Bus_Write (2 , -> -> 20 `i `uc -> -> 16737 `i `us ]
+[; ;microphone.c: 524: KT_Bus_Write(0x27, 0x4d66);
+"524
+[e ( _KT_Bus_Write (2 , -> -> 39 `i `uc -> -> 19814 `i `us ]
+[; ;microphone.c: 525: KT_WirelessMicTx_Pilot(1);
+"525
+[e ( _KT_WirelessMicTx_Pilot (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 526: KT_Bus_Write(0x1F, pilot_config);
+"526
+[e ( _KT_Bus_Write (2 , -> -> 31 `i `uc _pilot_config ]
+[; ;microphone.c: 528: pilot_config = KT_Bus_Read(0x1e);
+"528
+[e = _pilot_config ( _KT_Bus_Read (1 -> -> 30 `i `uc ]
+[; ;microphone.c: 529: KT_Bus_Write(0x1e, pilot_config|0x0010);
+"529
+[e ( _KT_Bus_Write (2 , -> -> 30 `i `uc -> | -> _pilot_config `ui -> -> 16 `i `ui `us ]
+[; ;microphone.c: 530: DelayUs(5*1000);
+"530
+[e ( _DelayUs (1 -> * -> 5 `i -> 1000 `i `uc ]
+[; ;microphone.c: 531: pilot_config = KT_Bus_Read(0x1e);
+"531
+[e = _pilot_config ( _KT_Bus_Read (1 -> -> 30 `i `uc ]
+[; ;microphone.c: 532: KT_Bus_Write(0x1e, pilot_config&~0x0010);
+"532
+[e ( _KT_Bus_Write (2 , -> -> 30 `i `uc -> & -> _pilot_config `ui -> ~ -> 16 `i `ui `us ]
+[; ;microphone.c: 535: return 1;
+"535
+[e ) -> 1 `i ]
+[e $UE 36  ]
+"536
+}
+[e :U 40 ]
+[; ;microphone.c: 536: }
+[; ;microphone.c: 538: microphone_enable(0);
+"538
+[e ( _microphone_enable (1 -> -> 0 `i `uc ]
+[; ;microphone.c: 539: DelayUs(100*1000);
+"539
+[e ( _DelayUs (1 -> * -> 100 `i -> 1000 `i `uc ]
+[; ;microphone.c: 540: microphone_enable(1);
+"540
+[e ( _microphone_enable (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 541: DelayUs(300*1000);
+"541
+[e ( _DelayUs (1 -> * -> 300 `i -> 1000 `i `uc ]
+"542
+}
+[; ;microphone.c: 542: }while(retry--);
+[e $ != -- _retry -> 1 `i -> 0 `i 39  ]
+[e :U 38 ]
+[; ;microphone.c: 543: log_info("microphone_pairing end");
+"543
+[e ( _log_info :s 19C ]
+[; ;microphone.c: 544: return 0;
+"544
+[e ) -> 0 `i ]
+[e $UE 36  ]
+[; ;microphone.c: 545: }
+"545
+[e :UE 36 ]
+}
+"547
+[v _is_microphone_hw_init `uc ~T0 @X0 1 s ]
+[i _is_microphone_hw_init
+-> -> 0 `i `uc
+]
+[; ;microphone.c: 547: static bool is_microphone_hw_init = 0;
+"548
+[v _is_need_save_config `uc ~T0 @X0 1 e ]
+[i _is_need_save_config
+-> -> 0 `i `uc
+]
+[; ;microphone.c: 548: bool is_need_save_config = 0;
+"549
+[v _is_need_pa_stop `uc ~T0 @X0 1 e ]
+[i _is_need_pa_stop
+-> -> 0 `i `uc
+]
+[; ;microphone.c: 549: bool is_need_pa_stop = 0;
+"550
+[v _is_microphone_enabled `uc ~T0 @X0 1 e ]
+[i _is_microphone_enabled
+-> -> 0 `i `uc
+]
+[; ;microphone.c: 550: bool is_microphone_enabled = 0;
+"552
+[v _KT_mic_config_t_print `(v ~T0 @X0 1 ef1`S5 ]
+"553
+{
+[; ;microphone.c: 552: void KT_mic_config_t_print(mic_config_t mic_config)
+[; ;microphone.c: 553: {
+[e :U _KT_mic_config_t_print ]
+[v _mic_config `S5 ~T0 @X0 1 r1 ]
+[f ]
+[; ;microphone.c: 554: log_debug("mic_config.flash_key = [0x%08x]", mic_config.flash_key);
+"554
+[e ( _log_debug , :s 20C . _mic_config 0 ]
+[; ;microphone.c: 555: log_debug("mic_config.freq = [%d]", mic_config.freq);
+"555
+[e ( _log_debug , :s 21C . _mic_config 1 ]
+[; ;microphone.c: 556: log_info("mic_config.PA_gain = [%d]", mic_config.PA_gain);
+"556
+[e ( _log_info , :s 22C -> . _mic_config 2 `i ]
+[; ;microphone.c: 557: log_debug("mic_config.EQ_EN = [0x%02x]", mic_config.EQ_EN);
+"557
+[e ( _log_debug , :s 23C -> . _mic_config 3 `i ]
+[; ;microphone.c: 558: log_debug("mic_config.EQ[0] = [0x%02x]", mic_config.EQ[0]);
+"558
+[e ( _log_debug , :s 24C -> *U + &U . _mic_config 4 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 559: log_debug("mic_config.EQ[1] = [0x%02x]", mic_config.EQ[1]);
+"559
+[e ( _log_debug , :s 25C -> *U + &U . _mic_config 4 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 560: log_debug("mic_config.EQ[2] = [0x%02x]", mic_config.EQ[2]);
+"560
+[e ( _log_debug , :s 26C -> *U + &U . _mic_config 4 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 561: log_debug("mic_config.EQ[3] = [0x%02x]", mic_config.EQ[3]);
+"561
+[e ( _log_debug , :s 27C -> *U + &U . _mic_config 4 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 562: log_debug("mic_config.EQ[4] = [0x%02x]", mic_config.EQ[4]);
+"562
+[e ( _log_debug , :s 28C -> *U + &U . _mic_config 4 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 563: log_debug("mic_config.EQ[5] = [0x%02x]", mic_config.EQ[5]);
+"563
+[e ( _log_debug , :s 29C -> *U + &U . _mic_config 4 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 564: log_debug("mic_config.EQ[6] = [0x%02x]", mic_config.EQ[6]);
+"564
+[e ( _log_debug , :s 30C -> *U + &U . _mic_config 4 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 565: log_debug("mic_config.EQ[7] = [0x%02x]", mic_config.EQ[7]);
+"565
+[e ( _log_debug , :s 31C -> *U + &U . _mic_config 4 * -> -> -> 7 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 566: log_debug("mic_config.EQ[8] = [0x%02x]", mic_config.EQ[8]);
+"566
+[e ( _log_debug , :s 32C -> *U + &U . _mic_config 4 * -> -> -> 8 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 567: log_debug("mic_config.EQ[9] = [0x%02x]", mic_config.EQ[9]);
+"567
+[e ( _log_debug , :s 33C -> *U + &U . _mic_config 4 * -> -> -> 9 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 568: log_debug("mic_config.EQ[10] = [0x%02x]", mic_config.EQ[10]);
+"568
+[e ( _log_debug , :s 34C -> *U + &U . _mic_config 4 * -> -> -> 10 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 569: log_debug("mic_config.EQ[11] = [0x%02x]", mic_config.EQ[11]);
+"569
+[e ( _log_debug , :s 35C -> *U + &U . _mic_config 4 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 570: log_debug("mic_config.EQ[12] = [0x%02x]", mic_config.EQ[12]);
+"570
+[e ( _log_debug , :s 36C -> *U + &U . _mic_config 4 * -> -> -> 12 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 571: log_debug("mic_config.EQ[13] = [0x%02x]", mic_config.EQ[13]);
+"571
+[e ( _log_debug , :s 37C -> *U + &U . _mic_config 4 * -> -> -> 13 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 572: log_debug("mic_config.EQ[14] = [0x%02x]", mic_config.EQ[14]);
+"572
+[e ( _log_debug , :s 38C -> *U + &U . _mic_config 4 * -> -> -> 14 `i `ui `ux -> -> # *U &U . _mic_config 4 `ui `ux `i ]
+[; ;microphone.c: 573: log_debug("mic_config.PILOT_EN = [0x%02x]", mic_config.PILOT_EN);
+"573
+[e ( _log_debug , :s 39C -> . _mic_config 5 `i ]
+[; ;microphone.c: 575: log_debug("mic_config.PILOT_DATA[0] = [0x%04x]", mic_config.PILOT_DATA[0]);
+"575
+[e ( _log_debug , :s 40C -> *U + &U . _mic_config 6 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux `i ]
+[; ;microphone.c: 576: log_debug("mic_config.PILOT_DATA[1] = [0x%04x]", mic_config.PILOT_DATA[1]);
+"576
+[e ( _log_debug , :s 41C -> *U + &U . _mic_config 6 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux `i ]
+[; ;microphone.c: 577: log_debug("mic_config.PILOT_DATA[2] = [0x%04x]", mic_config.PILOT_DATA[2]);
+"577
+[e ( _log_debug , :s 42C -> *U + &U . _mic_config 6 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux `i ]
+[; ;microphone.c: 578: log_debug("mic_config.PILOT_DATA[3] = [0x%04x]", mic_config.PILOT_DATA[3]);
+"578
+[e ( _log_debug , :s 43C -> *U + &U . _mic_config 6 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux `i ]
+[; ;microphone.c: 579: log_debug("mic_config.channel = [0x%02x]", mic_config.channel);
+"579
+[e ( _log_debug , :s 44C -> . _mic_config 7 `i ]
+[; ;microphone.c: 580: log_debug("mic_config.PA_state = [0x%02x]", mic_config.PA_state);
+"580
+[e ( _log_debug , :s 45C -> . _mic_config 8 `i ]
+[; ;microphone.c: 581: }
+"581
+[e :UE 41 ]
+}
+"583
+[v _KT0646_setchangeBattery `(v ~T0 @X0 1 ef ]
+"584
+{
+[; ;microphone.c: 583: void KT0646_setchangeBattery()
+[; ;microphone.c: 584: {
+[e :U _KT0646_setchangeBattery ]
+[f ]
+"585
+[v _ret `us ~T0 @X0 1 a ]
+"586
+[v _device_id_reg27 `us ~T0 @X0 1 a ]
+"587
+[v _falshbatt `uc ~T0 @X0 1 a ]
+[; ;microphone.c: 585: u16 ret;
+[; ;microphone.c: 586: u16 device_id_reg27;
+[; ;microphone.c: 587: u8 falshbatt =0;
+[e = _falshbatt -> -> 0 `i `uc ]
+"588
+[v _battchang `uc ~T0 @X0 1 a ]
+[; ;microphone.c: 588: u8 battchang =0;
+[e = _battchang -> -> 0 `i `uc ]
+[; ;microphone.c: 589: device_id_reg27 = KT_Bus_Read(0x27);
+"589
+[e = _device_id_reg27 ( _KT_Bus_Read (1 -> -> 39 `i `uc ]
+[; ;microphone.c: 591: falshbatt =((device_id_reg27) & 0xFF);
+"591
+[e = _falshbatt -> & -> _device_id_reg27 `ui -> -> 255 `i `ui `uc ]
+[; ;microphone.c: 594: if (battchang >=2 )
+"594
+[e $ ! >= -> _battchang `i -> 2 `i 43  ]
+[; ;microphone.c: 595: {
+"595
+{
+[; ;microphone.c: 596: KT_WirelessMicTx_PASW(1);
+"596
+[e ( _KT_WirelessMicTx_PASW (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 597: ret = KT_Bus_Read(0x1f);
+"597
+[e = _ret ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 598: KT_Bus_Write(0x27, ((((device_id_reg27) >> 8) & 0xFF)<< 8) | (Battery_Vdet/100));
+"598
+[e ( _KT_Bus_Write (2 , -> -> 39 `i `uc -> | << & >> -> _device_id_reg27 `ui -> 8 `i -> -> 255 `i `ui -> 8 `i / _Battery_Vdet -> -> 100 `i `ui `us ]
+[; ;microphone.c: 599: mic_config.PILOT_DATA[3] = ((((device_id_reg27) >> 8) & 0xFF)<< 8) | (Battery_Vdet/100);
+"599
+[e = *U + &U . _mic_config 6 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux -> | << & >> -> _device_id_reg27 `ui -> 8 `i -> -> 255 `i `ui -> 8 `i / _Battery_Vdet -> -> 100 `i `ui `us ]
+[; ;microphone.c: 602: KT_Bus_Write(0x20,(0x13 << 8) | 0x12);
+"602
+[e ( _KT_Bus_Write (2 , -> -> 32 `i `uc -> | << -> 19 `i -> 8 `i -> 18 `i `us ]
+[; ;microphone.c: 603: KT_Bus_Write(0x21,(0x27 << 8) | 0x14);
+"603
+[e ( _KT_Bus_Write (2 , -> -> 33 `i `uc -> | << -> 39 `i -> 8 `i -> 20 `i `us ]
+[; ;microphone.c: 605: KT_Bus_Write(0x1f,(ret&0x80f0)|(1 << 14)|(3 << 12) |
+[; ;microphone.c: 606: (3 << 9)|1);
+"606
+[e ( _KT_Bus_Write (2 , -> -> 31 `i `uc -> | | | | & -> _ret `ui -> 33008 `ui -> << -> 1 `i -> 14 `i `ui -> << -> 3 `i -> 12 `i `ui -> << -> 3 `i -> 9 `i `ui -> -> 1 `i `ui `us ]
+"608
+}
+[e :U 43 ]
+[; ;microphone.c: 608: }
+[; ;microphone.c: 609: }
+"609
+[e :UE 42 ]
+}
+"611
+[v _KT0646_setchangekey `(v ~T0 @X0 1 ef1`uc ]
+"612
+{
+[; ;microphone.c: 611: void KT0646_setchangekey(u8 key)
+[; ;microphone.c: 612: {
+[e :U _KT0646_setchangekey ]
+"611
+[v _key `uc ~T0 @X0 1 r1 ]
+"612
+[f ]
+"613
+[v _ret `us ~T0 @X0 1 a ]
+"614
+[v _device_id_reg27 `us ~T0 @X0 1 a ]
+"615
+[v _falshkey `uc ~T0 @X0 1 a ]
+[; ;microphone.c: 613: u16 ret;
+[; ;microphone.c: 614: u16 device_id_reg27;
+[; ;microphone.c: 615: u8 falshkey =0;
+[e = _falshkey -> -> 0 `i `uc ]
+[; ;microphone.c: 616: device_id_reg27 = KT_Bus_Read(0x27);
+"616
+[e = _device_id_reg27 ( _KT_Bus_Read (1 -> -> 39 `i `uc ]
+[; ;microphone.c: 618: falshkey = (((device_id_reg27) >> 8) & 0xFF);
+"618
+[e = _falshkey -> & >> -> _device_id_reg27 `ui -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;microphone.c: 619: log_debug("read  aux_reserved_reg4 reg27=[0x%04x] falshkey=[%d] key=[%d] \r\n",device_id_reg27,falshkey,key);
+"619
+[e ( _log_debug , , , :s 46C -> _device_id_reg27 `i -> _falshkey `i -> _key `i ]
+[; ;microphone.c: 620: if (falshkey != key )
+"620
+[e $ ! != -> _falshkey `i -> _key `i 45  ]
+[; ;microphone.c: 621: {
+"621
+{
+[; ;microphone.c: 622: KT_WirelessMicTx_PASW(1);
+"622
+[e ( _KT_WirelessMicTx_PASW (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 623: ret = KT_Bus_Read(0x1f);
+"623
+[e = _ret ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 624: if (mic_config.flash_key == 0x55AA0103)
+"624
+[e $ ! == -> . _mic_config 0 `l -> 1437204739 `l 46  ]
+[; ;microphone.c: 625: {
+"625
+{
+[; ;microphone.c: 626: KT_Bus_Write(0x27, (key<< 8) | (((device_id_reg27) & 0xFF)));
+"626
+[e ( _KT_Bus_Write (2 , -> -> 39 `i `uc -> | -> << -> _key `i -> 8 `i `ui & -> _device_id_reg27 `ui -> -> 255 `i `ui `us ]
+[; ;microphone.c: 627: mic_config.PILOT_DATA[3] = ((key<< 8) | (((device_id_reg27) & 0xFF)));
+"627
+[e = *U + &U . _mic_config 6 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux -> | -> << -> _key `i -> 8 `i `ui & -> _device_id_reg27 `ui -> -> 255 `i `ui `us ]
+[; ;microphone.c: 629: if (TestMode == 0)
+"629
+[e $ ! == -> _TestMode `i -> 0 `i 47  ]
+[; ;microphone.c: 630: {
+"630
+{
+[; ;microphone.c: 631: if (SaveDataToFlash(&mic_config) )
+"631
+[e $ ! != ( _SaveDataToFlash &U _mic_config -> 0 `i 48  ]
+[; ;microphone.c: 632: {
+"632
+{
+[; ;microphone.c: 633: log_info("MIC  device change key  Save Data  Success\n");
+"633
+[e ( _log_info :s 47C ]
+"634
+}
+[; ;microphone.c: 634: }
+[e $U 49  ]
+"635
+[e :U 48 ]
+[; ;microphone.c: 635: else
+[; ;microphone.c: 636: {
+"636
+{
+[; ;microphone.c: 637: log_error("MIC  device change key  Save Data  fail\n");
+"637
+[e ( _log_error :s 48C ]
+"638
+}
+[e :U 49 ]
+"639
+}
+[e :U 47 ]
+[; ;microphone.c: 638: }
+[; ;microphone.c: 639: }
+[; ;microphone.c: 640: KT_Bus_Write(0x20,(0x13 << 8) | 0x12);
+"640
+[e ( _KT_Bus_Write (2 , -> -> 32 `i `uc -> | << -> 19 `i -> 8 `i -> 18 `i `us ]
+[; ;microphone.c: 641: KT_Bus_Write(0x21,(0x27 << 8) | 0x14);
+"641
+[e ( _KT_Bus_Write (2 , -> -> 33 `i `uc -> | << -> 39 `i -> 8 `i -> 20 `i `us ]
+[; ;microphone.c: 643: KT_Bus_Write(0x1f,(ret&0x80f0)|(1 << 14)|(3 << 12) |
+[; ;microphone.c: 644: (3 << 9)|1);
+"644
+[e ( _KT_Bus_Write (2 , -> -> 31 `i `uc -> | | | | & -> _ret `ui -> 33008 `ui -> << -> 1 `i -> 14 `i `ui -> << -> 3 `i -> 12 `i `ui -> << -> 3 `i -> 9 `i `ui -> -> 1 `i `ui `us ]
+"645
+}
+[e :U 46 ]
+"646
+}
+[e :U 45 ]
+[; ;microphone.c: 645: }
+[; ;microphone.c: 646: }
+[; ;microphone.c: 647: }
+"647
+[e :UE 44 ]
+}
+"650
+[v _process_microphone `(v ~T0 @X0 1 ef ]
+"651
+{
+[; ;microphone.c: 650: void process_microphone()
+[; ;microphone.c: 651: {
+[e :U _process_microphone ]
+[f ]
+"652
+[v _ret `us ~T0 @X0 1 a ]
+"653
+[v _device_id_reg12 `us ~T0 @X0 1 a ]
+"654
+[v _device_id_reg13 `us ~T0 @X0 1 a ]
+"655
+[v _device_id_reg14 `us ~T0 @X0 1 a ]
+"656
+[v _device_id_reg27 `us ~T0 @X0 1 a ]
+"657
+[v _number_random `ui ~T0 @X0 1 a ]
+[; ;microphone.c: 652: u16 ret;
+[; ;microphone.c: 653: u16 device_id_reg12;
+[; ;microphone.c: 654: u16 device_id_reg13;
+[; ;microphone.c: 655: u16 device_id_reg14;
+[; ;microphone.c: 656: u16 device_id_reg27;
+[; ;microphone.c: 657: u32 number_random=0;
+[e = _number_random -> -> 0 `i `ui ]
+"658
+[v _current_channel `uc ~T0 @X0 1 a ]
+[; ;microphone.c: 658: u8 current_channel=0;
+[e = _current_channel -> -> 0 `i `uc ]
+"660
+[v _get_random `(i ~T0 @X0 0 ef ]
+[; ;microphone.c: 660: extern int get_random();
+[; ;microphone.c: 663: channel_number = 0;
+"663
+[e = _channel_number -> -> 0 `i `uc ]
+[; ;microphone.c: 664: my_memset(&mic_config,'0',sizeof(mic_config_t));
+"664
+[e ( _my_memset , , &U _mic_config -> 48 `ui -> # `S5 `ui ]
+[; ;microphone.c: 665: if (TestMode == 1)
+"665
+[e $ ! == -> _TestMode `i -> 1 `i 51  ]
+[; ;microphone.c: 666: {
+"666
+{
+[; ;microphone.c: 667: log_info("into test mode .....\n");
+"667
+[e ( _log_info :s 49C ]
+[; ;microphone.c: 668: eraseToFlash();
+"668
+[e ( _eraseToFlash ..  ]
+[; ;microphone.c: 669: mic_config.ch_power_count = get_random()%5;
+"669
+[e = . _mic_config 9 -> % ( _get_random ..  -> 5 `i `uc ]
+"670
+}
+[e :U 51 ]
+[; ;microphone.c: 670: }
+[; ;microphone.c: 672: if (ReadDataFromFlash())
+"672
+[e $ ! != ( _ReadDataFromFlash ..  -> 0 `i 52  ]
+[; ;microphone.c: 673: {
+"673
+{
+[; ;microphone.c: 674: KT_mic_config_t_print(mic_config);
+"674
+[e ( _KT_mic_config_t_print (1 _mic_config ]
+[; ;microphone.c: 675: log_info("Read Flash OK\n");
+"675
+[e ( _log_info :s 50C ]
+[; ;microphone.c: 676: mic_config.ch_power_count ++;
+"676
+[e ++ . _mic_config 9 -> -> 1 `i `uc ]
+"677
+}
+[; ;microphone.c: 677: }
+[e $U 53  ]
+"678
+[e :U 52 ]
+[; ;microphone.c: 678: else{
+{
+[; ;microphone.c: 679: log_info("No Data in Flash!!!\n");
+"679
+[e ( _log_info :s 51C ]
+[; ;microphone.c: 680: eraseToFlash();
+"680
+[e ( _eraseToFlash ..  ]
+[; ;microphone.c: 681: mic_config.ch_power_count = get_random()%5;
+"681
+[e = . _mic_config 9 -> % ( _get_random ..  -> 5 `i `uc ]
+[; ;microphone.c: 682: log_error("Erase Flash OK\n");
+"682
+[e ( _log_error :s 52C ]
+"684
+}
+[e :U 53 ]
+[; ;microphone.c: 684: }
+[; ;microphone.c: 685: microphone_enable(1);
+"685
+[e ( _microphone_enable (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 686: ret=microphone_init();
+"686
+[e = _ret -> ( _microphone_init ..  `us ]
+[; ;microphone.c: 687: if (ret == 0)
+"687
+[e $ ! == -> _ret `ui -> -> 0 `i `ui 54  ]
+[; ;microphone.c: 688: {
+"688
+{
+[; ;microphone.c: 689: log_info("microphone_init fail  \r\n");
+"689
+[e ( _log_info :s 53C ]
+[; ;microphone.c: 690: device_ERR_display();
+"690
+[e ( _device_ERR_display ..  ]
+[; ;microphone.c: 691: return ;
+"691
+[e $UE 50  ]
+"692
+}
+[e :U 54 ]
+[; ;microphone.c: 692: }
+[; ;microphone.c: 695: if (mic_config.ch_power_count >95)
+"695
+[e $ ! > -> . _mic_config 9 `i -> 95 `i 55  ]
+[; ;microphone.c: 696: {
+"696
+{
+[; ;microphone.c: 697: mic_config.ch_power_count = get_random()%5;
+"697
+[e = . _mic_config 9 -> % ( _get_random ..  -> 5 `i `uc ]
+"698
+}
+[e :U 55 ]
+[; ;microphone.c: 698: }
+[; ;microphone.c: 699: current_channel = 4;
+"699
+[e = _current_channel -> -> 4 `i `uc ]
+[; ;microphone.c: 700: log_info("mic_config.ch_power_count11111=[%d] current_channel=[%d]\r\n",mic_config.ch_power_count,current_channel);
+"700
+[e ( _log_info , , :s 54C -> . _mic_config 9 `i -> _current_channel `i ]
+[; ;microphone.c: 702: if (mic_config.channel == current_channel)
+"702
+[e $ ! == -> . _mic_config 7 `i -> _current_channel `i 56  ]
+[; ;microphone.c: 703: {
+"703
+{
+[; ;microphone.c: 704: if (mic_config.channel == ( 6 -1))
+"704
+[e $ ! == -> . _mic_config 7 `i - -> 6 `i -> 1 `i 57  ]
+[; ;microphone.c: 705: {
+"705
+{
+[; ;microphone.c: 706: mic_config.channel =0;
+"706
+[e = . _mic_config 7 -> -> 0 `i `uc ]
+"707
+}
+[; ;microphone.c: 707: }
+[e $U 58  ]
+"708
+[e :U 57 ]
+[; ;microphone.c: 708: else{
+{
+[; ;microphone.c: 709: mic_config.channel= current_channel+1;
+"709
+[e = . _mic_config 7 -> + -> _current_channel `i -> 1 `i `uc ]
+"710
+}
+[e :U 58 ]
+"711
+}
+[; ;microphone.c: 710: }
+[; ;microphone.c: 711: }
+[e $U 59  ]
+"712
+[e :U 56 ]
+[; ;microphone.c: 712: else{
+{
+[; ;microphone.c: 713: mic_config.channel= current_channel;
+"713
+[e = . _mic_config 7 _current_channel ]
+"714
+}
+[e :U 59 ]
+[; ;microphone.c: 714: }
+[; ;microphone.c: 715: mic_config.freq= UserRandomFreq[channel_number][mic_config.channel];
+"715
+[e = . _mic_config 1 -> *U + &U *U + &U _UserRandomFreq * -> _channel_number `ux -> * -> # *U &U *U &U _UserRandomFreq `ui -> -> 48 `i `ui `ux * -> . _mic_config 7 `ux -> -> # *U &U *U + &U _UserRandomFreq * -> _channel_number `ux -> * -> # *U &U *U &U _UserRandomFreq `ui -> -> 48 `i `ui `ux `ui `ux `i ]
+[; ;microphone.c: 716: log_info("ble set mic  FREQMAXNUMBER=[%d] channel_number=[%d]  chanal=%d(%dKHz)\r\n" ,6, channel_number,mic_config.channel + 31 ,mic_config.freq);
+"716
+[e ( _log_info , , , , :s 55C -> 6 `i -> _channel_number `i + -> . _mic_config 7 `i -> 31 `i . _mic_config 1 ]
+[; ;microphone.c: 717: if (TestMode == 0)
+"717
+[e $ ! == -> _TestMode `i -> 0 `i 60  ]
+[; ;microphone.c: 718: {
+"718
+{
+[; ;microphone.c: 719: microphone_pairing_flag = microphone_pairing(mic_config.freq,mic_config.channel +31);
+"719
+[e = _microphone_pairing_flag -> ( _microphone_pairing (2 , . _mic_config 1 -> + -> . _mic_config 7 `i -> 31 `i `uc `us ]
+"720
+}
+[; ;microphone.c: 720: }
+[e $U 61  ]
+"721
+[e :U 60 ]
+[; ;microphone.c: 721: else{
+{
+[; ;microphone.c: 722: if (channel_number == 0)
+"722
+[e $ ! == -> _channel_number `i -> 0 `i 62  ]
+[; ;microphone.c: 723: {
+"723
+{
+[; ;microphone.c: 724: mic_config.freq=610000;
+"724
+[e = . _mic_config 1 -> -> 610000 `l `i ]
+[; ;microphone.c: 725: mic_config.channel=1;
+"725
+[e = . _mic_config 7 -> -> 1 `i `uc ]
+[; ;microphone.c: 726: microphone_pairing_flag=0;
+"726
+[e = _microphone_pairing_flag -> -> 0 `i `us ]
+[; ;microphone.c: 727: log_debug("into a ch test mode  mic_config.freq=[%d] mic_config.channel=[%d] microphone_pairing_flag=[%d] \n", mic_config.freq,mic_config.channel,microphone_pairing_flag);
+"727
+[e ( _log_debug , , , :s 56C . _mic_config 1 -> . _mic_config 7 `i -> _microphone_pairing_flag `i ]
+[; ;microphone.c: 728: microphone_pairing_flag = microphone_pairing(mic_config.freq,mic_config.channel );
+"728
+[e = _microphone_pairing_flag -> ( _microphone_pairing (2 , . _mic_config 1 . _mic_config 7 `us ]
+[; ;microphone.c: 729: log_info("into a ch test mode  microphone_pairing_flag=[%d] \n", microphone_pairing_flag);
+"729
+[e ( _log_info , :s 57C -> _microphone_pairing_flag `i ]
+"730
+}
+[e :U 62 ]
+[; ;microphone.c: 730: }
+[; ;microphone.c: 731: if (channel_number == 1)
+"731
+[e $ ! == -> _channel_number `i -> 1 `i 63  ]
+[; ;microphone.c: 732: {
+"732
+{
+[; ;microphone.c: 734: mic_config.freq=621000;
+"734
+[e = . _mic_config 1 -> -> 621000 `l `i ]
+[; ;microphone.c: 735: mic_config.channel=1;
+"735
+[e = . _mic_config 7 -> -> 1 `i `uc ]
+[; ;microphone.c: 736: microphone_pairing_flag=0;
+"736
+[e = _microphone_pairing_flag -> -> 0 `i `us ]
+[; ;microphone.c: 737: log_debug("into b ch test mode  mic_config.freq=[%d] mic_config.channel=[%d] microphone_pairing_flag=[%d] \n", mic_config.freq,mic_config.channel,microphone_pairing_flag);
+"737
+[e ( _log_debug , , , :s 58C . _mic_config 1 -> . _mic_config 7 `i -> _microphone_pairing_flag `i ]
+[; ;microphone.c: 738: microphone_pairing_flag = microphone_pairing(mic_config.freq,mic_config.channel );
+"738
+[e = _microphone_pairing_flag -> ( _microphone_pairing (2 , . _mic_config 1 . _mic_config 7 `us ]
+[; ;microphone.c: 739: log_debug("into b ch test mode  microphone_pairing_flag=[%d] \n", microphone_pairing_flag);
+"739
+[e ( _log_debug , :s 59C -> _microphone_pairing_flag `i ]
+"740
+}
+[e :U 63 ]
+"741
+}
+[e :U 61 ]
+[; ;microphone.c: 740: }
+[; ;microphone.c: 741: }
+[; ;microphone.c: 743: if (microphone_pairing_flag == 0)
+"743
+[e $ ! == -> _microphone_pairing_flag `ui -> -> 0 `i `ui 64  ]
+[; ;microphone.c: 744: {
+"744
+{
+[; ;microphone.c: 745: log_info("microphone_pairing fail  \r\n");
+"745
+[e ( _log_info :s 60C ]
+[; ;microphone.c: 746: device_ERR_display();
+"746
+[e ( _device_ERR_display ..  ]
+[; ;microphone.c: 747: return ;
+"747
+[e $UE 50  ]
+"748
+}
+[e :U 64 ]
+[; ;microphone.c: 748: }
+[; ;microphone.c: 755: device_ch_displayF002(mic_config.channel +1 );
+"755
+[e ( _device_ch_displayF002 + -> . _mic_config 7 `i -> 1 `i ]
+[; ;microphone.c: 757: if (channel_number == 0){
+"757
+[e $ ! == -> _channel_number `i -> 0 `i 65  ]
+{
+[; ;microphone.c: 758: channel_A_display(1);
+"758
+[e ( _channel_A_display -> 1 `i ]
+[; ;microphone.c: 759: channel_B_display(0);
+"759
+[e ( _channel_B_display -> 0 `i ]
+"760
+}
+[; ;microphone.c: 760: }
+[e $U 66  ]
+"761
+[e :U 65 ]
+[; ;microphone.c: 761: else {
+{
+[; ;microphone.c: 762: channel_A_display(0);
+"762
+[e ( _channel_A_display -> 0 `i ]
+[; ;microphone.c: 763: channel_B_display(1);
+"763
+[e ( _channel_B_display -> 1 `i ]
+"764
+}
+[e :U 66 ]
+[; ;microphone.c: 764: }
+[; ;microphone.c: 767: KT_WirelessMicTx_PASW(1);
+"767
+[e ( _KT_WirelessMicTx_PASW (1 -> -> 1 `i `uc ]
+[; ;microphone.c: 768: ret = KT_Bus_Read(0x1f);
+"768
+[e = _ret ( _KT_Bus_Read (1 -> -> 31 `i `uc ]
+[; ;microphone.c: 769: if (mic_config.flash_key == 0x55AA0103)
+"769
+[e $ ! == -> . _mic_config 0 `l -> 1437204739 `l 67  ]
+[; ;microphone.c: 770: {
+"770
+{
+[; ;microphone.c: 771: log_info("MIC  device Not the first pairing");
+"771
+[e ( _log_info :s 61C ]
+[; ;microphone.c: 772: device_id_reg12 =mic_config.PILOT_DATA[0];
+"772
+[e = _device_id_reg12 *U + &U . _mic_config 6 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+[; ;microphone.c: 774: if (TestMode == 0)
+"774
+[e $ ! == -> _TestMode `i -> 0 `i 68  ]
+[; ;microphone.c: 775: {
+"775
+{
+[; ;microphone.c: 776: device_id_reg13 = (0x88 << 8) | (mic_config.channel + 31 );
+"776
+[e = _device_id_reg13 -> | << -> 136 `i -> 8 `i + -> . _mic_config 7 `i -> 31 `i `us ]
+"777
+}
+[; ;microphone.c: 777: }else{
+[e $U 69  ]
+[e :U 68 ]
+{
+[; ;microphone.c: 778: device_id_reg13 = (0x88 << 8) | (mic_config.channel + 31 );
+"778
+[e = _device_id_reg13 -> | << -> 136 `i -> 8 `i + -> . _mic_config 7 `i -> 31 `i `us ]
+"779
+}
+[e :U 69 ]
+[; ;microphone.c: 779: }
+[; ;microphone.c: 780: device_id_reg14 = mic_config.PILOT_DATA[2];
+"780
+[e = _device_id_reg14 *U + &U . _mic_config 6 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+[; ;microphone.c: 781: device_id_reg27 = mic_config.PILOT_DATA[3];
+"781
+[e = _device_id_reg27 *U + &U . _mic_config 6 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux ]
+"782
+}
+[; ;microphone.c: 782: }
+[e $U 70  ]
+"783
+[e :U 67 ]
+[; ;microphone.c: 783: else {
+{
+[; ;microphone.c: 784: log_info(" MIC  device First pairing OK .....");
+"784
+[e ( _log_info :s 62C ]
+[; ;microphone.c: 785: device_id_reg12 = (get_random()%255 << 8) | (get_random()%255);
+"785
+[e = _device_id_reg12 -> | << % ( _get_random ..  -> 255 `i -> 8 `i % ( _get_random ..  -> 255 `i `us ]
+[; ;microphone.c: 787: if (TestMode == 0)
+"787
+[e $ ! == -> _TestMode `i -> 0 `i 71  ]
+[; ;microphone.c: 788: {
+"788
+{
+[; ;microphone.c: 789: device_id_reg13 = (0x88 << 8) | (mic_config.channel + 31 );
+"789
+[e = _device_id_reg13 -> | << -> 136 `i -> 8 `i + -> . _mic_config 7 `i -> 31 `i `us ]
+"790
+}
+[; ;microphone.c: 790: }else{
+[e $U 72  ]
+[e :U 71 ]
+{
+[; ;microphone.c: 791: device_id_reg13 = (0x88 << 8) | (mic_config.channel + 31 );
+"791
+[e = _device_id_reg13 -> | << -> 136 `i -> 8 `i + -> . _mic_config 7 `i -> 31 `i `us ]
+"792
+}
+[e :U 72 ]
+[; ;microphone.c: 792: }
+[; ;microphone.c: 793: device_id_reg14= (get_random()%255) << 8 | (get_random()%255);
+"793
+[e = _device_id_reg14 -> | << % ( _get_random ..  -> 255 `i -> 8 `i % ( _get_random ..  -> 255 `i `us ]
+[; ;microphone.c: 794: log_info("Battery_Vdet =[%umv]",Battery_Vdet);
+"794
+[e ( _log_info , :s 63C _Battery_Vdet ]
+[; ;microphone.c: 795: device_id_reg27 = (0x0 << 8) | (Battery_Vdet/100);
+"795
+[e = _device_id_reg27 -> | -> << -> 0 `i -> 8 `i `ui / _Battery_Vdet -> -> 100 `i `ui `us ]
+"796
+}
+[e :U 70 ]
+[; ;microphone.c: 796: }
+[; ;microphone.c: 799: KT_Bus_Write(0x12, device_id_reg12);
+"799
+[e ( _KT_Bus_Write (2 , -> -> 18 `i `uc _device_id_reg12 ]
+[; ;microphone.c: 800: KT_Bus_Write(0x13, device_id_reg13);
+"800
+[e ( _KT_Bus_Write (2 , -> -> 19 `i `uc _device_id_reg13 ]
+[; ;microphone.c: 801: KT_Bus_Write(0x14, device_id_reg14);
+"801
+[e ( _KT_Bus_Write (2 , -> -> 20 `i `uc _device_id_reg14 ]
+[; ;microphone.c: 802: KT_Bus_Write(0x27, device_id_reg27);
+"802
+[e ( _KT_Bus_Write (2 , -> -> 39 `i `uc _device_id_reg27 ]
+[; ;microphone.c: 804: mic_config.flash_key = 0x55AA0103;
+"804
+[e = . _mic_config 0 -> -> 1437204739 `l `ui ]
+[; ;microphone.c: 805: mic_config.PILOT_DATA[0] = device_id_reg12;
+"805
+[e = *U + &U . _mic_config 6 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux _device_id_reg12 ]
+[; ;microphone.c: 806: mic_config.PILOT_DATA[1] = device_id_reg13;
+"806
+[e = *U + &U . _mic_config 6 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux _device_id_reg13 ]
+[; ;microphone.c: 807: mic_config.PILOT_DATA[2] = device_id_reg14;
+"807
+[e = *U + &U . _mic_config 6 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux _device_id_reg14 ]
+[; ;microphone.c: 808: mic_config.PILOT_DATA[3] = device_id_reg27;
+"808
+[e = *U + &U . _mic_config 6 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _mic_config 6 `ui `ux _device_id_reg27 ]
+[; ;microphone.c: 809: KT_mic_config_t_print(mic_config);
+"809
+[e ( _KT_mic_config_t_print (1 _mic_config ]
+[; ;microphone.c: 810: if (TestMode == 0)
+"810
+[e $ ! == -> _TestMode `i -> 0 `i 73  ]
+[; ;microphone.c: 811: {
+"811
+{
+[; ;microphone.c: 812: if (SaveDataToFlash(&mic_config) )
+"812
+[e $ ! != ( _SaveDataToFlash &U _mic_config -> 0 `i 74  ]
+[; ;microphone.c: 813: {
+"813
+{
+[; ;microphone.c: 814: log_info("Save Data A Success\n");
+"814
+[e ( _log_info :s 64C ]
+"815
+}
+[; ;microphone.c: 815: }
+[e $U 75  ]
+"816
+[e :U 74 ]
+[; ;microphone.c: 816: else
+[; ;microphone.c: 817: {
+"817
+{
+[; ;microphone.c: 818: log_error("Save Data A fail\n");
+"818
+[e ( _log_error :s 65C ]
+"819
+}
+[e :U 75 ]
+"821
+}
+[e :U 73 ]
+[; ;microphone.c: 819: }
+[; ;microphone.c: 821: }
+[; ;microphone.c: 822: KT_Bus_Write(0x20,(0x13 << 8) | 0x12);
+"822
+[e ( _KT_Bus_Write (2 , -> -> 32 `i `uc -> | << -> 19 `i -> 8 `i -> 18 `i `us ]
+[; ;microphone.c: 823: KT_Bus_Write(0x21,(0x27 << 8) | 0x14);
+"823
+[e ( _KT_Bus_Write (2 , -> -> 33 `i `uc -> | << -> 39 `i -> 8 `i -> 20 `i `us ]
+[; ;microphone.c: 825: KT_Bus_Write(0x1f,(ret&0x80f0)|(1 << 14)|(3 << 12) |
+[; ;microphone.c: 826: (3 << 9)|1);
+"826
+[e ( _KT_Bus_Write (2 , -> -> 31 `i `uc -> | | | | & -> _ret `ui -> 33008 `ui -> << -> 1 `i -> 14 `i `ui -> << -> 3 `i -> 12 `i `ui -> << -> 3 `i -> 9 `i `ui -> -> 1 `i `ui `us ]
+[; ;microphone.c: 827: KT_WirelessMicTx_MuteSel(0);
+"827
+[e ( _KT_WirelessMicTx_MuteSel (1 -> -> 0 `i `uc ]
+[; ;microphone.c: 828: KT_WirelessMicTx_Read_Mic_Sens();
+"828
+[e ( _KT_WirelessMicTx_Read_Mic_Sens ..  ]
+[; ;microphone.c: 842: }
+"842
+[e :UE 50 ]
+}
+"844
+[v _microphone_enable `(v ~T0 @X0 1 ef1`uc ]
+"845
+{
+[; ;microphone.c: 844: void microphone_enable(bool enable)
+[; ;microphone.c: 845: {
+[e :U _microphone_enable ]
+"844
+[v _enable `uc ~T0 @X0 1 r1 ]
+"845
+[f ]
+[; ;microphone.c: 857: }
+"857
+[e :UE 76 ]
+}
+[a 61C 77 73 67 32 32 100 101 118 105 99 101 32 78 111 116 32 116 104 101 32 102 105 114 115 116 32 112 97 105 114 105 110 103 0 ]
+[a 19C 109 105 99 114 111 112 104 111 110 101 95 112 97 105 114 105 110 103 32 101 110 100 0 ]
+[a 6C 70 77 32 115 116 97 114 116 101 100 44 32 102 114 101 113 61 37 100 75 72 122 44 32 80 65 32 103 97 105 110 61 37 100 13 10 44 32 114 101 116 114 121 32 61 32 37 100 0 ]
+[a 20C 109 105 99 95 99 111 110 102 105 103 46 102 108 97 115 104 95 107 101 121 32 61 32 91 48 120 37 48 56 120 93 0 ]
+[a 43C 109 105 99 95 99 111 110 102 105 103 46 80 73 76 79 84 95 68 65 84 65 91 51 93 32 61 32 91 48 120 37 48 52 120 93 0 ]
+[a 42C 109 105 99 95 99 111 110 102 105 103 46 80 73 76 79 84 95 68 65 84 65 91 50 93 32 61 32 91 48 120 37 48 52 120 93 0 ]
+[a 41C 109 105 99 95 99 111 110 102 105 103 46 80 73 76 79 84 95 68 65 84 65 91 49 93 32 61 32 91 48 120 37 48 52 120 93 0 ]
+[a 40C 109 105 99 95 99 111 110 102 105 103 46 80 73 76 79 84 95 68 65 84 65 91 48 93 32 61 32 91 48 120 37 48 52 120 93 0 ]
+[a 44C 109 105 99 95 99 111 110 102 105 103 46 99 104 97 110 110 101 108 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 45C 109 105 99 95 99 111 110 102 105 103 46 80 65 95 115 116 97 116 101 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 33C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 57 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 32C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 56 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 31C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 55 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 30C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 54 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 29C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 53 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 28C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 52 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 38C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 49 52 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 27C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 51 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 37C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 49 51 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 26C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 50 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 36C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 49 50 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 25C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 49 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 35C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 49 49 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 24C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 48 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 34C 109 105 99 95 99 111 110 102 105 103 46 69 81 91 49 48 93 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 39C 109 105 99 95 99 111 110 102 105 103 46 80 73 76 79 84 95 69 78 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 23C 109 105 99 95 99 111 110 102 105 103 46 69 81 95 69 78 32 61 32 91 48 120 37 48 50 120 93 0 ]
+[a 63C 66 97 116 116 101 114 121 95 86 100 101 116 32 61 91 37 117 109 118 93 0 ]
+[a 21C 109 105 99 95 99 111 110 102 105 103 46 102 114 101 113 32 61 32 91 37 100 93 0 ]
+[a 22C 109 105 99 95 99 111 110 102 105 103 46 80 65 95 103 97 105 110 32 61 32 91 37 100 93 0 ]
+[a 62C 32 77 73 67 32 32 100 101 118 105 99 101 32 70 105 114 115 116 32 112 97 105 114 105 110 103 32 79 75 32 46 46 46 46 46 0 ]
+[a 9C 109 105 99 114 111 112 104 111 110 101 95 115 101 116 95 102 114 101 113 32 102 97 105 108 101 100 33 0 ]
+[a 64C 83 97 118 101 32 68 97 116 97 32 65 32 83 117 99 99 101 115 115 10 0 ]
+[a 47C 77 73 67 32 32 100 101 118 105 99 101 32 99 104 97 110 103 101 32 107 101 121 32 32 83 97 118 101 32 68 97 116 97 32 32 83 117 99 99 101 115 115 10 0 ]
+[a 65C 83 97 118 101 32 68 97 116 97 32 65 32 102 97 105 108 10 0 ]
+[a 48C 77 73 67 32 32 100 101 118 105 99 101 32 99 104 97 110 103 101 32 107 101 121 32 32 83 97 118 101 32 68 97 116 97 32 32 102 97 105 108 10 0 ]
+[a 8C 115 101 116 32 110 101 119 32 102 114 101 113 32 61 32 37 100 75 72 122 44 32 114 101 115 117 108 116 32 61 32 37 100 10 0 ]
+[a 52C 69 114 97 115 101 32 70 108 97 115 104 32 79 75 10 0 ]
+[a 50C 82 101 97 100 32 70 108 97 115 104 32 79 75 10 0 ]
+[a 49C 105 110 116 111 32 116 101 115 116 32 109 111 100 101 32 46 46 46 46 46 10 0 ]
+[a 51C 78 111 32 68 97 116 97 32 105 110 32 70 108 97 115 104 33 33 33 10 0 ]
+[a 58C 105 110 116 111 32 98 32 99 104 32 116 101 115 116 32 109 111 100 101 32 32 109 105 99 95 99 111 110 102 105 103 46 102 114 101 113 61 91 37 100 93 32 109 105 99 95 99 111 110 102 105 103 46 99 104 97 110 110 101 108 61 91 37 100 93 32 109 105 99 114 111 112 104 111 110 101 95 112 97 105 114 105 110 103 95 102 108 97 103 61 91 37 100 93 32 10 0 ]
+[a 56C 105 110 116 111 32 97 32 99 104 32 116 101 115 116 32 109 111 100 101 32 32 109 105 99 95 99 111 110 102 105 103 46 102 114 101 113 61 91 37 100 93 32 109 105 99 95 99 111 110 102 105 103 46 99 104 97 110 110 101 108 61 91 37 100 93 32 109 105 99 114 111 112 104 111 110 101 95 112 97 105 114 105 110 103 95 102 108 97 103 61 91 37 100 93 32 10 0 ]
+[a 59C 105 110 116 111 32 98 32 99 104 32 116 101 115 116 32 109 111 100 101 32 32 109 105 99 114 111 112 104 111 110 101 95 112 97 105 114 105 110 103 95 102 108 97 103 61 91 37 100 93 32 10 0 ]
+[a 57C 105 110 116 111 32 97 32 99 104 32 116 101 115 116 32 109 111 100 101 32 32 109 105 99 114 111 112 104 111 110 101 95 112 97 105 114 105 110 103 95 102 108 97 103 61 91 37 100 93 32 10 0 ]
+[a 2C 83 117 99 99 101 115 115 101 100 32 82 101 97 100 32 75 84 48 54 52 54 77 32 73 68 32 61 32 48 120 37 48 52 120 13 10 0 ]
+[a 1C 75 84 48 54 52 54 77 32 105 110 105 116 13 10 0 ]
+[a 5C 75 84 48 54 52 54 77 32 105 110 105 116 32 83 117 99 99 101 115 115 101 100 13 10 0 ]
+[a 4C 75 84 48 54 52 54 77 32 105 110 105 116 32 70 97 105 108 101 100 13 10 0 ]
+[a 54C 109 105 99 95 99 111 110 102 105 103 46 99 104 95 112 111 119 101 114 95 99 111 117 110 116 49 49 49 49 49 61 91 37 100 93 32 99 117 114 114 101 110 116 95 99 104 97 110 110 101 108 61 91 37 100 93 13 10 0 ]
+[a 7C 51 51 51 51 51 51 51 51 32 75 84 95 77 105 99 84 88 95 73 110 105 116 32 109 105 99 95 99 111 110 102 105 103 46 102 114 101 113 32 61 91 54 48 55 50 53 48 75 72 90 93 13 10 0 ]
+[a 3C 70 97 105 108 101 100 32 82 101 97 100 32 75 84 48 54 52 54 77 32 73 68 13 10 0 ]
+[a 55C 98 108 101 32 115 101 116 32 109 105 99 32 32 70 82 69 81 77 65 88 78 85 77 66 69 82 61 91 37 100 93 32 99 104 97 110 110 101 108 95 110 117 109 98 101 114 61 91 37 100 93 32 32 99 104 97 110 97 108 61 37 100 40 37 100 75 72 122 41 13 10 0 ]
+[a 46C 114 101 97 100 32 32 97 117 120 95 114 101 115 101 114 118 101 100 95 114 101 103 52 32 114 101 103 50 55 61 91 48 120 37 48 52 120 93 32 102 97 108 115 104 107 101 121 61 91 37 100 93 32 107 101 121 61 91 37 100 93 32 13 10 0 ]
+[a 53C 109 105 99 114 111 112 104 111 110 101 95 105 110 105 116 32 102 97 105 108 32 32 13 10 0 ]
+[a 60C 109 105 99 114 111 112 104 111 110 101 95 112 97 105 114 105 110 103 32 102 97 105 108 32 32 13 10 0 ]
+[a 13C 114 101 97 100 32 32 97 117 120 95 97 100 100 114 49 102 32 114 101 103 49 102 61 91 48 120 37 48 52 120 93 32 32 13 10 0 ]
+[a 16C 114 101 97 100 32 32 97 117 120 95 97 100 100 114 49 102 32 114 101 103 49 102 61 91 48 120 37 48 52 120 93 32 32 13 10 0 ]
+[a 14C 114 101 97 100 32 32 97 117 120 95 97 100 100 114 49 51 32 114 101 103 49 102 61 91 48 120 37 48 52 120 93 32 32 13 10 0 ]
+[a 17C 114 101 97 100 32 32 97 117 120 95 97 100 100 114 49 51 32 114 101 103 49 102 61 91 48 120 37 48 52 120 93 32 32 13 10 0 ]
+[a 10C 114 101 97 100 32 32 97 117 120 95 97 100 100 114 50 32 114 101 103 49 102 61 91 48 120 37 48 52 120 93 32 32 13 10 0 ]
+[a 11C 114 101 97 100 32 32 97 117 120 95 97 100 100 114 50 32 114 101 103 49 102 61 91 48 120 37 48 52 120 93 32 32 13 10 0 ]
+[a 18C 119 114 105 116 101 32 32 97 117 120 95 97 100 100 114 49 52 32 114 101 103 49 52 61 91 48 120 37 48 52 120 93 32 32 13 10 0 ]
+[a 15C 119 114 105 116 101 32 32 97 117 120 95 97 100 100 114 49 51 32 114 101 103 49 52 61 91 48 120 37 48 52 120 93 32 32 13 10 0 ]
+[a 12C 114 101 97 100 32 32 97 117 120 95 97 100 100 114 50 32 114 101 103 50 72 32 61 91 48 120 37 48 50 120 32 32 48 120 48 50 120 32 93 32 32 13 10 0 ]

@@ -211,7 +211,7 @@ void IIC_Send_Byte(unsigned char txd)
  *  �����  ����address�洢�����������iicdata
  --------------------------------------------------*/
  unsigned char IIC_READ(unsigned char i2c_address, unsigned char reg)
-	{
+{
 	unsigned char iicdata = 0;
 	IIC_READ_Begin:
 		IIC_Start();
@@ -225,7 +225,7 @@ void IIC_Send_Byte(unsigned char txd)
 		iicdata=IIC_Read_Byte();
 		IIC_Stop();		
 		return iicdata;
-	}
+}
  /*-------------------------------------------------
  *  ��������IIC_WRITE
  *	���ܣ�  IIC������dataд���ƶ���λ��address
@@ -262,7 +262,7 @@ void IIC_READ_MULTI(unsigned char i2c_address, unsigned char reg, unsigned char 
     for (;;)
     {
         IIC_Start();
-        IIC_Send_Byte(i2c_addres);  // 设备写地址，准备写入地址
+        IIC_Send_Byte(i2c_address);  // 设备写地址，准备写入地址
         if (IIC_Wait_Ack() == 0)  // 0表示成功
         {
             IIC_Send_Byte(reg); // 起始地址

@@ -1,21 +1,7 @@
-#include "KT0646M/microphone.h"
+#include "microphone.h"
 #include "KT0646M.h"
 //#include "led.h"
-#include "config.h"
-#include "typedef.h"
-#include "msg.h"
-#include <math.h>
-#include "bsp_loop.h"
-#include "app_config.h"
-#include "iic_soft/iic_soft.h"
-#include "gpio.h"
-#include "wdt.h"
-#include "tune/app_tune.h"
-#define LOG_TAG_CONST       MIC
-#define LOG_TAG             "[microphone]"
-#include "debug.h"
-#include "user_flash.h"
-#include "tune/seg.h"
+
 
 //   u32 set_freq=679970;
 mic_config_t mic_config = {0};
@@ -23,22 +9,14 @@ mic_config_t current_mic_config = {0};
 u16 microphone_pairing_flag =0;
 u8 channel_number = 0;
 
-
+microphone_setting_t microphone_setting = {0};
 extern bool err_remote_pa_off;
 extern  u32 Battery_Vdet;
 
 extern void delay_10ms(u32 tick);
-extern void udelay();
+extern void DelayUs();
 extern uint8_t TestMode;
 
-u8 number_randomdata[96]={  4,5,3,1,2,5,4,1,0,3,2,0,    \
-                            3,5,2,1,0,2,4,3,1,3,5,4,   \
-                            5,2,3,0,4,5,2,4,3,1,3,5,   \
-                            4,3,1,4,2,0,5,3,1,3,5,2,   \
-                            1,3,2,4,5,2,1,0,5,0,2,4,   \
-                            2,5,1,4,2,0,5,3,1,0,5,3,   \
-                            0,3,1,4,2,0,5,3,1,3,5,4,   \
-                            5,4,3,0,2,1,5,3,1,3,2,0 };
 
 
 /*全部频率
@@ -248,13 +226,13 @@ int microphone_init()
     int i;
     for (i = 0; i < 3; i++) {
         // KT0616M.CHIPEN
-        gpio_set_die(GPIO_MICROPHONE_CHIPEN,digital_mode);
-        gpio_set_direction(GPIO_MICROPHONE_CHIPEN,output_mode);
-        // hard reset
-        gpio_write(GPIO_MICROPHONE_CHIPEN, 0);
-        udelay(200*1000);
-        gpio_write(GPIO_MICROPHONE_CHIPEN, 1);
-        udelay(300*1000);
+        // gpio_set_die(GPIO_MICROPHONE_CHIPEN,digital_mode);
+        // gpio_set_direction(GPIO_MICROPHONE_CHIPEN,output_mode);
+        // // hard reset
+        // gpio_write(GPIO_MICROPHONE_CHIPEN, 0);
+        // DelayUs(200*1000);
+        // gpio_write(GPIO_MICROPHONE_CHIPEN, 1);
+        // DelayUs(300*1000);
 
         // 总线测试
         u16 ID_KT0646M = KT_WirelessMicTx_PreInit();
@@ -334,7 +312,7 @@ bool KT_MicTX_Init(void)
     //log_print("KT_WirelessMicTx_EQSW mic_config.EQ_EN=[%d]\r\n",mic_config.EQ_EN);
     KT_WirelessMicTx_EQSW(mic_config.EQ_EN);
     KT_WirelessMicTx_ECHO(ECHO_DISABLE,ECHO_RATIO_0,ECHO_DELAY_22ms);
-    udelay(200*1000);
+    DelayUs(200*1000);
 
 	// KT_WirelessMicTx_PAGain(10);	// 差分10dBm，单端7dBm
 	KT_WirelessMicTx_PAGain(mic_config.PA_gain); 	// 差分18dBm，单端15dBm
@@ -362,7 +340,7 @@ int microphone_set_freq()
     KT_WirelessMicTx_Pilot(FALSE);
     KT_WirelessMicTx_PAGain(0);
 	KT_WirelessMicTx_PASW(PA_OFF);
-    udelay(10*1000);
+    DelayUs(10*1000);
 
     // for (int i = 0; i < 3; i++) {
     //     result = KT_WirelessMicTx_Tune(mic_config.freq);
@@ -408,7 +386,7 @@ int microphone_set_freq()
 
             pilot_config = KT_Bus_Read(0x1e);          //增加这么一段对DSP进行复位
             KT_Bus_Write(0x1e,pilot_config|0x0010);    //保证每次的辅助通道的数据能正常发送
-            udelay(5*1000);
+            DelayUs(5*1000);
             pilot_config = KT_Bus_Read(0x1e);
             KT_Bus_Write(0x1e, pilot_config&~0x0010);
 
@@ -419,9 +397,9 @@ int microphone_set_freq()
         }
         // 复位芯片
         microphone_enable(false);
-        udelay(100*1000);
+        DelayUs(100*1000);
         microphone_enable(true);
-        udelay(300*1000);
+        DelayUs(300*1000);
     }while(retry--);
 
     log_info("microphone_set_freq failed!");
@@ -549,7 +527,7 @@ int microphone_pairing(s32 Freq,u8 ch)
 
             pilot_config = KT_Bus_Read(0x1e);          //增加这么一段对DSP进行复位
             KT_Bus_Write(0x1e, pilot_config|0x0010);    //保证每次的辅助通道的数据能正常发送
-            udelay(5*1000);
+            DelayUs(5*1000);
             pilot_config = KT_Bus_Read(0x1e);
             KT_Bus_Write(0x1e, pilot_config&~0x0010);
             //KT_WirelessMicTx_MuteSel(FALSE);
@@ -558,9 +536,9 @@ int microphone_pairing(s32 Freq,u8 ch)
         }
         // 复位芯片
         microphone_enable(false);
-        udelay(100*1000);
+        DelayUs(100*1000);
         microphone_enable(true);
-        udelay(300*1000);
+        DelayUs(300*1000);
     }while(retry--);
     log_info("microphone_pairing end");
     return 0;
@@ -611,7 +589,7 @@ void  KT0646_setchangeBattery()
     device_id_reg27 = KT_Bus_Read(0x27);  //辅助信道功发送数据保留寄存器4
 
     falshbatt =U16_LO(device_id_reg27);
-    battchang=(u8)fabs((Battery_Vdet/100)-falshbatt);
+    //battchang=(u8)fabs((Battery_Vdet/100)-falshbatt);
    // log_info("read  aux_reserved_reg4 reg27=[0x%04x] falshbatt=[%d] curbattery=[%d] \r\n",device_id_reg27,falshbatt,Battery_Vdet/100);
     if (battchang >=2 )
     {
@@ -678,6 +656,7 @@ void process_microphone()
     u16 device_id_reg27;
     u32 number_random=0;
     u8 current_channel=0;
+
     extern int get_random();
    // extern get_u16_random();
     //channel_number=get_random()%2;
@@ -717,7 +696,7 @@ void process_microphone()
      {
            mic_config.ch_power_count = get_random()%5;
      }
-    current_channel=number_randomdata[mic_config.ch_power_count ];
+    current_channel = 4;
     log_info("mic_config.ch_power_count11111=[%d] current_channel=[%d]\r\n",mic_config.ch_power_count,current_channel);
 
     if (mic_config.channel == current_channel)
@@ -864,15 +843,15 @@ void process_microphone()
 
 void microphone_enable(bool enable)
 {
-    gpio_set_die(GPIO_MICROPHONE_CHIPEN,digital_mode);
-    gpio_set_direction(GPIO_MICROPHONE_CHIPEN,output_mode);
-    log_print("enable=[%d]",enable);
-    if (enable) {
-        gpio_write(GPIO_MICROPHONE_CHIPEN, 1);
-    } else {
+    // gpio_set_die(GPIO_MICROPHONE_CHIPEN,digital_mode);
+    // gpio_set_direction(GPIO_MICROPHONE_CHIPEN,output_mode);
+    // log_print("enable=[%d]",enable);
+    // if (enable) {
+    //     gpio_write(GPIO_MICROPHONE_CHIPEN, 1);
+    // } else {
 
-        KT_WirelessMicTx_MuteSel(TRUE);
-        KT_WirelessMicTx_Standby();
-        gpio_write(GPIO_MICROPHONE_CHIPEN, 0);
-    }
+    //     KT_WirelessMicTx_MuteSel(TRUE);
+    //     KT_WirelessMicTx_Standby();
+    //     gpio_write(GPIO_MICROPHONE_CHIPEN, 0);
+    // }
 }

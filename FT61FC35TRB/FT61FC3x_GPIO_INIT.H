@@ -72,6 +72,10 @@ void GPIO_CLOCK_INIT(void);
 
 void GPIO_INIT(uint8_t gpio_x, Gpio_Direction_t out_in, Gpio_PullUp_Down_t pull_dir);
 
+void Pin_SetDirection(uint8_t pin, Gpio_Direction_t dir);
+
+void Pin_SetPullUp(uint8_t pin, bool enable);
+
 void Pin_SetHighLow_Level(uint8_t pin, uint8_t high_or_low);
 #ifdef __cplusplus
 }

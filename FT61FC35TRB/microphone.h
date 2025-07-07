@@ -49,7 +49,7 @@ typedef struct
 {
 	u8 cmd;
 	u8 len;
-	u8 cmd_data[128];
+	u8 cmd_data[64];
 }microphone_setting_t;
 
 typedef struct
