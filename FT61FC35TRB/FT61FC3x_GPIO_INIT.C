@@ -6,11 +6,8 @@
 void GPIO_CLOCK_INIT(void)
 {
     OSCCON = 0B01110001;	//IRCF=111=16MHz/4T=4MHz,0.25us
-    OPTION = 0B00001000;    //Bit3=1 WDT，Bit[2:0]=000=WDT RATE 1:1				 		
+    //OPTION = 0B00001000;    //Bit3=1 WDT，Bit[2:0]=000=WDT RATE 1:1				 		
 	INTCON = 0;  			//暂禁止所有中断
-    PORTA  = 0B00000000;
-    PORTB  = 0B00000000;
-    PORTC  = 0B00000000;
 }
 
 
@@ -76,42 +73,34 @@ void Pin_SetPullUp(uint8_t pin, bool enable)
 
 void Pin_SetHighLow_Level(uint8_t pin, uint8_t high_or_low)
 {
-    // 获取端口和引脚号
-    uint8_t pin_num = pin % 8;
-    
-    // 根据端口和引脚号设置电平
-    switch (pin & GPIO_PA0)
+    switch(pin)
     {
-        case 0: // PORTA
-            if (high_or_low) {
-                PORTA |= (1 << pin_num);
-            } else {
-                PORTA &= ~(1 << pin_num);
-            }
-            break;
-            
-        case 1: // PORTB
-            if (high_or_low) {
-                PORTB |= (1 << pin_num);
-            } else {
-                PORTB &= ~(1 << pin_num);
-            }
-            break;
-            
-        case 2: // PORTC
-            if (pin_num < 2) { // PORTC只有2个引脚
-                if (high_or_low) {
-                    PORTC |= (1 << pin_num);
-                } else {
-                    PORTC &= ~(1 << pin_num);
-                }
-            }
-            break;
-            
+        case GPIO_PA0: PA0 = high_or_low; break;
+        case GPIO_PA1: PA1 = high_or_low; break;
+        case GPIO_PA2: PA2 = high_or_low; break;
+        case GPIO_PA3: PA3 = high_or_low; break;
+        case GPIO_PA4: PA4 = high_or_low; break;
+        case GPIO_PA5: PA5 = high_or_low; break;
+        case GPIO_PA6: PA6 = high_or_low; break;
+        case GPIO_PA7: PA7 = high_or_low; break;
+
+        case GPIO_PB0: PB0 = high_or_low; break;
+        case GPIO_PB1: PB1 = high_or_low; break;
+        case GPIO_PB2: PB2 = high_or_low; break;
+        case GPIO_PB3: PB3 = high_or_low; break;
+        case GPIO_PB4: PB4 = high_or_low; break;
+        case GPIO_PB5: PB5 = high_or_low; break;
+        case GPIO_PB6: PB6 = high_or_low; break;
+        case GPIO_PB7: PB7 = high_or_low; break;
+
+        case GPIO_PC0: PC0 = high_or_low; break;
+        case GPIO_PC1: PC1 = high_or_low; break;
+
         default:
-            // 处理未知端口
+            // 无效引脚处理
             break;
     }
 }
+
 
 /******************* (C) COPYRIGHT 2025 Sensasy Corporation *****END OF FILE****/

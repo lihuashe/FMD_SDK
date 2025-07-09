@@ -50,7 +50,7 @@ int host_iic_send_data(u8 id, u8 reg, u8 *data, u16 len)
 
 int host_iic_read_data(u8 id, u8 reg, u8 *data, u16 len)
 {
-    IIC_READ_MULTI(KTWirelessMicTxr_address, reg, data, len);
+    IIC_READ_MULTI(KTWirelessMicTxw_address, reg, data, len);
 }
 
 

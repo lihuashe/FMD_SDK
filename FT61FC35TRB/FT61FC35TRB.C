@@ -11,6 +11,7 @@
 #include	"FT61FC3x_GPIO_INIT.H"
 #include 	"FT61FC3x_IIC.H"
 #include 	"KT0646M.h"
+#include 	"microphone.h"
 //===========================================================
 //Variable definition
 //===========================================================
@@ -21,6 +22,7 @@ void hardware_init(void)
 {
 	GPIO_CLOCK_INIT(); //总时钟初始化
 	IIC_INITIAL();
+	microphone_init();
 }
 
 //===========================================================
@@ -44,7 +46,8 @@ main()
 
 	while(1)
 	{
-		//KT_Test_Init();
+		process_microphone();
+        DelayMs(100);
 	}
 }
 //===========================================================

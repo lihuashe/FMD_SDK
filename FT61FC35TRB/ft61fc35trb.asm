@@ -1,5 +1,17 @@
 //Deviec:FT61FC3X
 //-----------------------Variable---------------------------------
+		_IICReadData		EQU		76H
+//		Pin_SetHighLow_Level@pin		EQU		73H
+//		Pin_SetHighLow_Level@pin		EQU		73H
+//		Pin_SetHighLow_Level@high_or_low		EQU		72H
+//		Pin_SetHighLow_Level@pin		EQU		73H
+//		DelayMs@b		EQU		22H
+//		DelayMs@a		EQU		20H
+//		DelayMs@Time		EQU		74H
+//		DelayUs@Time		EQU		72H
+//		DelayUs@a		EQU		73H
+//		DelayUs@Time		EQU		72H
+//		DelayUs@Time		EQU		72H
 //-----------------------Variable END---------------------------------
 
 		BCR 	PCLATH,3 		//0000 	118A
@@ -11,19 +23,538 @@
 		LDR 	PCLATH,0 		//0007 	080A
 		STR 	71H 			//0008 	01F1
 		BCR 	PCLATH,3 		//0009 	118A
-		LJUMP 	10H 			//000A 	3810
+		LJUMP 	1B8H 			//000A 	39B8
 		BCR 	PCLATH,3 		//000B 	118A
 		LJUMP 	0DH 			//000C 	380D
-		CLRR 	STATUS 			//000D 	0103
-		BCR 	PCLATH,3 		//000E 	118A
-		LJUMP 	0BH 			//000F 	380B
-		LDR 	71H,0 			//0010 	0871
-		STR 	PCLATH 			//0011 	018A
-		SWAPR 	70H,0 			//0012 	0770
-		STR 	STATUS 			//0013 	0183
-		SWAPR 	7EH,1 			//0014 	07FE
-		SWAPR 	7EH,0 			//0015 	077E
-		RETI		 			//0016 	0009
-		BCR 	PCLATH,3 		//0017 	118A
-		LJUMP 	0BH 			//0018 	380B
+		CLRR 	76H 			//000D 	0176
+		CLRR 	77H 			//000E 	0177
+		CLRR 	78H 			//000F 	0178
+		BCR 	STATUS,5 		//0010 	1283
+		BCR 	STATUS,6 		//0011 	1303
+		CLRR 	24H 			//0012 	0124
+		CLRR 	25H 			//0013 	0125
+		CLRR 	STATUS 			//0014 	0103
+		BCR 	PCLATH,3 		//0015 	118A
+		LJUMP 	19DH 			//0016 	399D
+		STR 	73H 			//0017 	01F3
+
+		//;FT61FC3x_GPIO_INIT.C: 76: switch(pin)
+		LJUMP 	CDH 			//0018 	38CD
+
+		//;FT61FC3x_GPIO_INIT.C: 77: {
+		//;FT61FC3x_GPIO_INIT.C: 78: case 0: PA0 = high_or_low; break;
+		BTSS 	72H,0 			//0019 	1C72
+		LJUMP 	1FH 			//001A 	381F
+		BCR 	STATUS,5 		//001B 	1283
+		BCR 	STATUS,6 		//001C 	1303
+		BSR 	5H,0 			//001D 	1805
+		RET		 					//001E 	0004
+		BCR 	STATUS,5 		//001F 	1283
+		BCR 	STATUS,6 		//0020 	1303
+		BCR 	5H,0 			//0021 	1005
+		RET		 					//0022 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 79: case 1: PA1 = high_or_low; break;
+		BTSS 	72H,0 			//0023 	1C72
+		LJUMP 	29H 			//0024 	3829
+		BCR 	STATUS,5 		//0025 	1283
+		BCR 	STATUS,6 		//0026 	1303
+		BSR 	5H,1 			//0027 	1885
+		RET		 					//0028 	0004
+		BCR 	STATUS,5 		//0029 	1283
+		BCR 	STATUS,6 		//002A 	1303
+		BCR 	5H,1 			//002B 	1085
+		RET		 					//002C 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 80: case 2: PA2 = high_or_low; break;
+		BTSS 	72H,0 			//002D 	1C72
+		LJUMP 	33H 			//002E 	3833
+		BCR 	STATUS,5 		//002F 	1283
+		BCR 	STATUS,6 		//0030 	1303
+		BSR 	5H,2 			//0031 	1905
+		RET		 					//0032 	0004
+		BCR 	STATUS,5 		//0033 	1283
+		BCR 	STATUS,6 		//0034 	1303
+		BCR 	5H,2 			//0035 	1105
+		RET		 					//0036 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 81: case 3: PA3 = high_or_low; break;
+		BTSS 	72H,0 			//0037 	1C72
+		LJUMP 	3DH 			//0038 	383D
+		BCR 	STATUS,5 		//0039 	1283
+		BCR 	STATUS,6 		//003A 	1303
+		BSR 	5H,3 			//003B 	1985
+		RET		 					//003C 	0004
+		BCR 	STATUS,5 		//003D 	1283
+		BCR 	STATUS,6 		//003E 	1303
+		BCR 	5H,3 			//003F 	1185
+		RET		 					//0040 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 82: case 4: PA4 = high_or_low; break;
+		BTSS 	72H,0 			//0041 	1C72
+		LJUMP 	47H 			//0042 	3847
+		BCR 	STATUS,5 		//0043 	1283
+		BCR 	STATUS,6 		//0044 	1303
+		BSR 	5H,4 			//0045 	1A05
+		RET		 					//0046 	0004
+		BCR 	STATUS,5 		//0047 	1283
+		BCR 	STATUS,6 		//0048 	1303
+		BCR 	5H,4 			//0049 	1205
+		RET		 					//004A 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 83: case 5: PA5 = high_or_low; break;
+		BTSS 	72H,0 			//004B 	1C72
+		LJUMP 	51H 			//004C 	3851
+		BCR 	STATUS,5 		//004D 	1283
+		BCR 	STATUS,6 		//004E 	1303
+		BSR 	5H,5 			//004F 	1A85
+		RET		 					//0050 	0004
+		BCR 	STATUS,5 		//0051 	1283
+		BCR 	STATUS,6 		//0052 	1303
+		BCR 	5H,5 			//0053 	1285
+		RET		 					//0054 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 84: case 6: PA6 = high_or_low; break;
+		BTSS 	72H,0 			//0055 	1C72
+		LJUMP 	5BH 			//0056 	385B
+		BCR 	STATUS,5 		//0057 	1283
+		BCR 	STATUS,6 		//0058 	1303
+		BSR 	5H,6 			//0059 	1B05
+		RET		 					//005A 	0004
+		BCR 	STATUS,5 		//005B 	1283
+		BCR 	STATUS,6 		//005C 	1303
+		BCR 	5H,6 			//005D 	1305
+		RET		 					//005E 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 85: case 7: PA7 = high_or_low; break;
+		BTSS 	72H,0 			//005F 	1C72
+		LJUMP 	65H 			//0060 	3865
+		BCR 	STATUS,5 		//0061 	1283
+		BCR 	STATUS,6 		//0062 	1303
+		BSR 	5H,7 			//0063 	1B85
+		RET		 					//0064 	0004
+		BCR 	STATUS,5 		//0065 	1283
+		BCR 	STATUS,6 		//0066 	1303
+		BCR 	5H,7 			//0067 	1385
+		RET		 					//0068 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 87: case 8: PB0 = high_or_low; break;
+		BTSS 	72H,0 			//0069 	1C72
+		LJUMP 	6FH 			//006A 	386F
+		BCR 	STATUS,5 		//006B 	1283
+		BCR 	STATUS,6 		//006C 	1303
+		BSR 	6H,0 			//006D 	1806
+		RET		 					//006E 	0004
+		BCR 	STATUS,5 		//006F 	1283
+		BCR 	STATUS,6 		//0070 	1303
+		BCR 	6H,0 			//0071 	1006
+		RET		 					//0072 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 88: case 9: PB1 = high_or_low; break;
+		BTSS 	72H,0 			//0073 	1C72
+		LJUMP 	79H 			//0074 	3879
+		BCR 	STATUS,5 		//0075 	1283
+		BCR 	STATUS,6 		//0076 	1303
+		BSR 	6H,1 			//0077 	1886
+		RET		 					//0078 	0004
+		BCR 	STATUS,5 		//0079 	1283
+		BCR 	STATUS,6 		//007A 	1303
+		BCR 	6H,1 			//007B 	1086
+		RET		 					//007C 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 89: case 10: PB2 = high_or_low; break;
+		BTSS 	72H,0 			//007D 	1C72
+		LJUMP 	83H 			//007E 	3883
+		BCR 	STATUS,5 		//007F 	1283
+		BCR 	STATUS,6 		//0080 	1303
+		BSR 	6H,2 			//0081 	1906
+		RET		 					//0082 	0004
+		BCR 	STATUS,5 		//0083 	1283
+		BCR 	STATUS,6 		//0084 	1303
+		BCR 	6H,2 			//0085 	1106
+		RET		 					//0086 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 90: case 11: PB3 = high_or_low; break;
+		BTSS 	72H,0 			//0087 	1C72
+		LJUMP 	8DH 			//0088 	388D
+		BCR 	STATUS,5 		//0089 	1283
+		BCR 	STATUS,6 		//008A 	1303
+		BSR 	6H,3 			//008B 	1986
+		RET		 					//008C 	0004
+		BCR 	STATUS,5 		//008D 	1283
+		BCR 	STATUS,6 		//008E 	1303
+		BCR 	6H,3 			//008F 	1186
+		RET		 					//0090 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 91: case 12: PB4 = high_or_low; break;
+		BTSS 	72H,0 			//0091 	1C72
+		LJUMP 	97H 			//0092 	3897
+		BCR 	STATUS,5 		//0093 	1283
+		BCR 	STATUS,6 		//0094 	1303
+		BSR 	6H,4 			//0095 	1A06
+		RET		 					//0096 	0004
+		BCR 	STATUS,5 		//0097 	1283
+		BCR 	STATUS,6 		//0098 	1303
+		BCR 	6H,4 			//0099 	1206
+		RET		 					//009A 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 92: case 13: PB5 = high_or_low; break;
+		BTSS 	72H,0 			//009B 	1C72
+		LJUMP 	A1H 			//009C 	38A1
+		BCR 	STATUS,5 		//009D 	1283
+		BCR 	STATUS,6 		//009E 	1303
+		BSR 	6H,5 			//009F 	1A86
+		RET		 					//00A0 	0004
+		BCR 	STATUS,5 		//00A1 	1283
+		BCR 	STATUS,6 		//00A2 	1303
+		BCR 	6H,5 			//00A3 	1286
+		RET		 					//00A4 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 93: case 14: PB6 = high_or_low; break;
+		BTSS 	72H,0 			//00A5 	1C72
+		LJUMP 	ABH 			//00A6 	38AB
+		BCR 	STATUS,5 		//00A7 	1283
+		BCR 	STATUS,6 		//00A8 	1303
+		BSR 	6H,6 			//00A9 	1B06
+		RET		 					//00AA 	0004
+		BCR 	STATUS,5 		//00AB 	1283
+		BCR 	STATUS,6 		//00AC 	1303
+		BCR 	6H,6 			//00AD 	1306
+		RET		 					//00AE 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 94: case 15: PB7 = high_or_low; break;
+		BTSS 	72H,0 			//00AF 	1C72
+		LJUMP 	B5H 			//00B0 	38B5
+		BCR 	STATUS,5 		//00B1 	1283
+		BCR 	STATUS,6 		//00B2 	1303
+		BSR 	6H,7 			//00B3 	1B86
+		RET		 					//00B4 	0004
+		BCR 	STATUS,5 		//00B5 	1283
+		BCR 	STATUS,6 		//00B6 	1303
+		BCR 	6H,7 			//00B7 	1386
+		RET		 					//00B8 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 96: case 16: PC0 = high_or_low; break;
+		BTSS 	72H,0 			//00B9 	1C72
+		LJUMP 	BFH 			//00BA 	38BF
+		BCR 	STATUS,5 		//00BB 	1283
+		BCR 	STATUS,6 		//00BC 	1303
+		BSR 	7H,0 			//00BD 	1807
+		RET		 					//00BE 	0004
+		BCR 	STATUS,5 		//00BF 	1283
+		BCR 	STATUS,6 		//00C0 	1303
+		BCR 	7H,0 			//00C1 	1007
+		RET		 					//00C2 	0004
+
+		//;FT61FC3x_GPIO_INIT.C: 97: case 17: PC1 = high_or_low; break;
+		BTSS 	72H,0 			//00C3 	1C72
+		LJUMP 	C9H 			//00C4 	38C9
+		BCR 	STATUS,5 		//00C5 	1283
+		BCR 	STATUS,6 		//00C6 	1303
+		BSR 	7H,1 			//00C7 	1887
+		RET		 					//00C8 	0004
+		BCR 	STATUS,5 		//00C9 	1283
+		BCR 	STATUS,6 		//00CA 	1303
+		BCR 	7H,1 			//00CB 	1087
+		RET		 					//00CC 	0004
+		LDR 	73H,0 			//00CD 	0873
+		STR 	FSR 			//00CE 	0184
+		LDWI 	12H 			//00CF 	2A12
+		SUBWR 	FSR,0 			//00D0 	0C04
+		BTSC 	STATUS,0 		//00D1 	1403
+		RET		 					//00D2 	0004
+		LDWI 	0H 			//00D3 	2A00
+		STR 	PCLATH 			//00D4 	018A
+		BCR 	STATUS,0 		//00D5 	1003
+		RLR 	FSR,0 			//00D6 	0504
+		ADDWI 	DAH 			//00D7 	27DA
+		STR 	PCL 			//00D8 	0182
+		RET		 					//00D9 	0004
+		BCR 	PCLATH,3 		//00DA 	118A
+		LJUMP 	19H 			//00DB 	3819
+		BCR 	PCLATH,3 		//00DC 	118A
+		LJUMP 	23H 			//00DD 	3823
+		BCR 	PCLATH,3 		//00DE 	118A
+		LJUMP 	2DH 			//00DF 	382D
+		BCR 	PCLATH,3 		//00E0 	118A
+		LJUMP 	37H 			//00E1 	3837
+		BCR 	PCLATH,3 		//00E2 	118A
+		LJUMP 	41H 			//00E3 	3841
+		BCR 	PCLATH,3 		//00E4 	118A
+		LJUMP 	4BH 			//00E5 	384B
+		BCR 	PCLATH,3 		//00E6 	118A
+		LJUMP 	55H 			//00E7 	3855
+		BCR 	PCLATH,3 		//00E8 	118A
+		LJUMP 	5FH 			//00E9 	385F
+		BCR 	PCLATH,3 		//00EA 	118A
+		LJUMP 	69H 			//00EB 	3869
+		BCR 	PCLATH,3 		//00EC 	118A
+		LJUMP 	73H 			//00ED 	3873
+		BCR 	PCLATH,3 		//00EE 	118A
+		LJUMP 	7DH 			//00EF 	387D
+		BCR 	PCLATH,3 		//00F0 	118A
+		LJUMP 	87H 			//00F1 	3887
+		BCR 	PCLATH,3 		//00F2 	118A
+		LJUMP 	91H 			//00F3 	3891
+		BCR 	PCLATH,3 		//00F4 	118A
+		LJUMP 	9BH 			//00F5 	389B
+		BCR 	PCLATH,3 		//00F6 	118A
+		LJUMP 	A5H 			//00F7 	38A5
+		BCR 	PCLATH,3 		//00F8 	118A
+		LJUMP 	AFH 			//00F9 	38AF
+		BCR 	PCLATH,3 		//00FA 	118A
+		LJUMP 	B9H 			//00FB 	38B9
+		BCR 	PCLATH,3 		//00FC 	118A
+		LJUMP 	C3H 			//00FD 	38C3
+		ORG		0100H
+		LDWI 	1H 			//0100 	2A01
+		STR 	PCLATH 			//0101 	018A
+		LDR 	FSR,0 			//0102 	0804
+		INCR	FSR,1 			//0103 	0984
+		ADDWR 	PCL,1 			//0104 	0B82
+		RETW 	0H 			//0105 	2100
+		RETW 	4DH 			//0106 	214D
+		RETW 	49H 			//0107 	2149
+		RETW 	43H 			//0108 	2143
+		RETW 	20H 			//0109 	2120
+		RETW 	20H 			//010A 	2120
+		RETW 	64H 			//010B 	2164
+		RETW 	65H 			//010C 	2165
+		RETW 	76H 			//010D 	2176
+		RETW 	69H 			//010E 	2169
+		RETW 	63H 			//010F 	2163
+		RETW 	65H 			//0110 	2165
+		RETW 	20H 			//0111 	2120
+		RETW 	63H 			//0112 	2163
+		RETW 	68H 			//0113 	2168
+		RETW 	61H 			//0114 	2161
+		RETW 	6EH 			//0115 	216E
+		RETW 	67H 			//0116 	2167
+		RETW 	65H 			//0117 	2165
+		RETW 	20H 			//0118 	2120
+		RETW 	6BH 			//0119 	216B
+		RETW 	65H 			//011A 	2165
+		RETW 	79H 			//011B 	2179
+		RETW 	20H 			//011C 	2120
+		RETW 	20H 			//011D 	2120
+		RETW 	53H 			//011E 	2153
+		RETW 	61H 			//011F 	2161
+		RETW 	76H 			//0120 	2176
+		RETW 	65H 			//0121 	2165
+		RETW 	20H 			//0122 	2120
+		RETW 	44H 			//0123 	2144
+		RETW 	61H 			//0124 	2161
+		RETW 	74H 			//0125 	2174
+		RETW 	61H 			//0126 	2161
+		RETW 	20H 			//0127 	2120
+		RETW 	20H 			//0128 	2120
+		RETW 	66H 			//0129 	2166
+		RETW 	61H 			//012A 	2161
+		RETW 	69H 			//012B 	2169
+		RETW 	6CH 			//012C 	216C
+		RETW 	AH 			//012D 	210A
+		RETW 	0H 			//012E 	2100
+		RETW 	53H 			//012F 	2153
+		RETW 	61H 			//0130 	2161
+		RETW 	76H 			//0131 	2176
+		RETW 	65H 			//0132 	2165
+		RETW 	20H 			//0133 	2120
+		RETW 	44H 			//0134 	2144
+		RETW 	61H 			//0135 	2161
+		RETW 	74H 			//0136 	2174
+		RETW 	61H 			//0137 	2161
+		RETW 	20H 			//0138 	2120
+		RETW 	41H 			//0139 	2141
+		RETW 	20H 			//013A 	2120
+		RETW 	66H 			//013B 	2166
+		RETW 	61H 			//013C 	2161
+		RETW 	69H 			//013D 	2169
+		RETW 	6CH 			//013E 	216C
+		RETW 	AH 			//013F 	210A
+		RETW 	0H 			//0140 	2100
+		RETW 	45H 			//0141 	2145
+		RETW 	72H 			//0142 	2172
+		RETW 	61H 			//0143 	2161
+		RETW 	73H 			//0144 	2173
+		RETW 	65H 			//0145 	2165
+		RETW 	20H 			//0146 	2120
+		RETW 	46H 			//0147 	2146
+		RETW 	6CH 			//0148 	216C
+		RETW 	61H 			//0149 	2161
+		RETW 	73H 			//014A 	2173
+		RETW 	68H 			//014B 	2168
+		RETW 	20H 			//014C 	2120
+		RETW 	4FH 			//014D 	214F
+		RETW 	4BH 			//014E 	214B
+		RETW 	AH 			//014F 	210A
+		RETW 	0H 			//0150 	2100
+
+		//;FT61FC3x_IIC.C: 75: unsigned short a,b;
+		//;FT61FC3x_IIC.C: 76: for(a=0;a<Time;a++)
+		BCR 	STATUS,5 		//0151 	1283
+		CLRR 	20H 			//0152 	0120
+		CLRR 	21H 			//0153 	0121
+		LDR 	75H,0 			//0154 	0875
+		SUBWR 	21H,0 			//0155 	0C21
+		BTSS 	STATUS,2 		//0156 	1D03
+		LJUMP 	15AH 			//0157 	395A
+		LDR 	74H,0 			//0158 	0874
+		SUBWR 	20H,0 			//0159 	0C20
+		BTSC 	STATUS,0 		//015A 	1403
+		RET		 					//015B 	0004
+
+		//;FT61FC3x_IIC.C: 77: {
+		//;FT61FC3x_IIC.C: 78: for(b=0;b<5;b++)
+		CLRR 	22H 			//015C 	0122
+		CLRR 	23H 			//015D 	0123
+
+		//;FT61FC3x_IIC.C: 79: {
+		//;FT61FC3x_IIC.C: 80: DelayUs(197);
+		LDWI 	C5H 			//015E 	2AC5
+		LCALL 	171H 			//015F 	3171
+		BCR 	PCLATH,3 		//0160 	118A
+		BCR 	STATUS,5 		//0161 	1283
+		BCR 	STATUS,6 		//0162 	1303
+		INCR	22H,1 			//0163 	09A2
+		BTSC 	STATUS,2 		//0164 	1503
+		INCR	23H,1 			//0165 	09A3
+		LDWI 	0H 			//0166 	2A00
+		SUBWR 	23H,0 			//0167 	0C23
+		LDWI 	5H 			//0168 	2A05
+		BTSC 	STATUS,2 		//0169 	1503
+		SUBWR 	22H,0 			//016A 	0C22
+		BTSS 	STATUS,0 		//016B 	1C03
+		LJUMP 	15EH 			//016C 	395E
+		INCR	20H,1 			//016D 	09A0
+		BTSC 	STATUS,2 		//016E 	1503
+		INCR	21H,1 			//016F 	09A1
+		LJUMP 	154H 			//0170 	3954
+		STR 	72H 			//0171 	01F2
+
+		//;FT61FC3x_IIC.C: 93: for(unsigned char a = 0; a < Time; a++)
+		CLRR 	73H 			//0172 	0173
+		LDR 	72H,0 			//0173 	0872
+		SUBWR 	73H,0 			//0174 	0C73
+		BTSC 	STATUS,0 		//0175 	1403
+		RET		 					//0176 	0004
+
+		//;FT61FC3x_IIC.C: 94: {
+		//;FT61FC3x_IIC.C: 95: __nop();
+		NOP		 					//0177 	0000
+		INCR	73H,1 			//0178 	09F3
+		LJUMP 	173H 			//0179 	3973
+
+		//;FT61FC35TRB.C: 22: GPIO_CLOCK_INIT();
+		LCALL 	17DH 			//017A 	317D
+		BCR 	PCLATH,3 		//017B 	118A
+
+		//;FT61FC35TRB.C: 23: IIC_INITIAL();
+		LJUMP 	184H 			//017C 	3984
+
+		//;FT61FC3x_GPIO_INIT.C: 8: OSCCON = 0B01110001;
+		LDWI 	71H 			//017D 	2A71
+		BSR 	STATUS,5 		//017E 	1A83
+		STR 	FH 			//017F 	018F
+
+		//;FT61FC3x_GPIO_INIT.C: 9: OPTION = 0B00001000;
+		LDWI 	8H 			//0180 	2A08
+		STR 	1H 			//0181 	0181
+
+		//;FT61FC3x_GPIO_INIT.C: 10: INTCON = 0;
+		CLRR 	INTCON 			//0182 	010B
+		RET		 					//0183 	0004
+
+		//;FT61FC3x_IIC.C: 49: OSCCON = 0B01110001;
+		LDWI 	71H 			//0184 	2A71
+		STR 	FH 			//0185 	018F
+
+		//;FT61FC3x_IIC.C: 50: OPTION = 0B00001000;
+		LDWI 	8H 			//0186 	2A08
+		STR 	1H 			//0187 	0181
+
+		//;FT61FC3x_IIC.C: 51: INTCON = 0;
+		CLRR 	INTCON 			//0188 	010B
+
+		//;FT61FC3x_IIC.C: 52: PORTA = 0B00000000;
+		BCR 	STATUS,5 		//0189 	1283
+		CLRR 	5H 			//018A 	0105
+
+		//;FT61FC3x_IIC.C: 53: TRISA = 0B00000000;
+		BSR 	STATUS,5 		//018B 	1A83
+		CLRR 	5H 			//018C 	0105
+
+		//;FT61FC3x_IIC.C: 55: PORTB = 0B00000000;
+		BCR 	STATUS,5 		//018D 	1283
+		CLRR 	6H 			//018E 	0106
+
+		//;FT61FC3x_IIC.C: 56: TRISB = 0B00000000;
+		BSR 	STATUS,5 		//018F 	1A83
+		CLRR 	6H 			//0190 	0106
+
+		//;FT61FC3x_IIC.C: 58: PORTC = 0B00000000;
+		BCR 	STATUS,5 		//0191 	1283
+		CLRR 	7H 			//0192 	0107
+
+		//;FT61FC3x_IIC.C: 59: TRISC = 0B00000000;
+		BSR 	STATUS,5 		//0193 	1A83
+		CLRR 	7H 			//0194 	0107
+
+		//;FT61FC3x_IIC.C: 61: WPUA = 0B00000000;
+		CLRR 	15H 			//0195 	0115
+
+		//;FT61FC3x_IIC.C: 62: WPUB = 0B00000000;
+		BCR 	STATUS,5 		//0196 	1283
+		BSR 	STATUS,6 		//0197 	1B03
+		CLRR 	DH 			//0198 	010D
+
+		//;FT61FC3x_IIC.C: 63: WPUC = 0B00000000;
+		BSR 	STATUS,5 		//0199 	1A83
+		BCR 	STATUS,6 		//019A 	1303
+		CLRR 	13H 			//019B 	0113
+		RET		 					//019C 	0004
+
+		//;FT61FC35TRB.C: 43: hardware_init();
+		BCR 	PCLATH,3 		//019D 	118A
+		LCALL 	17AH 			//019E 	317A
+		BCR 	PCLATH,3 		//019F 	118A
+		LDWI 	AH 			//01A0 	2A0A
+
+		//;FT61FC35TRB.C: 46: {
+		//;FT61FC35TRB.C: 48: Pin_SetHighLow_Level(10, 1);
+		CLRR 	72H 			//01A1 	0172
+		INCR	72H,1 			//01A2 	09F2
+		BCR 	PCLATH,3 		//01A3 	118A
+		LCALL 	17H 			//01A4 	3017
+		BCR 	PCLATH,3 		//01A5 	118A
+
+		//;FT61FC35TRB.C: 50: DelayMs(100);
+		LDWI 	64H 			//01A6 	2A64
+		STR 	74H 			//01A7 	01F4
+		CLRR 	75H 			//01A8 	0175
+		BCR 	PCLATH,3 		//01A9 	118A
+		LCALL 	151H 			//01AA 	3151
+		BCR 	PCLATH,3 		//01AB 	118A
+		LDWI 	AH 			//01AC 	2A0A
+
+		//;FT61FC35TRB.C: 51: Pin_SetHighLow_Level(10, 0);
+		CLRR 	72H 			//01AD 	0172
+		BCR 	PCLATH,3 		//01AE 	118A
+		LCALL 	17H 			//01AF 	3017
+		BCR 	PCLATH,3 		//01B0 	118A
+
+		//;FT61FC35TRB.C: 54: DelayMs(100);
+		LDWI 	64H 			//01B1 	2A64
+		STR 	74H 			//01B2 	01F4
+		CLRR 	75H 			//01B3 	0175
+		BCR 	PCLATH,3 		//01B4 	118A
+		LCALL 	151H 			//01B5 	3151
+		BCR 	PCLATH,3 		//01B6 	118A
+		LJUMP 	1A0H 			//01B7 	39A0
+		LDR 	71H,0 			//01B8 	0871
+		STR 	PCLATH 			//01B9 	018A
+		SWAPR 	70H,0 			//01BA 	0770
+		STR 	STATUS 			//01BB 	0183
+		SWAPR 	7EH,1 			//01BC 	07FE
+		SWAPR 	7EH,0 			//01BD 	077E
+		RETI		 			//01BE 	0009
 			END

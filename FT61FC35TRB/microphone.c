@@ -1,15 +1,15 @@
 #include "microphone.h"
 #include "KT0646M.h"
-//#include "led.h"
+#include "SYSCFG.h"
+#include "seg_driver.h"
+#include <stdio.h>
+#include <string.h>
 
 
 //   u32 set_freq=679970;
-mic_config_t mic_config = {0};
-mic_config_t current_mic_config = {0};
 u16 microphone_pairing_flag =0;
 u8 channel_number = 0;
 
-microphone_setting_t microphone_setting = {0};
 extern bool err_remote_pa_off;
 extern  u32 Battery_Vdet;
 
@@ -226,13 +226,11 @@ int microphone_init()
     int i;
     for (i = 0; i < 3; i++) {
         // KT0616M.CHIPEN
-        // gpio_set_die(GPIO_MICROPHONE_CHIPEN,digital_mode);
-        // gpio_set_direction(GPIO_MICROPHONE_CHIPEN,output_mode);
         // // hard reset
-        // gpio_write(GPIO_MICROPHONE_CHIPEN, 0);
-        // DelayUs(200*1000);
-        // gpio_write(GPIO_MICROPHONE_CHIPEN, 1);
-        // DelayUs(300*1000);
+        PB5 = 0;
+        DelayUs(200*1000);
+        PB5 = 1;
+        DelayUs(300*1000);
 
         // 总线测试
         u16 ID_KT0646M = KT_WirelessMicTx_PreInit();
@@ -669,19 +667,19 @@ void process_microphone()
         mic_config.ch_power_count = get_random()%5;
     }
     //user_flash_read_info(&user_area_info);
-    if (ReadDataFromFlash())        //
-    {
-        KT_mic_config_t_print(mic_config);
-       log_info("Read Flash OK\n");
-       mic_config.ch_power_count ++;
-    }
-    else{
-        log_info("No Data in Flash!!!\n");
-        eraseToFlash();
-        mic_config.ch_power_count = get_random()%5;
-		log_error("Erase Flash OK\n");
+    // if (ReadDataFromFlash())        //
+    // {
+    //     KT_mic_config_t_print(mic_config);
+    //    log_info("Read Flash OK\n");
+    //    mic_config.ch_power_count ++;
+    // }
+    // else{
+    //     log_info("No Data in Flash!!!\n");
+    //     eraseToFlash();
+    //     mic_config.ch_power_count = get_random()%5;
+	// 	log_error("Erase Flash OK\n");
 
-    }
+    // }
     microphone_enable(true);
     ret=microphone_init();
     if (ret == 0)

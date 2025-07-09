@@ -45,11 +45,15 @@ static u8 kt_bus_tx_buff[2] = {0};
 int host_iic_send_data(u8 id, u8 reg, u8 *data, u16 len)
 {
     IIC_WRITE_MULTI(KTWirelessMicTxw_address, reg, data, len);
+    
+    return 1;
 }
 
 int host_iic_read_data(u8 id, u8 reg, u8 *data, u16 len)
 {
     IIC_READ_MULTI(KTWirelessMicTxr_address, reg, data, len);
+    
+    return 1;
 }
 
 
@@ -134,15 +138,13 @@ u16 KT_WirelessMicTx_PreInit(void)
     return 0;
 }
 
-bool KT_Test_Init(void)
+void KT_Test_Init(void)
 {
     u16 regx = 0;
 
     DelayUs(50*1000);
 
-    regx = KT_Bus_Read(0x03);
-    KT_Bus_Write(0x03, (regx & 0xfffe) | PA_SEL);
-    regx = KT_Bus_Read(0x03);
+    KT_Bus_Write(0x03, 0xfffe);
 }
 //-----------------------------------------------------------------------------
 //函 数 名：KT_WirelessMicTx_Init

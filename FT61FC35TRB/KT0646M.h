@@ -341,7 +341,7 @@ ALC_VMAX的值需要根据发射和接收的频偏计算出来，计算公式为
 // Function PROTOTYPES
 //-----------------------------------------------------------------------------
 u16 KT_WirelessMicTx_PreInit(void);
-bool KT_Test_Init(void);
+void KT_Test_Init(void);
 bool KT_WirelessMicTx_Init(void);
 
 bool KT_WirelessMicTx_Standby(void);

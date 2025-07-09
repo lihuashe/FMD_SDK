@@ -68,6 +68,13 @@ typedef unsigned long long      u64;
 
 
 #define VERSION_STR		"1.0.0" //1:主；1:次;  0:release;1~9:debug
+
+
+
+#define log_debug(fmt)
+
+#define log_info(fmt)  
+
 /*============================================================================*
  *                              Enumerations
  *============================================================================*/

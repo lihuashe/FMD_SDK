@@ -36,6 +36,8 @@ extern "C" {
  *============================================================================*/
 void IIC_INITIAL(void);
 
+void DelayMs(unsigned short Time);
+
 void DelayUs(unsigned char Time);
 
 unsigned char IIC_READ(unsigned char i2c_address, unsigned char reg);

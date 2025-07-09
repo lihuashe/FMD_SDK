@@ -32,10 +32,10 @@
 #define  unchar     unsigned char 
 
 #define  IIC_SCL	PB2  
-#define  IIC_SDA	PB5
+#define  IIC_SDA	PA4
 
-#define  SDA_OUT    TRISB5 =0
-#define  SDA_IN	    TRISB5 =1
+#define  SDA_OUT    TRISA4 =0
+#define  SDA_IN	    TRISA4 =1
 
 volatile unchar	IICReadData;
  /*-------------------------------------------------
@@ -45,288 +45,377 @@ volatile unchar	IICReadData;
  *  �����  ��
  --------------------------------------------------*/
 void IIC_INITIAL(void) 
-{				
-	GPIO_INIT(GPIO_PA2, Out, NoPullUp);
-	GPIO_INIT(GPIO_PA4, Out, NoPullUp);
+{	
+	OSCCON = 0B01110001;	//IRCF=111=16MHz/4T=4MHz,0.25us
+    //OPTION = 0B00001000;    //Bit3=1 WDT，Bit[2:0]=000=WDT RATE 1:1				 		
+	INTCON = 0;  			//暂禁止所有中断
+	PORTA  = 0B00000000;		
+	TRISA  = 0B00000000;	//PA输入输出 0-输出 1-输入
+							//PA4->输出
+	PORTB  = 0B00000000;		
+	TRISB  = 0B00000000;	//PA输入输出 0-输出 1-输入
+							//PA4->输出
+	PORTC  = 0B00000000; 	
+	TRISC  = 0B00000000;	//PC输入输出 0-输出 1-输入  
+								
+	WPUA   = 0B00000000;    //PA端口上拉控制 1-开上拉 0-关上拉	
+	WPUB   = 0B00000000;    //PA端口上拉控制 1-开上拉 0-关上拉							
+	WPUC   = 0B00000000;    //PC端口上拉控制 1-开上拉 0-关上拉
+
 }
+
+/*----------------------------------------------------
+ *	函数名：DelayMs
+ *	功能：  短延时函数--16M-2T--大概快1%左右.
+ *	输入：  Time延时时间长度 延时时长Time ms
+ *	返回：  无 
+ ----------------------------------------------------*/
+void DelayMs(unsigned short Time)
+{
+	unsigned short a,b;
+	for(a=0;a<Time;a++)
+	{
+		for(b=0;b<5;b++)
+		{
+			DelayUs(197); 	//快1%
+		}
+	}
+}
+
 /*-------------------------------------------------
- *  �������ƣ�DelayUs
- *  ���ܣ�    ����ʱ���� 
- *  ���룺    Time ��ʱʱ�䳤�� ��ʱʱ��Time*2us
- * 	�����    �� 
+ *  微秒级延时
+ *  功能：   延时函数
+ *  输入：   Time 延时时间（单位：~2us）
+ *  输出：   无 
  -------------------------------------------------*/
 void DelayUs(unsigned char Time)
 {
-	unsigned char a;
-	for(a=0;a<Time;a++)
-	{
-		NOP();
-	}
+    for(unsigned char a = 0; a < Time; a++)
+    {
+        NOP(); // 使用内联汇编确保NOP指令
+    }
 } 
+
 /*-------------------------------------------------
- *  ��������IIC_Start
- *	���ܣ�  ����IIC��ʼ�ź�
- *  ���룺  ��
- *  �����  ��
+ *  IIC起始信号
+ *  功能： 发送IIC起始信号
+ *  输入： 无
+ *  输出： 无
  --------------------------------------------------*/
 void IIC_Start(void)
 {
-	SDA_OUT;              //SDA�����
-	IIC_SDA=1;	  	  
-	IIC_SCL=1;
-	DelayUs(2);
- 	IIC_SDA=0;            //START:when CLK is high,DATA change form high to low 
-	DelayUs(2);
-	IIC_SCL=0;            //ǯסI2C���ߣ�׼�����ͻ�������� 
+    SDA_OUT;              // SDA设置为输出
+    IIC_SDA = 1;	  	  
+    IIC_SCL = 1;
+    DelayUs(2);
+    IIC_SDA = 0;          // START: SCL高电平时SDA从高变低
+    DelayUs(2);
+    IIC_SCL = 0;          // 钳住总线，准备发送数据
     DelayUs(2);
 }	  
+
 /*-------------------------------------------------
- *  ��������IIC_Stop
- *	���ܣ�  ����IICֹͣ�ź�
- *  ���룺  ��
- *  �����  ��
+ *  IIC停止信号
+ *  功能： 发送IIC停止信号
+ *  输入： 无
+ *  输出： 无
  --------------------------------------------------*/
- void IIC_Stop(void)
+void IIC_Stop(void)
 {
-	SDA_OUT;              //SDA�����
-	IIC_SCL=0;
-	IIC_SDA=0;            //STOP:when CLK is high DATA change form low to high
- 	DelayUs(2);
-	IIC_SCL=1; 
+    SDA_OUT;              // SDA设置为输出
+    IIC_SCL = 0;
+    IIC_SDA = 0;          
     DelayUs(2);
-	IIC_SDA=1;            //����I2C���߽����ź�
-	DelayUs(2);							   	
+    IIC_SCL = 1; 
+    DelayUs(2);
+    IIC_SDA = 1;          // STOP: SCL高电平时SDA从低变高
+    DelayUs(2);							   	
 }
+
 /*-------------------------------------------------
- *  ��������IIC_Wait_Ack
- *	���ܣ�  �ȴ�Ӧ���źŵ���
- *  ���룺  ��
- *  �����  ����ֵ��1������Ӧ��ʧ��
- *                  0������Ӧ��ɹ�
+ *  等待ACK响应
+ *  功能： 等待从机ACK响应
+ *  输入： 无
+ *  输出： 1-ACK失败，0-ACK成功
  --------------------------------------------------*/
 unsigned char IIC_Wait_Ack(void)
 {
-	unsigned char ucErrTime=0;      
-	SDA_IN;               //SDA����Ϊ����  
-	IIC_SDA=1;
-	DelayUs(1);	   
-	IIC_SCL=1;
-	DelayUs(1);	 
-	while(IIC_SDA)
-	{
-		ucErrTime++;
-		if(ucErrTime>250) //�ȴ���ʱ
-		{
-			IIC_Stop();
-			return 1;
-		}
-	}
-	IIC_SCL=0;            //ʱ�����0 	   
-	return 0;  
+    unsigned char ucErrTime = 0;      
+    SDA_IN;               // SDA设置为输入  
+    IIC_SDA = 1;          // 释放SDA线
+    DelayUs(1);	   
+    IIC_SCL = 1;          // 拉高SCL
+    DelayUs(1);	 
+    
+    // 检测SDA是否为低电平（ACK信号）
+    while(IIC_SDA)
+    {
+        ucErrTime++;
+        if(ucErrTime > 250) // 超时等待
+        {
+            IIC_Stop();
+            return 1;      // ACK失败
+        }
+    }
+    IIC_SCL = 0;          // SCL拉低
+    return 0;             // ACK成功
 } 
+
 /*-------------------------------------------------
- *  ��������IIC_Ack
- *	���ܣ�  ����ACKӦ��
- *  ���룺  ��
- *  �����  ��
+ *  发送ACK响应
+ *  功能： 主机发送ACK信号
+ *  输入： 无
+ *  输出： 无
  --------------------------------------------------*/
 void IIC_Ack(void)
 {
-	IIC_SCL=0;
-	SDA_OUT;              //SDA�����
-	IIC_SDA=0;
-	DelayUs(1);	
-	IIC_SCL=1;
-	DelayUs(1);	
-	IIC_SCL=0;
+    IIC_SCL = 0;
+    SDA_OUT;              // SDA设置为输出
+    IIC_SDA = 0;          // SDA低电平表示ACK
+    DelayUs(1);	
+    IIC_SCL = 1;
+    DelayUs(1);	
+    IIC_SCL = 0;
 }
+
 /*-------------------------------------------------
- *  ��������IIC_NAck
- *	���ܣ�  ������ACKӦ��
- *  ���룺  ��
- *  �����  ��
+ *  发送NACK响应
+ *  功能： 主机发送NACK信号
+ *  输入： 无
+ *  输出： 无
  --------------------------------------------------*/	    
 void IIC_NAck(void)
 {
-	IIC_SCL=0;
-	SDA_OUT;              //SDA�����
-	IIC_SDA=1;
-	DelayUs(1);	
-	IIC_SCL=1;
-	DelayUs(1);	
-	IIC_SCL=0;
+    IIC_SCL = 0;
+    SDA_OUT;              // SDA设置为输出
+    IIC_SDA = 1;          // SDA高电平表示NACK
+    DelayUs(1);	
+    IIC_SCL = 1;
+    DelayUs(1);	
+    IIC_SCL = 0;
 }					 				     
+
 /*-------------------------------------------------
- *  ��������IIC_Send_Byte
- *	���ܣ�  IIC����һ���ֽ�
- *  ���룺  д��Ҫ���͵�һ���ֽ�����txd
- *  �����  ��
+ *  发送一个字节
+ *  功能： IIC发送一个字节
+ *  输入： txd - 要发送的字节
+ *  输出： 无
  --------------------------------------------------*/		  
 void IIC_Send_Byte(unsigned char txd)
 {                        
     unsigned char t;   
-	SDA_OUT;	          //SDA�����   
-    IIC_SCL=0;            //����ʱ�ӿ�ʼ���ݴ���
-    for(t=0;t<8;t++)
+    SDA_OUT;	          // SDA设置为输出   
+    IIC_SCL = 0;          // 拉低SCL开始数据传输
+    
+    for(t = 0; t < 8; t++)
     {              
-		if(txd&0x80)
-			IIC_SDA=1;
-		else
-			IIC_SDA=0;
-		txd<<=1; 	  
-		DelayUs(1);				  
-		IIC_SCL=1;
-		DelayUs(1);	
-		IIC_SCL=0;	
-		DelayUs(1);
+        // 从高位开始发送
+        if(txd & 0x80) {
+            IIC_SDA = 1;
+        } else {
+            IIC_SDA = 0;
+        }
+        txd <<= 1;        // 准备发送下一位
+        
+        DelayUs(1);				  
+        IIC_SCL = 1;      // 拉高SCL，从机读取数据
+        DelayUs(1);	
+        IIC_SCL = 0;      // 拉低SCL，准备发送下一位
+        DelayUs(1);
     }	 
 } 	    
+
 /*-------------------------------------------------
- *  ��������IIC_Read_Byte
- *	���ܣ�  IIC��һ���ֽ�
- *  ���룺  ��
- *  �����  �����洢����������ݲ�����receive
+ *  读取一个字节（发送NACK）
+ *  功能： IIC读取一个字节（读取后发送NACK）
+ *  输入： 无
+ *  输出： 读取的字节
  --------------------------------------------------*/
- unsigned char IIC_Read_Byte(void)
+unsigned char IIC_Read_Byte(void)
 {
-	unsigned char i,receive=0;
-	SDA_IN;               //SDA����Ϊ����
-    for(i=0;i<8;i++ )
-	{
-        IIC_SCL=0; 
+    unsigned char i, receive = 0;
+    SDA_IN;               // SDA设置为输入
+    
+    for(i = 0; i < 8; i++)
+    {
+        IIC_SCL = 0; 
         DelayUs(1);	
-     	IIC_SCL=1;
-        receive<<=1;
-        if(IIC_SDA)receive++;   
-		DelayUs(1);	
+        IIC_SCL = 1;      // 拉高SCL，主机读取数据
+        
+        receive <<= 1;    // 左移准备接收新位
+        if(IIC_SDA) {
+            receive |= 0x01;
+        }
+        DelayUs(1);	
     }					 
-    IIC_NAck();           //����nACK
-  
+    IIC_NAck();           // 发送NACK
     return receive;
 }
+
 /*-------------------------------------------------
- *  ��������IIC_READ
- *	���ܣ�  IIC�����ƶ�λ�õ�����
- *  ���룺  address
- *  �����  ����address�洢�����������iicdata
+ *  读取一个字节（发送ACK）
+ *  功能： IIC读取一个字节（读取后发送ACK）
+ *  输入： 无
+ *  输出： 读取的字节
  --------------------------------------------------*/
- unsigned char IIC_READ(unsigned char i2c_address, unsigned char reg)
+unsigned char IIC_Read_Byte_Ack(void)
 {
-	unsigned char iicdata = 0;
-	IIC_READ_Begin:
-		IIC_Start();
-		IIC_Send_Byte(i2c_address);
-		if(IIC_Wait_Ack())goto IIC_READ_Begin;
-		IIC_Send_Byte(reg);				//��Ҫ�������ݵ�ַ
-		if(IIC_Wait_Ack())goto IIC_READ_Begin; 
-		IIC_Start();
-		IIC_Send_Byte(i2c_address|1);
-		if(IIC_Wait_Ack())goto IIC_READ_Begin;
-		iicdata=IIC_Read_Byte();
-		IIC_Stop();		
-		return iicdata;
-}
- /*-------------------------------------------------
- *  ��������IIC_WRITE
- *	���ܣ�  IIC������dataд���ƶ���λ��address
- *  ���룺  address��data
- *  �����  ��
- --------------------------------------------------*/
-void IIC_WRITE(unsigned char i2c_address, unsigned char reg,unsigned char data)
-	{
-	IIC_WRITE_Begin:
-		IIC_Start();
-		IIC_Send_Byte(i2c_address);
-		if(IIC_Wait_Ack())goto IIC_WRITE_Begin;
-
-		IIC_Send_Byte(reg);
-		if(IIC_Wait_Ack())goto IIC_WRITE_Begin;
-
-		IIC_Send_Byte(data);
-		if(IIC_Wait_Ack())goto IIC_WRITE_Begin;
-
-		IIC_Stop();	
-	}
-
-/**
- * @brief IIC多字节写入
- *	@param i2c_address 起始写入地址
- * @param reg 起始写入地址
- * @param pData 数据缓冲区指针
- * @param length 写入字节数
- */
-void IIC_READ_MULTI(unsigned char i2c_address, unsigned char reg, unsigned char *pData, unsigned int length)
-{
-    unsigned int i;
-
-    for (;;)
+    unsigned char i, receive = 0;
+    SDA_IN;               // SDA设置为输入
+    
+    for(i = 0; i < 8; i++)
     {
-        IIC_Start();
-        IIC_Send_Byte(i2c_address);  // 设备写地址，准备写入地址
-        if (IIC_Wait_Ack() == 0)  // 0表示成功
-        {
-            IIC_Send_Byte(reg); // 起始地址
-            if (IIC_Wait_Ack() == 0)
-            {
-                IIC_Start();
-                IIC_Send_Byte(0xA1);  // 设备读地址
-                if (IIC_Wait_Ack() == 0)
-                {
-                    // 读数据
-                    for (i = 0; i < length; i++)
-                    {
-                        if (i == length - 1)
-                            pData[i] = IIC_Read_Byte_NAck();  // 最后一个字节读后不应答
-                        else
-                            pData[i] = IIC_Read_Byte_Ack();   // 读字节后应答
-                    }
-                    IIC_Stop();
-                    break;  // 读成功，跳出循环
-                }
-            }
+        IIC_SCL = 0; 
+        DelayUs(1);	
+        IIC_SCL = 1;      // 拉高SCL，主机读取数据
+        
+        receive <<= 1;    // 左移准备接收新位
+        if(IIC_SDA) {
+            receive |= 0x01;
         }
-        IIC_Stop();
-        // 失败则重试
-    }
+        DelayUs(1);	
+    }					 
+    IIC_Ack();            // 发送ACK
+    return receive;
 }
 
+/*-------------------------------------------------
+ *  IIC读取单个字节
+ *  功能： 从指定设备地址和寄存器地址读取一个字节
+ *  输入： i2c_address - 设备地址
+ *         reg - 寄存器地址
+ *  输出： 读取的字节
+ --------------------------------------------------*/
+unsigned char IIC_READ(unsigned char i2c_address, unsigned char reg)
+{
+    unsigned char iicdata = 0;
+    
+    IIC_READ_Begin:
+        IIC_Start();
+        IIC_Send_Byte(i2c_address);     // 发送设备地址（写模式）
+        if(IIC_Wait_Ack()) goto IIC_READ_Begin;
+        
+        IIC_Send_Byte(reg);             // 发送寄存器地址
+        if(IIC_Wait_Ack()) goto IIC_READ_Begin; 
+        
+        IIC_Start();
+        IIC_Send_Byte(i2c_address | 1); // 发送设备地址（读模式）
+        if(IIC_Wait_Ack()) goto IIC_READ_Begin;
+        
+        iicdata = IIC_Read_Byte();      // 读取数据（发送NACK）
+        IIC_Stop();		
+        return iicdata;
+}
 
+/*-------------------------------------------------
+ *  IIC写入单个字节
+ *  功能： 向指定设备地址和寄存器地址写入一个字节
+ *  输入： i2c_address - 设备地址
+ *         reg - 寄存器地址
+ *         data - 要写入的数据
+ *  输出： 无
+ --------------------------------------------------*/
+void IIC_WRITE(unsigned char i2c_address, unsigned char reg, unsigned char data)
+{
+    IIC_WRITE_Begin:
+        IIC_Start();
+        IIC_Send_Byte(i2c_address);     // 发送设备地址（写模式）
+        if(IIC_Wait_Ack()) goto IIC_WRITE_Begin;
 
+        IIC_Send_Byte(reg);             // 发送寄存器地址
+        if(IIC_Wait_Ack()) goto IIC_WRITE_Begin;
 
+        IIC_Send_Byte(data);            // 发送数据
+        if(IIC_Wait_Ack()) goto IIC_WRITE_Begin;
 
-/**
- * @brief IIC多字节写入
- *	@param i2c_address 起始写入地址
- * @param reg 起始写入地址
- * @param pData 数据缓冲区指针
- * @param length 写入字节数
- */
-void IIC_WRITE_MULTI(unsigned char i2c_address, unsigned char reg, unsigned char *pData, unsigned int length)
+        IIC_Stop();	
+}
+
+/*-------------------------------------------------
+ *  IIC多字节读取
+ *  功能： 从指定设备地址和寄存器地址读取多个字节
+ *  输入： i2c_address - 设备地址
+ *         reg - 寄存器起始地址
+ *         pData - 数据缓冲区指针
+ *         length - 要读取的字节数
+ *  输出： 无
+ --------------------------------------------------*/
+void IIC_READ_MULTI(unsigned char i2c_address, unsigned char reg, 
+                   unsigned char *pData, unsigned int length)
 {
     unsigned int i;
-
-    for (;;)
-    {
+    
+    IIC_READ_MULTI_Begin:
         IIC_Start();
-        IIC_Send_Byte(i2c_address);  // 设备写地址
-        if (IIC_Wait_Ack() == 0)
-        {
-            IIC_Send_Byte(reg); // 起始地址
-            if (IIC_Wait_Ack() == 0)
-            {
-                for (i = 0; i < length; i++)
-                {
-                    IIC_Send_Byte(pData[i]);
-                    if (IIC_Wait_Ack() != 0)
-                    {
-                        IIC_Stop();
-                        break;  // 这里用goto跳出for循环，后面会改成循环
-                    }
-                }
-                IIC_Stop();
-                break;  // 写成功，跳出循环
+        IIC_Send_Byte(i2c_address);     // 发送设备地址（写模式）
+        if(IIC_Wait_Ack()) {
+			IIC_Stop();
+            goto IIC_READ_MULTI_Begin;
+        }
+        
+        IIC_Send_Byte(reg);             // 发送寄存器地址
+        if(IIC_Wait_Ack()) {
+			IIC_Stop();
+            goto IIC_READ_MULTI_Begin;
+        }
+        
+        IIC_Start();
+        IIC_Send_Byte(i2c_address | 1); // 发送设备地址（读模式）
+        if(IIC_Wait_Ack()) {
+			IIC_Stop();
+            goto IIC_READ_MULTI_Begin;
+        }
+        
+        // 读取数据
+        for(i = 0; i < length; i++) {
+            if(i == length - 1) {
+                // 最后一个字节，读取后发送NACK
+                pData[i] = IIC_Read_Byte();
+            } else {
+                // 非最后一个字节，读取后发送ACK
+                pData[i] = IIC_Read_Byte_Ack();
             }
         }
+        
         IIC_Stop();
-    }
+}
+
+/*-------------------------------------------------
+ *  IIC多字节写入
+ *  功能： 向指定设备地址和寄存器地址写入多个字节
+ *  输入： i2c_address - 设备地址
+ *         reg - 寄存器起始地址
+ *         pData - 数据缓冲区指针
+ *         length - 要写入的字节数
+ *  输出： 无
+ --------------------------------------------------*/
+void IIC_WRITE_MULTI(unsigned char i2c_address, unsigned char reg, 
+                    unsigned char *pData, unsigned int length)
+{
+    unsigned int i;
+    
+    IIC_WRITE_MULTI_Begin:
+        IIC_Start();
+        IIC_Send_Byte(i2c_address);     // 发送设备地址（写模式）
+        if(IIC_Wait_Ack()) {
+			IIC_Stop();
+            goto IIC_WRITE_MULTI_Begin;
+        }
+        
+        IIC_Send_Byte(reg);             // 发送寄存器地址
+        if(IIC_Wait_Ack()) {
+			IIC_Stop();
+            goto IIC_WRITE_MULTI_Begin;
+        }
+        
+        // 写入数据
+        for(i = 0; i < length; i++) {
+            IIC_Send_Byte(pData[i]);
+            if(IIC_Wait_Ack()) {
+				IIC_Stop();
+                goto IIC_WRITE_MULTI_Begin;
+            }
+        }
+        
+        IIC_Stop();
 }
