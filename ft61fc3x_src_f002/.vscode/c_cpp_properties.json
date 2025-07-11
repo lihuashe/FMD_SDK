@@ -1,0 +1,35 @@
+{
+    "configurations": [
+        {
+            "name": "z.k.h",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:\\Program Files (x86)\\Compiler\\data\\include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "interrupt=",
+                "_FT61FC3X"
+            ],
+            "compilerPath": "D:\\Program Files (x86)\\Compiler\\data\\bin\\c.exe"
+        },
+
+        {
+            "name": "l.c.w",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:\\KTC方案\\T61FC35TRB-433M\\433遥控器资料\\FMDIDE\\FMDCC\\include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "interrupt="
+            ],
+            "compilerPath": "D:\\KTC方案\\T61FC35TRB-433M\\433遥控器资料\\Compiler\\data\\bin\\c.exe"
+        }
+    ],
+    "version": 4
+}
